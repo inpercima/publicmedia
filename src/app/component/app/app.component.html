@@ -1,0 +1,15 @@
+<div>
+  <md-toolbar color="primary" class="mat-elevation-z4">
+    publicmedia
+  </md-toolbar>
+  <nav md-tab-nav-bar>
+    <a md-tab-link
+      *ngFor="let routeLink of routes | realRouteMatching"
+      [routerLink]="routeLink.path"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+        {{routeLink.path}}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
