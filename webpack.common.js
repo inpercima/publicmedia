@@ -60,6 +60,6 @@ module.exports = {
     }),
     // clean output before build
     new CleanWebpackPlugin(path.resolve(__dirname + '/build'), {}),
-    new CopyWebpackPlugin([{ from: 'load.php' }]),
+    new CopyWebpackPlugin([{ from: './src/server/load.php' }]),
   ]
 };
