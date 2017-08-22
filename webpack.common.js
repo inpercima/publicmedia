@@ -60,6 +60,6 @@ module.exports = {
     }),
     // clean output before build
     new CleanWebpackPlugin(path.resolve(__dirname + '/build'), {}),
-    new CopyWebpackPlugin([{ from: './src/server/load.php' }]),
+    new CopyWebpackPlugin([{ from: './src/config.json' }, { from: './src/server/handler.php' }, { from: './src/server/instagram.service.php' }]),
   ]
 };

@@ -2,11 +2,11 @@ export class Post {
 
   id: number;
 
-  url: string;
+  picture: string;
 
   likes: number;
 
-  date: string;
+  date: Date;
 
   constructor() {}
 

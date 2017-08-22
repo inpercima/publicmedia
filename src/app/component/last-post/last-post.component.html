@@ -1,4 +1,4 @@
-<div fxLayout="row" *ngIf="!post.url">
+<div fxLayout="row" *ngIf="!post.id">
   <div fxFlex="20%"></div>
   <div fxFlex>
     <md-card>
@@ -9,16 +9,16 @@
   </div>
   <div fxFlex="20%"></div>
 </div>
-<div fxLayout="row" *ngIf="post.url">
+<div fxLayout="row" *ngIf="post.id">
   <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
   <div fxFlex>
     <md-card class="card">
       <md-card-header>
         <md-card-title>
-          date: {{post.date}} | likes: {{post.likes}}
+          date: {{post.date | date: 'shortDate'}} | likes: {{post.likes}}
         </md-card-title>
       </md-card-header>
-      <img md-card-image src="{{post.url}}">
+      <img md-card-image src="{{post.picture}}">
     </md-card>
   </div>
   <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
