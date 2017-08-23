@@ -14,3 +14,31 @@ angular, typescript and webpack.
 # recommended tools
 * yarn
 * [TypeScript IDE](https://marketplace.eclipse.org/content/typescript-ide) plugin for eclipse
+
+# simple usage
+
+    git clone https://github.com/inpercima/publicmedia
+    cd publicmedia
+
+    # copy config.default.json to config.json
+    cp src/config.default.json src/config.json
+
+    # use your existing instagram username and define it in config.json
+    # username
+
+    # install tools and frontend dependencies via npm or yarn
+    # npm
+    npm install
+
+    # yarn
+    yarn
+
+    # build resources in devMode with devServer without php and open site in browser
+    npm run build
+    http://localhost:8080/
+
+    # build resources in devMode without devSever to run under php
+    npm run build:dev
+
+    # build resources in prodMode manually
+    npm run build:prod

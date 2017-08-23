@@ -53,7 +53,8 @@
     "build": "npm run build:server",
     "build:dev": "webpack --config config/webpack.dev.js --progress",
     "build:prod": "webpack --config config/webpack.prod.js -p --progress",
-    "build:server": "webpack-dev-server --config config/webpack.dev.js --progress --open"
+    "build:server": "webpack-dev-server --config config/webpack.dev.js --progress --open",
+    "build:watch": "webpack --config config/webpack.dev.js --watch --progress"
   },
   "version": "0.0.1"
 }

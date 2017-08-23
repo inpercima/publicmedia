@@ -11,7 +11,7 @@ module.exports = webpackMerge(commonConfig, {
     contentBase: __dirname + '/build',
   },
   plugins: [
-    //tell angular to be in production mode
+    // tell angular to be in development mode
     new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(ENV),

@@ -9,9 +9,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   // external created files with there imports
   entry: {
+    'app': './src/main.ts',
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'app': './src/main.ts',
   },
   output: {
     path: path.resolve(__dirname + '/build'),
@@ -36,7 +36,7 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
-          use: "css-loader"
+          use: "css-loader",
         }),
       },
     ],
@@ -44,7 +44,7 @@ module.exports = {
   plugins: [
     // create index.html and inject js and css files
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
     }),
     // separate css code, [name] is the chunk name of entry
     new ExtractTextPlugin('[name].[hash].css'),
@@ -56,10 +56,26 @@ module.exports = {
     ),
     // separate js code, webpack is not smart enough to keep the vendor/polyfills code out of the app.js
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills'],
+      name: ['app', 'polyfills', 'vendor'],
     }),
     // clean output before build
     new CleanWebpackPlugin(path.resolve(__dirname + '/build'), {}),
-    new CopyWebpackPlugin([{ from: './src/config.json' }, { from: './src/server/handler.php' }, { from: './src/server/instagram.service.php' }]),
+    new CopyWebpackPlugin([
+      {
+        from: './src/config.json',
+      },
+      {
+        from: './src/server/handler.php',
+      },
+      {
+        from: './src/server/instagram.service.php',
+      },
+    ]),
+    // tell angular the theme from material build-in themes
+    new webpack.DefinePlugin({
+      'process.env': {
+        'THEME': JSON.stringify(require("./src/config.json").theme),
+      },
+   }),
   ]
 };

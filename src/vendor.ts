@@ -6,8 +6,8 @@ import '@angular/common';
 import '@angular/http';
 import '@angular/router';
 
-//angular material theme
-import '@angular/material/prebuilt-themes/indigo-pink.css';
+// Angular material theme, via nodejs process.env Variable
+require('@angular/material/prebuilt-themes/' + process.env.THEME + '.css');
 
 // RxJS
 import 'rxjs';

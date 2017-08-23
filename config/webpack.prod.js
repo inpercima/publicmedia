@@ -2,7 +2,6 @@
 let commonConfig = require('../webpack.common.js');
 let webpack = require('webpack');
 let webpackMerge = require('webpack-merge');
-
 let CompressionPlugin = require('compression-webpack-plugin');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
