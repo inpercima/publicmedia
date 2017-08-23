@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +31,10 @@ import { PostService } from './service/post.service';
   bootstrap: [
     AppComponent,
   ],
-  providers: [PostService]
+  providers: [
+    PostService,
+    Title
+  ]
 })
 
 export class AppModule { }

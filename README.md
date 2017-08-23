@@ -21,7 +21,7 @@ angular, typescript and webpack.
     cd publicmedia
 
     # copy config.default.json to config.json
-    cp src/config.default.json src/config.json
+    cp config/config.default.json config/config.json
 
     # use your existing instagram username and define it in config.json
     # username
@@ -33,12 +33,15 @@ angular, typescript and webpack.
     # yarn
     yarn
 
-    # build resources in devMode with devServer without php and open site in browser
+    # build resources in devMode with devServer, no php, open site in browser
     npm run build
     http://localhost:8080/
 
-    # build resources in devMode without devSever to run under php
+    # build resources in devMode without devSever, php
     npm run build:dev
 
-    # build resources in prodMode manually
+    # build resources in devMode without devSever, php, watch changes and rebuild
+    npm run build:watch
+
+    # build resources in prodMode, php
     npm run build:prod
