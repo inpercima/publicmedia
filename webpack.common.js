@@ -62,7 +62,7 @@ module.exports = {
     new CleanWebpackPlugin(path.resolve(__dirname + '/build'), {}),
     new CopyWebpackPlugin([
       {
-        from: './src/config.json',
+        from: './config/config.json',
       },
       {
         from: './src/server/handler.php',
@@ -74,7 +74,7 @@ module.exports = {
     // tell angular the theme from material build-in themes
     new webpack.DefinePlugin({
       'process.env': {
-        'THEME': JSON.stringify(require("./src/config.json").theme),
+        'THEME': JSON.stringify(require("./config/config.json").theme),
       },
    }),
   ]
