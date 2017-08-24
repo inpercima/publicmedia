@@ -5,22 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './component/app/app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LastPostComponent } from './component/last-post/last-post.component';
-import { LoginComponent } from './component/login/login.component';
-import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
-import { RealRouteMatchingPipe } from './pipe/real-route-matching.pipe';
+import { LoginModule } from '../login/login.module';
 
-import { AuthService } from './service/auth.service';
-import { AuthGuardService } from './service/auth-guard.service';
-import { PostService } from './service/post.service';
+import { RealRouteMatchingPipe } from '../../pipes/real-route-matching.pipe';
+
+import { PostService } from '../../services/post.service';
+
+import { AppComponent } from '../../components/app/app.component';
+import { LastPostComponent } from '../../components/last-post/last-post.component';
+import { PageNotFoundComponent } from '../../components/page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    LoginModule,
     FlexLayoutModule,
     HttpClientModule,
     MaterialModule,
@@ -28,7 +29,6 @@ import { PostService } from './service/post.service';
   declarations: [
     AppComponent,
     LastPostComponent,
-    LoginComponent,
     PageNotFoundComponent,
     RealRouteMatchingPipe,
   ],
@@ -36,8 +36,6 @@ import { PostService } from './service/post.service';
     AppComponent,
   ],
   providers: [
-    AuthService,
-    AuthGuardService,
     PostService,
     Title,
   ]

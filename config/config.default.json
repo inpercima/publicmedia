@@ -1,5 +1,8 @@
 {
     "appname": "publicmedia",
     "theme": "indigo-pink",
-    "username": "instagram"
+    "username": "instagram",
+    "routes": {
+        "showLogin": true
+    }
 }

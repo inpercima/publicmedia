@@ -1,34 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LastPostComponent } from './component/last-post/last-post.component';
-import { LoginComponent } from './component/login/login.component';
-import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { LoginRoutingModule } from '../login/login-routing.module';
 
-import { AuthGuardService } from './service/auth-guard.service';
+import { LastPostComponent } from '../../components/last-post/last-post.component';
 
 const routes: Routes = [{
   path: '',
   pathMatch: 'full',
-  redirectTo: '/last-post',
+  redirectTo: 'last-post',
 },
 {
   component: LastPostComponent,
   path: 'last-post',
-  canActivate: [AuthGuardService],
-},
-{
-  component: LoginComponent,
-  path: 'login',
-},
-{
-  component: PageNotFoundComponent,
-  path: '**',
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forRoot(routes, { useHash: true })
+  ],
+  exports: [
+    RouterModule
+  ],
 })
 
 export class AppRoutingModule {

@@ -3,15 +3,14 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 
-import { Post } from '../model/post';
+import { Post } from '../models/post';
 
 @Injectable()
 export class PostService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public get(): Observable<Post> {
     return this.http.get<Post>('./handler.php?getLast');
   }
-
 }

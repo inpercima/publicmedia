@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Routes } from "@angular/router";
 
-import { AppRoutingModule } from '../../app-routing.module';
+import { AppRoutingModule } from '../../modules/app/app-routing.module';
+import { LoginRoutingModule } from '../../modules/login/login-routing.module';
 
 import * as config from '../../../../config/config.json';
 
@@ -16,9 +17,13 @@ export class AppComponent {
 
   public appName = (<any>config).appname;
 
-  public routes: Routes = AppRoutingModule.ROUTES;
+  public routes: Routes;
 
   public constructor(private titleService: Title) {
+    this.routes = AppRoutingModule.ROUTES;
+    if ((<any>config).routes.showLogin) {
+      this.routes = this.routes.concat(LoginRoutingModule.ROUTES);
+    }
     this.titleService.setTitle(this.appName);
   }
 
