@@ -22,11 +22,11 @@ export class AppComponent {
 
   public constructor(private titleService: Title) {
     this.routes = AppRoutingModule.ROUTES;
-    if ((<any>config).routes.showLogin) {
-      this.routes = this.routes.concat(LoginRoutingModule.ROUTES);
-    }
     if ((<any>config).routes.showFeatures) {
       this.routes = this.routes.concat(FeaturesRoutingModule.ROUTES);
+    }
+    if ((<any>config).routes.showLogin) {
+      this.routes = this.routes.concat(LoginRoutingModule.ROUTES);
     }
     this.titleService.setTitle(this.appName);
   }
