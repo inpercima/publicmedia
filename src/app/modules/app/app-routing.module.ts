@@ -23,9 +23,8 @@ const routes: Routes = [{
     RouterModule
   ],
 })
-
 export class AppRoutingModule {
 
-  public static ROUTES = routes;
+  public static ROUTES: Routes = routes;
 
 }

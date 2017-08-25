@@ -3,6 +3,7 @@
     "theme": "indigo-pink",
     "username": "instagram",
     "routes": {
-        "showLogin": true
+        "showLogin": true,
+        "showFeatures": true
     }
 }

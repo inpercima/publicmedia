@@ -4,6 +4,7 @@ import { Routes } from "@angular/router";
 
 import { AppRoutingModule } from '../../modules/app/app-routing.module';
 import { LoginRoutingModule } from '../../modules/login/login-routing.module';
+import { FeaturesRoutingModule } from '../../modules/features/features-routing.module';
 
 import * as config from '../../../../config/config.json';
 
@@ -23,6 +24,9 @@ export class AppComponent {
     this.routes = AppRoutingModule.ROUTES;
     if ((<any>config).routes.showLogin) {
       this.routes = this.routes.concat(LoginRoutingModule.ROUTES);
+    }
+    if ((<any>config).routes.showFeatures) {
+      this.routes = this.routes.concat(FeaturesRoutingModule.ROUTES);
     }
     this.titleService.setTitle(this.appName);
   }

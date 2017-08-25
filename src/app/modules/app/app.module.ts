@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FeaturesModule } from '../features/features.module';
 import { LoginModule } from '../login/login.module';
 
 import { RealRouteMatchingPipe } from '../../pipes/real-route-matching.pipe';
@@ -21,9 +22,10 @@ import { PageNotFoundComponent } from '../../components/page-not-found/page-not-
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    LoginModule,
     FlexLayoutModule,
+    FeaturesModule,
     HttpClientModule,
+    LoginModule,
     MaterialModule,
   ],
   declarations: [

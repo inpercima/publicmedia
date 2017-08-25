@@ -8,7 +8,6 @@ import { PostService } from '../../services/post.service';
   selector: 'at-last-post',
   templateUrl: './last-post.component.html',
 })
-
 export class LastPostComponent implements OnInit {
 
   private post: Post;
