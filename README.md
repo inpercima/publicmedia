@@ -4,6 +4,8 @@ A tool used to get public data from an instagram account without permission. It 
 address like [https://instagram.com/instagram/media](https://instagram.com/instagram/media). This tool is a testtool to learn more about
 angular, typescript and webpack.
 
+The php version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net).
+
 # necessary tools and accounts
 
 * node 6.9.x or higher
@@ -45,3 +47,19 @@ angular, typescript and webpack.
 
     # build resources in prodMode, php
     npm run build:prod
+
+# config
+
+Under config/config.json some application configuration could be set.
+
+* `appname` applicationwide title of the app, displayed in title and toolbar
+* `theme` name of a build-in theme from angular-material, one of
+  * deeppurple-amber
+  * indigo-pink
+  * pink-bluegrey
+  * purple-green
+* `username` the instagram username or account
+* `activateLogin` use **true** if a login page should be used, otherwise **false**
+* `showLogin` use **true** if the login route should be displayed in the navigation, otherwise **false**, this option is in combination
+with `activateLogin`, the login route will be displayed only if both options set to **true**
+* `showFeatures` use **true** if the feature routes should be displayed in the navigation, otherwise **false**

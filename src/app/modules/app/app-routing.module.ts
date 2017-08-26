@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginRoutingModule } from '../login/login-routing.module';
 
+import { AuthGuard } from '../../services/auth-guard.service';
+
 import { LastPostComponent } from '../../components/last-post/last-post.component';
 
 const routes: Routes = [{
@@ -13,6 +15,7 @@ const routes: Routes = [{
 {
   component: LastPostComponent,
   path: 'last-post',
+  canActivate: [AuthGuard],
 }];
 
 @NgModule({

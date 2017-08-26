@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../../modules/app/app-routing.module';
 import { LoginRoutingModule } from '../../modules/login/login-routing.module';
 import { FeaturesRoutingModule } from '../../modules/features/features-routing.module';
 
-import * as config from '../../../../config/config.json';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'at-app',
@@ -16,19 +16,21 @@ import * as config from '../../../../config/config.json';
 })
 export class AppComponent {
 
-  public appName = (<any>config).appname;
+  public appname: string;
 
   public routes: Routes;
 
-  public constructor(private titleService: Title) {
+  public constructor(private configService: ConfigService, private titleService: Title) {
+    this.appname = configService.getAppname();
     this.routes = AppRoutingModule.ROUTES;
-    if ((<any>config).routes.showFeatures) {
+    if (configService.isShowFeatures()) {
       this.routes = this.routes.concat(FeaturesRoutingModule.ROUTES);
     }
-    if ((<any>config).routes.showLogin) {
+    // should a login will be used the login route could be added
+    if (configService.isActivateLogin() && configService.isShowLogin()) {
       this.routes = this.routes.concat(LoginRoutingModule.ROUTES);
     }
-    this.titleService.setTitle(this.appName);
+    this.titleService.setTitle(this.appname);
   }
 
 }

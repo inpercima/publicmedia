@@ -11,6 +11,7 @@ import { LoginModule } from '../login/login.module';
 
 import { RealRouteMatchingPipe } from '../../pipes/real-route-matching.pipe';
 
+import { ConfigService } from '../../services/config.service';
 import { PostService } from '../../services/post.service';
 
 import { AppComponent } from '../../components/app/app.component';
@@ -38,6 +39,7 @@ import { PageNotFoundComponent } from '../../components/page-not-found/page-not-
     AppComponent,
   ],
   providers: [
+    ConfigService,
     PostService,
     Title,
   ]

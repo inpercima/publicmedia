@@ -2,6 +2,7 @@
     "appname": "publicmedia",
     "theme": "indigo-pink",
     "username": "instagram",
+    "activateLogin": true,
     "routes": {
         "showLogin": true,
         "showFeatures": true
