@@ -1,8 +1,42 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'at-login',
   templateUrl: './login.component.html',
 })
 
-export class LoginComponent { }
+export class LoginComponent {
+
+  public loginForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
+  login() {
+    this.authService.login(this.loginForm).subscribe(() => {
+      if (this.authService.isAuthenticated) {
+        // get the redirect URL from auth service
+        // if no redirect has been set, use default
+        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : 'last-post';
+        this.router.navigate([redirect]);
+      }
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+}

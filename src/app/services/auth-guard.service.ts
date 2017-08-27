@@ -10,14 +10,12 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private configService: ConfigService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
-
     // should a login will be used the state will be checked otherwise it will return always logged in
-    return this.configService.isActivateLogin() ? this.checkLogin(url) : true;
+    return this.configService.isActivateLogin() ? this.checkLogin(state.url) : true;
   }
 
   checkLogin(url: string): boolean {
-    let result = this.authService.isLoggedIn;
+    let result = this.authService.isAuthenticated;
     if (!result) {
       // store the attempted URL for redirecting
       this.authService.redirectUrl = url;

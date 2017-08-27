@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginRoutingModule } from '../login/login-routing.module';
-
 import { AuthGuard } from '../../services/auth-guard.service';
 
 import { LastPostComponent } from '../../components/last-post/last-post.component';

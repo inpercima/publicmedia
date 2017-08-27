@@ -65,10 +65,7 @@ module.exports = {
         from: './config/config.json',
       },
       {
-        from: './src/server/handler.php',
-      },
-      {
-        from: './src/server/instagram.service.php',
+        from: './src/server',
       },
     ]),
     // tell angular the theme from material build-in themes

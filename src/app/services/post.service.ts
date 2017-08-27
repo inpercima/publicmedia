@@ -11,6 +11,6 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   public get(): Observable<Post> {
-    return this.http.get<Post>('./handler.php?getLast');
+    return this.http.get<Post>('./instagram.handler.php?getLast');
   }
 }

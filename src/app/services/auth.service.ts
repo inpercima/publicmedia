@@ -1,24 +1,29 @@
+import { FormGroup } from "@angular/forms";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+
+import { FormService } from './form.service';
 
 @Injectable()
 export class AuthService {
 
-  public isLoggedIn = false;
+  public isAuthenticated = false;
 
   // store the URL so we can redirect after logging in
-  redirectUrl: string;
+  public redirectUrl: string;
 
-  public login(): Observable<boolean> {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+  constructor(private http: HttpClient, private formService: FormService) { }
+
+  public login(formGroup: FormGroup): Observable<boolean> {
+    return this.http.post<boolean>('./auth.handler.php?authenticate', this.formService.createBody(formGroup), this.formService.createHeader()).map(
+      response => this.isAuthenticated = response
+    );
   }
 
   public logout(): void {
-    this.isLoggedIn = false;
+    this.isAuthenticated = false;
   }
 
 }

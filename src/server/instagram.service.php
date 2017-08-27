@@ -73,5 +73,6 @@ class InstagramService {
       'date' => $item->created_time * 1000
     );
   }
+
 }
 ?>
