@@ -5,6 +5,7 @@
     "activateLogin": true,
     "routes": {
         "showLogin": true,
-        "showFeatures": true
+        "showFeatures": true,
+        "defaultRoute": "last-post"
     }
 }

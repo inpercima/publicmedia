@@ -63,3 +63,4 @@ Under config/config.json some application configuration could be set.
 * `showLogin` use **true** if the login route should be displayed in the navigation, otherwise **false**, this option is in combination
 with `activateLogin`, the login route will be displayed only if both options set to **true**
 * `showFeatures` use **true** if the feature routes should be displayed in the navigation, otherwise **false**
+* `defaultRoute` the default route after login if no route is stored

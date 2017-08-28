@@ -17,6 +17,8 @@ export class ConfigService {
 
   private showFeatures: boolean;
 
+  private defaultRoute: string;
+
   constructor() {
     this.appname = (<any>config).appname;
     this.theme = (<any>config).theme;
@@ -24,6 +26,7 @@ export class ConfigService {
     this.activateLogin = (<any>config).activateLogin;
     this.showLogin = (<any>config).routes.showLogin;
     this.showFeatures = (<any>config).routes.showFeatures;
+    this.defaultRoute = (<any>config).routes.defaultRoute;
   }
 
   public getAppname() {
@@ -48,6 +51,10 @@ export class ConfigService {
 
   public isShowFeatures() {
     return this.showFeatures;
+  }
+
+  public getDefaultRoute() {
+    return this.defaultRoute;
   }
 
 }

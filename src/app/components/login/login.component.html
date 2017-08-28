@@ -1,7 +1,7 @@
 <div fxLayout="row">
   <div fxFlex="20%"></div>
   <div fxFlex>
-    <md-card>
+    <md-card *ngIf="!authService.isAuthenticated">
       <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()" novalidate>
         <md-input-container class="full-width">
           <input mdInput placeholder="username" formControlName="username">
@@ -11,6 +11,9 @@
         </md-input-container>
         <button md-raised-button color="primary">Login</button>
       </form>
+    </md-card>
+    <md-card *ngIf="authService.isAuthenticated">
+      You are logged in. You can <a href="#" (click)="logout($event)">logout</a>.
     </md-card>
   </div>
   <div fxFlex="20%"></div>
