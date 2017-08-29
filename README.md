@@ -4,7 +4,7 @@ A tool used to get public data from an instagram account without permission. It 
 address like [https://instagram.com/instagram/media](https://instagram.com/instagram/media). This tool is a testtool to learn more about
 angular, typescript and webpack.
 
-The php version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net).
+The php version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net). Use username = inpercima and password = publicmedia in this demo.
 
 # necessary tools and accounts
 
