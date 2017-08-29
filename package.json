@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "4.3.5",
     "@angular/router": "4.3.5",
     "core-js": "2.5.0",
+    "intl": "1.2.5",
     "rxjs": "5.4.3",
     "zone.js": "0.8.16"
   },
@@ -52,7 +53,7 @@
   "scripts": {
     "build": "npm run build:server",
     "build:dev": "webpack --config config/webpack.dev.js --progress",
-    "build:prod": "webpack --config config/webpack.prod.js -p --progress",
+    "build:prod": "webpack --config config/webpack.prod.js --progress",
     "build:server": "webpack-dev-server --config config/webpack.dev.js --progress --open",
     "build:watch": "webpack --config config/webpack.dev.js --watch --progress"
   },
