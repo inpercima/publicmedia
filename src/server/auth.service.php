@@ -8,21 +8,14 @@ class AuthService {
 
   /**
    * Simulates a simple login authentication.
+   * @param string $query
    */ 
-  public function authenticate() {
-    if ($_POST['username'] == 'inpercima' && $_POST['password'] == 'publicmedia') {
-      @session_start();
-      $_SESSION["loggedIn"] = true;
+  public function authenticate($query) {
+    $result = false;
+    if ($query == 'authenticate' && $_POST['username'] == 'inpercima' && $_POST['password'] == 'publicmedia') {
+      $result = true;
     }
-    return $this->isAuthenticated();
-  }
-
-  /**
-   * Check state.
-   *
-   */
-  public function isAuthenticated() {
-    return json_encode(isset ($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]);
+    return json_encode($result);
   }
 
 }

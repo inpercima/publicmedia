@@ -9,15 +9,12 @@ class InstagramService {
   /**
    * Checks parameter and return the result json encoded.
    *
-   * @param string $user the instagram username
    * @param string $query
    */
   public function getJson($query) {
     $result = null;
     if ($query == 'getLast') {
       $result = $this->getLastPost();
-    } else if ($query == 'listLast') {
-      $result = $this->listLastPosts();
     }
     return json_encode($result);
   }
@@ -27,13 +24,6 @@ class InstagramService {
    */
   private function getLastPost() {
     return $this->createPost($this->getLastItem($this->listLastItems()));
-  }
-
-  /**
-   * List the last posts converted from instagram items.
-   */
-  private function listLastPosts() {
-    return array();
   }
 
   /**
