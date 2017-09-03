@@ -1,4 +1,6 @@
 # publicmedia
+[![dependencies Status](https://david-dm.org/inpercima/publicmedia/status.svg)](https://david-dm.org/inpercima/publicmedia)
+[![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg)](https://david-dm.org/inpercima/publicmedia?type=dev)
 
 A tool used to get public data from an instagram account without permission. It gets data a non-logged-in user can see via the public media
 address like [https://instagram.com/instagram/media](https://instagram.com/instagram/media). This tool is a testtool to learn more about
