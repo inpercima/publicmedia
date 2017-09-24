@@ -3,12 +3,14 @@
   <div fxFlex>
     <md-card *ngIf="!authService.isAuthenticated">
       <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()" novalidate>
-        <md-input-container class="full-width">
-          <input mdInput placeholder="username" formControlName="username">
-        </md-input-container>
-        <md-input-container class="full-width">
-          <input type="password" mdInput placeholder="password" formControlName="password">
-        </md-input-container>
+        <md-form-field class="full-width">
+          <input mdInput placeholder="username" formControlName="username" required>
+          <md-error>Please enter a valid username</md-error>
+        </md-form-field>
+        <md-form-field class="full-width">
+          <input type="password" mdInput placeholder="password" formControlName="password" required>
+          <md-error>Please enter a valid password</md-error>
+        </md-form-field>
         <button md-raised-button color="primary">Login</button>
       </form>
     </md-card>
