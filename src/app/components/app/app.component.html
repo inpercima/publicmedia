@@ -1,9 +1,9 @@
 <div>
-  <md-toolbar color="primary" class="mat-elevation-z4">
+  <mat-toolbar color="primary" class="mat-elevation-z4">
     {{appname}}
-  </md-toolbar>
-  <nav md-tab-nav-bar>
-    <a md-tab-link
+  </mat-toolbar>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
       *ngFor="let routeLink of routes | realRouteMatching"
       [routerLink]="routeLink.path"
       routerLinkActive #rla="routerLinkActive"

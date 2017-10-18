@@ -1,25 +1,25 @@
 <div fxLayout="row" *ngIf="!post.id">
   <div fxFlex="20%"></div>
   <div fxFlex>
-    <md-card>
-      <md-card-content class="progress">
-        <md-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></md-progress-bar>
-      </md-card-content>
-    </md-card>
+    <mat-card>
+      <mat-card-content class="progress">
+        <mat-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></mat-progress-bar>
+      </mat-card-content>
+    </mat-card>
   </div>
   <div fxFlex="20%"></div>
 </div>
 <div fxLayout="row" *ngIf="post.id">
   <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
   <div fxFlex>
-    <md-card class="card">
-      <md-card-header>
-        <md-card-title>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>
           date: {{post.date | date: 'shortDate'}} | likes: {{post.likes}}
-        </md-card-title>
-      </md-card-header>
-      <img md-card-image src="{{post.picture}}">
-    </md-card>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{post.picture}}">
+    </mat-card>
   </div>
   <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
 </div>

@@ -8,7 +8,6 @@ import { FeaturesRoutingModule } from './features-routing.module';
     CommonModule,
     FeaturesRoutingModule,
   ],
-  declarations: [],
 })
 
 export class FeaturesModule { }

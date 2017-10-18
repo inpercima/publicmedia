@@ -14,6 +14,8 @@ export class LoginComponent {
 
   public loginForm: FormGroup;
 
+  public hide = true;
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private configService: ConfigService, private router: Router) {
     this.createForm();
   }

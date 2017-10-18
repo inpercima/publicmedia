@@ -1,5 +1,6 @@
 import { MatButtonModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatProgressBarModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material';
@@ -10,6 +11,7 @@ import { NgModule } from '@angular/core';
   exports: [
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
     MatInputModule,
     MatProgressBarModule,
     MatTabsModule,
