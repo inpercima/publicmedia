@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -19,6 +20,7 @@ import { LoginComponent } from '../../components/login/login.component';
   imports: [
     CommonModule,
     FlexLayoutModule,
+    HttpClientModule,
     LoginRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
