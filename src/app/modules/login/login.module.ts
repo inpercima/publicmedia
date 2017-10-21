@@ -12,10 +12,12 @@ import { AuthService } from '../../services/auth.service';
 import { FormService } from '../../services/form.service';
 
 import { LoginComponent } from '../../components/login/login.component';
+import { PageNotFoundComponent } from '../../components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,
