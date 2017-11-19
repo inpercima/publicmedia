@@ -34,9 +34,9 @@ class InstagramService {
    */
   private function listLastItems() {
     $config = json_decode(file_get_contents('config.json'));
-    $baseUrl = 'https://instagram.com/{username}/media';
+    $baseUrl = 'https://instagram.com/{username}/?__a=1';
     $json = json_decode(file_get_contents(str_replace('{username}', $config->username, $baseUrl)));
-    return $json->items;
+    return $json->user->media->nodes;
   }
 
   /**
@@ -58,9 +58,9 @@ class InstagramService {
   private function createPost($item) {
     return array(
       'id' => $item->id,
-      'picture' => $item->images->low_resolution->url,
+      'picture' => $item->display_src,
       'likes' => $item->likes->count,
-      'date' => $item->created_time * 1000
+      'date' => $item->date * 1000
     );
   }
 
