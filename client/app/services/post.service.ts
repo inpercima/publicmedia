@@ -13,4 +13,5 @@ export class PostService {
   public get(): Observable<Post> {
     return this.http.get<Post>('./instagram.handler.php?getLast');
   }
+
 }

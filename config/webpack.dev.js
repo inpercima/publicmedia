@@ -1,4 +1,5 @@
 'use strict';
+
 let commonConfig = require('../webpack.common.js');
 let webpack = require('webpack');
 let webpackMerge = require('webpack-merge');

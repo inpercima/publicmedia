@@ -1,17 +1,18 @@
 'use strict';
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   // external created files with there imports
   entry: {
-    'app': './src/main.ts',
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
+    'app': './client/main.ts',
+    'polyfills': './client/polyfills.ts',
+    'vendor': './client/vendor.ts',
   },
   output: {
     path: path.resolve(__dirname + '/build'),
@@ -44,15 +45,16 @@ module.exports = {
   plugins: [
     // create index.html and inject js and css files
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'client/index.html',
     }),
     // separate css code, [name] is the chunk name of entry
     new ExtractTextPlugin('[name].[hash].css'),
-    // Workaround for angular/angular#11580 (WARNING in ./~/@angular/core/@angular/core.es5.js)
+    // Workaround for angular/angular#20357 (WARNING in ./node_modules/@angular/core/esm5/core.js)
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
-      /angular(\\|\/)core(\\|\/)@angular/,
-      path.resolve(__dirname + '/src')
+      // new with angular 5, before /angular(\\|\/)core(\\|\/)@angular/,
+      /\@angular(\\|\/)core(\\|\/)esm5/,
+      path.resolve(__dirname + '/client')
     ),
     // separate js code, webpack is not smart enough to keep the vendor/polyfills code out of the app.js
     new webpack.optimize.CommonsChunkPlugin({
@@ -65,7 +67,7 @@ module.exports = {
         from: './config/config.json',
       },
       {
-        from: './src/server',
+        from: './server',
       },
     ]),
     // tell angular the theme from material build-in themes

@@ -5,7 +5,7 @@ import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 
 @Component({
-  selector: 'at-last-post',
+  selector: 'pm-last-post',
   templateUrl: './last-post.component.html',
 })
 export class LastPostComponent implements OnInit {

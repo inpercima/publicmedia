@@ -6,6 +6,6 @@ import { Routes } from '@angular/router';
 })
 export class RealRouteMatchingPipe implements PipeTransform {
   transform(items: Routes): Routes {
-    return items.filter(item => item.path != '' && item.path != '**');
+    return items.filter(item => item.path !== '' && item.path !== '**');
   }
 }

@@ -1,6 +1,6 @@
 # project specific
 
-build/
+/build
 config/config.json
 
 # end of project specific

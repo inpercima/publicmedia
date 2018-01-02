@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { ConfigService } from '../../services/config.service';
 
 @Component({
-  selector: 'at-login',
+  selector: 'pm-login',
   templateUrl: './login.component.html',
 })
 
@@ -16,7 +16,8 @@ export class LoginComponent {
 
   public hide = true;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private configService: ConfigService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private configService: ConfigService,
+    private router: Router) {
     this.createForm();
   }
 
@@ -32,8 +33,7 @@ export class LoginComponent {
       if (this.authService.isAuthenticated) {
         // get the redirect URL from auth service
         // if no redirect has been set, use default
-        let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : this.configService.getDefaultRoute();
-        this.router.navigate([redirect]);
+        this.router.navigate([this.authService.redirectUrl ? this.authService.redirectUrl : this.configService.getDefaultRoute()]);
       }
     });
   }
