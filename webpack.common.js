@@ -8,39 +8,32 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  // external created files with there imports
   entry: {
     'app': './client/main.ts',
     'polyfills': './client/polyfills.ts',
     'vendor': './client/vendor.ts',
   },
+  module: {
+    rules: [{
+      test: /\.ts$/,
+      exclude: /node_modules/,
+      loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+    },
+    {
+      test: /\.html$/,
+      loader: 'html-loader',
+    },
+    {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: "css-loader",
+      }),
+    }],
+  },
   output: {
     path: path.resolve(__dirname + '/build'),
     filename: '[name].[hash].js',
-  },
-  // no extension in imports in *.ts files needed
-  resolve: {
-    extensions: ['.ts', '.js'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader",
-        }),
-      },
-    ],
   },
   plugins: [
     // create index.html and inject js and css files
@@ -62,19 +55,21 @@ module.exports = {
     }),
     // clean output before build
     new CleanWebpackPlugin(path.resolve(__dirname + '/build'), {}),
-    new CopyWebpackPlugin([
-      {
-        from: './config/config.json',
-      },
-      {
-        from: './server',
-      },
-    ]),
+    new CopyWebpackPlugin([{
+      from: './config/config.json',
+    },
+    {
+      from: './server',
+    }]),
     // tell angular the theme from material build-in themes
     new webpack.DefinePlugin({
       'process.env': {
         'THEME': JSON.stringify(require("./config/config.json").theme),
       },
    }),
-  ]
+  ],
+  //no extension in imports in *.ts files needed
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
 };
