@@ -4,58 +4,106 @@
 [![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg)](https://david-dm.org/inpercima/publicmedia?type=dev)
 
 A tool used to get public data from an instagram account without permission.
-It gets data a non-logged-in user can see via the public media address like [https://instagram.com/instagram/?__a=1](https://instagram.com/instagram/?__a=1).
+It gets data a non-logged-in user can see via the public media address like https://instagram.com/instagram/?__a=1.
 
-The php version is online under http://publicmedia.inpercima.net. Use username = inpercima and password = publicmedia in this demo.
+The php version is online under http://publicmedia.inpercima.net.
+Use username = inpercima and password = publicmedia in this demo.
 
 This project was generated with [swaaplate](https://github.com/inpercima/swaaplate).
 
-# Necessary tools
-* `node 6.9.x` or higher in combination with
-* `npm 5.3.0` or higher or
-* `yarn 1.0.1` or higher, used in this repository
-* `php 7` or higher
+# Prerequisites
+## Node, npm or yarn
+* `node 8.10.0` or higher in combination with
+  * `npm 5.7.1` or higher or
+  * `yarn 1.5.1` or higher, used in this repository
 
-# Getting Started
+## Dependency note
+* angular 5.2.10 requires rxjs in 5.5.x
+
+# Getting started
 
 ```
 # clone project
 git clone https://github.com/inpercima/publicmedia
 cd publicmedia
 
-# copy config.default.json to config.json
-cp config/config.default.json config/config.json
+# copy src/config.default.json to src/config.json
+cp src/config.default.json src/config.json
 
-# use your existing instagram username and define it in config.json
-# username
+# install tools and frontend dependencies
+yarn
 ```
 
 # Usage
 
 ```
-# install tools and frontend dependencies
-yarn
-
 # build resources in devMode
 yarn run build:dev
 
 # build resources in devMode, watch changes and rebuild
-yarn run build:watch
+yarn run watch
 
 # build resources in prodMode, compressed
 yarn run build:prod
 
-# open in browser
-http://localhost/<workspace>/publicmedia/build/
+# open result from build:dev, watch and build:prod in browser
+http://localhost/<workspace>/dist
+
+# build resources in devMode, start local internal server
+yarn run start
+# open result from start in browser
+http://localhost:4200/
 ```
 
 # Configuration
-| Name | Type | Default | Description |
-| ---- | ---- | ------- | ----------- |
-| appname | String | helloWorld | applicationwide title of the app, displayed in title and toolbar |
-| routes/activateLogin | Boolean | true | define that a login page should be used (`true`/`false`) |
-| routes/defaultRoute | String | home | the default route after login if no route is stored |
-| routes/showFeatures | Boolean | true | define that the feature routes should be displayed in the navigation (`true`/`false`) |
-| routes/showLogin | Boolean | false | define that the login route should be displayed in the navigation (`true`/`false`), works in combination with `activateLogin`, the login route will be displayed only if both options set to `true` |
-| theme | String | indigo-pink | name of a build-in theme from angular-material, one of `deeppurple-amber`, `indigo-pink`, `pink-bluegrey`, `purple-green` |
-| username | String | EMPTY | the instagram username |
+## General
+All options have to bet set but some of them do not need to be changed.
+
+## Table of contents
+* [appname](#appname)
+* [routes/default](#routesdefault)
+* [routes/features/show](#routesfeaturesshow)
+* [routes/login/activate](#routesloginactivate)
+* [routes/login/show](#routesloginshow)
+* [routes/notFound/redirect](#routesnotfoundredirect)
+* [theme](#theme)
+
+## `appname`
+Applicationwide title of the app, displayed in title and toolbar.
+* default: `angular-webpack-minimum`
+* type: `string`
+
+## `routes/default`
+The main route and the redirect route after login if no route is stored.
+* default: `dashboard`
+* type: `string`
+
+## `routes/features/show`
+Defines whether feature routes will be displayed or not.
+* default: `true`
+* type: `boolean`
+* values: `true`/`false`
+
+## `routes/login/activate`
+Defines whether a login will be used or not.
+* default: `true`
+* type: `boolean`
+* values: `true`/`false`
+
+## `routes/login/show`
+Defines whether login route will be displayed or not.
+* default: `false`
+* type: `boolean`
+* values: `true`/`false`
+
+## `routes/notFound/redirect`
+Defines whether the 404 route will redirect to the default route or not.
+* default: `false`
+* type: `boolean`
+* values: `true`/`false`
+
+## `theme`
+Nme of a build-in theme from angular-material.
+* default: `indigo-pink`
+* type: `string`
+* values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`

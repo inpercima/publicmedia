@@ -1,0 +1,52 @@
+{
+  "generalConfig": {
+    "buildDir": "dist",
+    "github": {
+      "use": true,
+      "username": "inpercima"
+    },
+    "outputDir": "/home/marcel/dev/workspace/github/",
+    "selectorPrefix": "pm",
+    "theme": "indigo-pink",
+    "title": "publicmedia",
+    "useYarn": true
+  },
+  "packageJsonConfig": {
+    "author": "Marcel Jänicke",
+    "contributors": [
+      {
+        "name": "Marcel Jänicke",
+        "email": "inpercima@gmail.com"
+      }
+    ],
+    "description": "A tool used to get public data from an instagram account without permission.\r\nIt gets data a non-logged-in user can see via the public media address like https://instagram.com/instagram/?__a=1.\r\n\r\nThe php version is online under http://publicmedia.inpercima.net.\r\nUse username = inpercima and password = publicmedia in this demo.",
+    "homepage": "http://publicmedia.inpercima.net",
+    "name": "publicmedia",
+    "repository": "https://github.com/inpercima/publicmedia"
+  },
+  "routeConfig": {
+    "default": "last-post",
+    "features": {
+      "show": true
+    },
+    "login": {
+      "activate": true,
+      "name": "login",
+      "show": false
+    },
+    "notFound": {
+      "name": "not-found",
+      "redirect": true
+    }
+  },
+  "serverConfig": {
+    "authenticateUrl": "",
+    "simpleServer": {
+      "use": true
+    },
+    "springBoot": {
+      "packagePath": "",
+      "use": false
+    }
+  }
+}
