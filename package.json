@@ -46,7 +46,8 @@
     "webpack-cli": "2.0.13",
     "webpack-merge": "4.1.2",
     "xml-loader": "1.2.1",
-    "light-js": "inpercima/light-js#v0.1.0"
+    "light-js": "inpercima/light-js#v0.1.0",
+    "copy-webpack-plugin": "4.5.1"
   },
   "engines": {
     "node": ">=8.10.0"
@@ -61,6 +62,6 @@
     "start": "webpack-dev-server --open --port=4200 --config webpack.dev.js --progress",
     "watch": "webpack --config webpack.dev.js --watch --progress"
   },
-  "version": "0.0.2",
+  "version": "0.0.1-SNAPSHOT",
   "homepage": "http://publicmedia.inpercima.net"
 }

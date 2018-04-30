@@ -40,13 +40,7 @@
     }
   },
   "serverConfig": {
-    "authenticateUrl": "",
-    "simpleServer": {
-      "use": true
-    },
-    "springBoot": {
-      "packagePath": "",
-      "use": false
-    }
+    "endpoint": "php",
+    "packagePath": ""
   }
 }

@@ -1,4 +1,5 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TSLintPlugin = require('tslint-webpack-plugin');
@@ -63,6 +64,9 @@ module.exports = {
   plugins: [
     // clean output before build
     new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin([{
+      from: './src/main',
+    }]),
     // separate css from js
     new MiniCssExtractPlugin({
       chunkFilename: "[id].css",

@@ -17,7 +17,9 @@ export class AuthService {
   constructor(private formService: FormService, private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   public login(formGroup: FormGroup): Observable<boolean> {
-    return this.http.post<string>('/api/authenticate', formGroup.value).map(response => {
+    const body = this.formService.createBody(formGroup);
+    const header = this.formService.createHeader();
+    return this.http.post<string>('./auth.handler.php?authenticate', body, header).map(response => {
       if (response !== null) {
         // set the token property for validate token in the app
         localStorage.setItem('access_token', response);
@@ -33,7 +35,11 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    return !this.jwtHelper.isTokenExpired();
+    try {
+      return !this.jwtHelper.isTokenExpired();
+    } catch (e) {
+      return false;
+    }
   }
 
 }
