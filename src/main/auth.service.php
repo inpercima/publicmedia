@@ -24,7 +24,10 @@ class AuthService {
    */ 
   function generateToken($username) {
     $header = $this->base64url_encode(json_encode(array('alg' => 'HS256', 'typ' => 'JWT')));
-    $payload = $this->base64url_encode(json_encode(array('username' => $username)));
+    $iat = time();
+    $nbf = $iat + 10;
+    $exp = $nbf + 7200;
+    $payload = $this->base64url_encode(json_encode(array('username' => $username, 'exp' => $exp, 'nbf' => $nbf, 'iat' => $iat)));
     $signature = $this->base64url_encode(hash_hmac('sha256', "$header.$payload", 'secretKey', true));
     return "$header.$payload.$signature";
   }
