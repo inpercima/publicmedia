@@ -6,6 +6,7 @@
 A tool used to get public data from an instagram account without permission.
 
 Before December 2017: https://instagram.com/instagram/media
+
 Before April 2018: https://instagram.com/instagram/?__a=1
 Now: Check https://instagram.com/instagram/ and get data from inline javascript
 
