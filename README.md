@@ -71,7 +71,7 @@ All options have to bet set but some of them do not need to be changed.
 * [routes/login/show](#routesloginshow)
 * [routes/notFound/redirect](#routesnotfoundredirect)
 * [theme](#theme)
-* username(#username)
+* [username](#username)
 
 ## `appname`
 Applicationwide title of the app, displayed in title and toolbar.
