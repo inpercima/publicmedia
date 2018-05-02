@@ -36,7 +36,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ['localhost'],
+        whitelistedDomains: ['localhost', 'publicmedia.inpercima.net'],
       }
     }),
     LoginModule,
