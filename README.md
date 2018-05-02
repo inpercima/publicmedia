@@ -4,9 +4,10 @@
 [![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg)](https://david-dm.org/inpercima/publicmedia?type=dev)
 
 A tool used to get public data from an instagram account without permission.
-Before December 2017: https://instagram.com/instagram/media
-Before April 2018: https://instagram.com/instagram/?__a=1
-Now: Check https://instagram.com/instagram/ and get data from inline javascript
+
+* Before December 2017: https://instagram.com/instagram/media
+* Before April 2018: https://instagram.com/instagram/?__a=1
+* Now: Check https://instagram.com/instagram/ and get data from inline javascript
 
 The php version is online under http://publicmedia.inpercima.net.
 Use username = inpercima and password = publicmedia in this demo.
