@@ -1,0 +1,18 @@
+{
+  "appname": "publicmedia",
+  "routes": {
+    "default": "last-post",
+    "features": {
+      "show": true
+    },
+    "login": {
+      "activate": true,
+      "show": false
+    },
+    "notFound": {
+      "redirect": true
+    }
+  },
+  "theme": "indigo-pink",
+  "username": ""
+}

@@ -1,74 +1,117 @@
-'use strict';
-
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TSLintPlugin = require('tslint-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'app': './client/main.ts',
-    'polyfills': './client/polyfills.ts',
-    'vendor': './client/vendor.ts',
+    app: './src/main.ts',
+    polyfills: './src/polyfills.ts',
+    vendor: './src/vendor.ts',
   },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      exclude: /node_modules/,
-      loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
-    },
-    {
-      test: /\.html$/,
-      loader: 'html-loader',
-    },
-    {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: "style-loader",
-        use: "css-loader",
-      }),
-    }],
+    rules: [
+      {
+        exclude: /node_modules/,
+        loaders: ['awesome-typescript-loader', 'angular2-template-loader'],
+        test: /\.ts?$/,
+      },
+      {
+        loader: 'html-loader',
+        test: /\.html$/,
+      },
+      {
+        loader: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+        ],
+        test: /\.css$/,
+      },
+      {
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]?[hash]',
+            publicPath: 'assets/'
+          },
+        }],
+        test: /\.(png|svg|jpe?g|gif|woff|woff2|eot|ttf|otf)$/,
+      },
+      {
+        loader: 'csv-loader',
+        test: /\.(csv|tsv)$/,
+      },
+      {
+        loader: 'xml-loader',
+        test: /\.xml$/,
+      },
+    ]
+  },
+  optimization: {
+    splitChunks: {
+      // check HtmlWebpackPlugin.chunksSortMode
+      chunks: "all",
+    }
   },
   output: {
-    path: path.resolve(__dirname + '/build'),
-    filename: '[name].[hash].js',
+    filename: '[name].[chunkhash].js',
+    // the output directory is as absolute path required
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    // create index.html and inject js and css files
-    new HtmlWebpackPlugin({
-      template: 'client/index.html',
+    // clean output before build
+    new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin([{
+      from: './src/main',
+    }]),
+    // separate css from js
+    new MiniCssExtractPlugin({
+      chunkFilename: "[id].css",
+      filename: "[name].css",
     }),
-    // separate css code, [name] is the chunk name of entry
-    new ExtractTextPlugin('[name].[hash].css'),
-    // Workaround for angular/angular#20357 (WARNING in ./node_modules/@angular/core/esm5/core.js)
+    // use index.html as template to include js and css
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      favicon: './src/favicon.ico',
+      // reverse alphabetical order to real use optimization.splitChunks.chunks: all
+      chunksSortMode: function (a, b) {
+        if (a.names[0] > b.names[0]) {
+          return -1;
+        }
+        if (a.names[0] < b.names[0]) {
+          return 1;
+        }
+        return 0;
+      }
+    }),
+    // linting after build process
+    new TSLintPlugin({
+      files: ['./src/**/*.ts']
+    }),
+    // WORKAROUND to avoid warnings from angular at build time
     new webpack.ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       // new with angular 5, before /angular(\\|\/)core(\\|\/)@angular/,
       /\@angular(\\|\/)core(\\|\/)esm5/,
-      path.resolve(__dirname + '/client')
+      path.resolve(__dirname, 'dist'),
     ),
-    // separate js code, webpack is not smart enough to keep the vendor/polyfills code out of the app.js
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'polyfills', 'vendor'],
-    }),
-    // clean output before build
-    new CleanWebpackPlugin(path.resolve(__dirname + '/build'), {}),
-    new CopyWebpackPlugin([{
-      from: './config/config.json',
-    },
-    {
-      from: './server',
-    }]),
     // tell angular the theme from material build-in themes
     new webpack.DefinePlugin({
       'process.env': {
-        'THEME': JSON.stringify(require("./config/config.json").theme),
+        'THEME': JSON.stringify(require("./src/config.json").theme),
       },
-   }),
+    }),
+    // helps to split and cache code
+    new webpack.HashedModuleIdsPlugin({
+      hashDigest: 'hex',
+      hashDigestLength: 20,
+      hashFunction: 'sha256',
+    }),
   ],
-  //no extension in imports in *.ts files needed
+  // non extension for *.ts and *.js in imports needed
   resolve: {
     extensions: ['.ts', '.js'],
   },

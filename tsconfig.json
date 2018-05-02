@@ -1,20 +1,25 @@
 {
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  },
+  "compileOnSave": false,
   "compilerOptions": {
+    "declaration": false,
     "emitDecoratorMetadata": true,
-    "exclude": [
-      "node_modules"
-    ],
     "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
     "lib": [
       "es2015",
       "dom"
     ],
     "module": "commonjs",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
+    "types": [
+      "node",
+    ],
     "typeRoots": [
       "node_modules/@types"
     ]
