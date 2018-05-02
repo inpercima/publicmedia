@@ -12,7 +12,8 @@ class AuthService {
    */ 
   public function authenticate($query) {
     $result = 'Username or password is incorrect.';
-    if ($query == 'authenticate' && $_POST['username'] == 'inpercima' && $_POST['password'] == 'inpercima') {
+    // WARNING! This is unsecure, just to demonstrate.
+    if ($query == 'authenticate' && $_POST['username'] == 'inpercima' && $_POST['password'] == 'publicmedia') {
       $result = $this->generateToken($_POST['username']);
     }
     return json_encode($result);

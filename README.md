@@ -4,7 +4,10 @@
 [![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg)](https://david-dm.org/inpercima/publicmedia?type=dev)
 
 A tool used to get public data from an instagram account without permission.
-It gets data a non-logged-in user can see via the public media address like https://instagram.com/instagram/?__a=1.
+
+Before December 2017: https://instagram.com/instagram/media
+Before April 2018: https://instagram.com/instagram/?__a=1
+Now: Check https://instagram.com/instagram/ and get data from inline javascript
 
 The php version is online under http://publicmedia.inpercima.net.
 Use username = inpercima and password = publicmedia in this demo.
@@ -16,6 +19,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 * `node 8.10.0` or higher in combination with
   * `npm 5.7.1` or higher or
   * `yarn 1.5.1` or higher, used in this repository
+* `php 7` or higher
 
 ## Dependency note
 * angular 5.2.10 requires rxjs in 5.5.x
@@ -67,6 +71,7 @@ All options have to bet set but some of them do not need to be changed.
 * [routes/login/show](#routesloginshow)
 * [routes/notFound/redirect](#routesnotfoundredirect)
 * [theme](#theme)
+* username(#username)
 
 ## `appname`
 Applicationwide title of the app, displayed in title and toolbar.
@@ -103,7 +108,12 @@ Defines whether the 404 route will redirect to the default route or not.
 * values: `true`/`false`
 
 ## `theme`
-Nme of a build-in theme from angular-material.
+Name of a build-in theme from angular-material.
 * default: `indigo-pink`
 * type: `string`
 * values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`
+
+## `username`
+Name of instagram account you want to use.
+* default: EMPTY
+* type: `string`

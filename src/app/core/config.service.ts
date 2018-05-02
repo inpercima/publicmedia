@@ -19,6 +19,8 @@ export class ConfigService {
 
   private theme: string;
 
+  private username: string;
+
   constructor() {
     this.activateLogin = (<any>config).routes.login.activate;
     this.appname = (<any>config).appname;
@@ -27,6 +29,7 @@ export class ConfigService {
     this.showFeatures = (<any>config).routes.features.show;
     this.showLogin = (<any>config).routes.login.show;
     this.theme = (<any>config).theme;
+    this.username = (<any>config).username;
   }
 
   public isActivateLogin() {
@@ -55,6 +58,10 @@ export class ConfigService {
 
   public getTheme() {
     return this.theme;
+  }
+
+  public getUsername() {
+    return this.username;
   }
 
 }
