@@ -69,8 +69,7 @@ module.exports = {
     }]),
     // separate css from js
     new MiniCssExtractPlugin({
-      chunkFilename: "[id].css",
-      filename: "[name].css",
+      filename: "[name][hash].css",
     }),
     // use index.html as template to include js and css
     new HtmlWebpackPlugin({
