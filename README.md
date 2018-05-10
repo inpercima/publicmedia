@@ -75,7 +75,7 @@ All options have to bet set but some of them do not need to be changed.
 
 ## `appname`
 Applicationwide title of the app, displayed in title and toolbar.
-* default: `angular-webpack-minimum`
+* default: `publicmedia`
 * type: `string`
 
 ## `routes/default`
