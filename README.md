@@ -21,9 +21,6 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
   * `yarn 1.5.1` or higher, used in this repository
 * `php 7` or higher
 
-## Dependency note
-* angular 5.2.10 requires rxjs in 5.5.x
-
 # Getting started
 
 ```
@@ -41,21 +38,15 @@ yarn
 # Usage
 
 ```
-# build resources in devMode
+# build in devMode
 yarn run build:dev
 
-# build resources in devMode, watch changes and rebuild
-yarn run watch
-
-# build resources in prodMode, compressed
+# build in prodMode, compressed
 yarn run build:prod
 
-# open result from build:dev, watch and build:prod in browser
-http://localhost/<workspace>/dist
-
-# build resources in devMode, start local internal server
-yarn run start
-# open result from start in browser
+# build in devMode and start a server, rebuild after changes
+yarn run serve
+# open result in browser
 http://localhost:4200/
 ```
 

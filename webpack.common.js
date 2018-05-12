@@ -92,9 +92,7 @@ module.exports = {
     }),
     // WORKAROUND to avoid warnings from angular at build time
     new webpack.ContextReplacementPlugin(
-      // The (\\|\/) piece accounts for path separators in *nix and Windows
-      // new with angular 5, before /angular(\\|\/)core(\\|\/)@angular/,
-      /\@angular(\\|\/)core(\\|\/)esm5/,
+      /\@angular(\\|\/)core(\\|\/)fesm5/,
       path.resolve(__dirname, 'dist'),
     ),
     // tell angular the theme from material build-in themes
