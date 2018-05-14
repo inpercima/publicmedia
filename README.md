@@ -44,6 +44,9 @@ yarn run build:dev
 # build in prodMode, compressed
 yarn run build:prod
 
+# open result in browser
+http://localhost/<workspace>/dist
+
 # build in devMode and start a server, rebuild after changes
 yarn run serve
 # open result in browser
