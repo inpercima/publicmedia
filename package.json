@@ -44,7 +44,6 @@
     "tslint-webpack-plugin": "1.2.2",
     "typescript": "2.9.2",
     "webpack": "4.12.0",
-    "webpack-dev-server": "3.1.4",
     "webpack-cli": "3.0.8",
     "webpack-merge": "4.1.3",
     "xml-loader": "1.2.1"
