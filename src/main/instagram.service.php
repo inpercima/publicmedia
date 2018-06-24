@@ -1,6 +1,8 @@
 <?php
 class InstagramService {
 
+  private $responseCode = null;
+
   /**
    * constructor
    */
@@ -36,6 +38,7 @@ class InstagramService {
    */
   private function listLastItems($username) {
     $content = file_get_contents('https://www.instagram.com/' . $username);
+    $this->responseCode = end(preg_grep("/HTTP\/\d.\d (\d+)/", $http_response_header));
     $content = explode('window._sharedData = ', $content)[1];
     $content = explode(';</script>', $content)[0];
     $data = json_decode($content);
@@ -63,7 +66,8 @@ class InstagramService {
       'id' => $item->id,
       'picture' => $item->display_url,
       'likes' => $item->edge_liked_by->count,
-      'date' => $item->taken_at_timestamp * 1000
+      'date' => $item->taken_at_timestamp * 1000,
+      'responseCode' => $this->responseCode
     );
   }
 

@@ -8,6 +8,8 @@ export class Post {
 
     date: Date;
 
+    responseCode: string;
+
     constructor() { }
 
 }
