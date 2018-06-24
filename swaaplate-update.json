@@ -1,8 +1,8 @@
 {
   "angular": {
-    "common": "5.2.10",
-    "cdk": "5.2.5",
-    "flex": "5.0.0-beta.14",
-    "material": "5.2.5"
+    "common": "6.0.6",
+    "cdk": "6.2.1",
+    "flex": "6.0.0-beta.15",
+    "material": "6.2.1"
   } 
 }

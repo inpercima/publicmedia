@@ -16,9 +16,9 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 # Prerequisites
 ## Node, npm or yarn
-* `node 8.10.0` or higher in combination with
-  * `npm 5.7.1` or higher or
-  * `yarn 1.5.1` or higher, used in this repository
+* `node 8.11.3` or higher in combination with
+  * `npm 5.6.0` or higher or
+  * `yarn 1.7.0` or higher, used in this repository
 * `php 7` or higher
 
 # Getting started
@@ -44,13 +44,8 @@ yarn run build:dev
 # build in prodMode, compressed
 yarn run build:prod
 
-# open result in browser
+# open result in browser, workspace needs to be under observation of php
 http://localhost/<workspace>/dist
-
-# build in devMode and start a server, rebuild after changes
-yarn run serve
-# open result in browser
-http://localhost:4200/
 ```
 
 # Configuration
