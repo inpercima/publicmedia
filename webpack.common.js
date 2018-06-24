@@ -90,6 +90,9 @@ module.exports = {
     new TSLintPlugin({
       files: ['./src/**/*.ts']
     }),
+    new webpack.BannerPlugin({
+      banner: 'hash:[hash], chunkhash:[chunkhash], name:[name]',
+    }),
     // WORKAROUND to avoid warnings from angular at build time
     new webpack.ContextReplacementPlugin(
       /\@angular(\\|\/)core(\\|\/)fesm5/,
