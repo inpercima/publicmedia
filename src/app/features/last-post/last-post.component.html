@@ -18,7 +18,8 @@
           date: {{post.date | date: 'shortDate'}} | likes: {{post.likes}}
         </mat-card-title>
         <mat-card-title *ngIf="!post.responseCode.includes('200')">
-          Please try again later. There are currently too many requests on the server.
+          Please try again later. There are currently some errors.<br />
+          Response code: {{post.responseCode}}.
         </mat-card-title>
       </mat-card-header>
       <img *ngIf="post.responseCode.includes('200')" mat-card-image src="{{post.picture}}">
