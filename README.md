@@ -1,4 +1,5 @@
 # publicmedia
+
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 [![dependencies Status](https://david-dm.org/inpercima/publicmedia/status.svg)](https://david-dm.org/inpercima/publicmedia)
 [![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg)](https://david-dm.org/inpercima/publicmedia?type=dev)
@@ -15,11 +16,26 @@ Use username = inpercima and password = publicmedia in this demo.
 This project was generated with [swaaplate](https://github.com/inpercima/swaaplate).
 
 ## Prerequisites
+
+### Introduction
+
+Depending on the applications you use, the following prerequisites are necessary.
+
+### Docker
+
+* `docker 17.05.0-ce` or higher
+* `docker-compose 1.9` or higher
+
+### Apache and php
+
+* `Apache 2.4` or higher
+* `php 7` or higher
+
 ### Node, npm or yarn
+
 * `node 8.11.3` or higher in combination with
   * `npm 5.6.0` or higher or
   * `yarn 1.7.0` or higher, used in this repository
-* `php 7` or higher
 
 ## Getting started
 
@@ -30,29 +46,49 @@ cd publicmedia
 
 # copy src/config.default.json to src/config.json
 cp src/config.default.json src/config.json
-
-# install tools and frontend dependencies
-yarn
 ```
 
 ## Usage
 
+### Docker
+
+Normally the docker version is used to build and run the productive version, so it is prepared as productive.
+
 ```
+# build the image and container
+docker-compose build
+
+# run the container
+docker-compose up -d
+
+# stop the container
+docker-compose down
+```
+
+### Local system
+
+```
+# install tools and frontend dependencies
+yarn
+
 # build in devMode
 yarn run build:dev
 
 # build in prodMode, compressed
 yarn run build:prod
 
-# open result in browser, workspace needs to be under observation of php
+# open result in browser, workspace needs to be under observation of apache and php
 http://localhost/<workspace>/dist
 ```
 
 ## Configuration
+
 ### General
+
 All options have to bet set but some of them do not need to be changed.
 
 ### Table of contents
+
 * [appname](#appname)
 * [routes/default](#routesdefault)
 * [routes/features/show](#routesfeaturesshow)
@@ -63,46 +99,54 @@ All options have to bet set but some of them do not need to be changed.
 * [username](#username)
 
 ### `appname`
+
 Applicationwide title of the app, displayed in title and toolbar.
 * default: `publicmedia`
 * type: `string`
 
 ### `routes/default`
+
 The main route and the redirect route after login if no route is stored.
 * default: `dashboard`
 * type: `string`
 
 ### `routes/features/show`
+
 Defines whether feature routes will be displayed or not.
 * default: `true`
 * type: `boolean`
 * values: `true`/`false`
 
 ### `routes/login/activate`
+
 Defines whether a login will be used or not.
 * default: `true`
 * type: `boolean`
 * values: `true`/`false`
 
 ### `routes/login/show`
+
 Defines whether login route will be displayed or not.
 * default: `false`
 * type: `boolean`
 * values: `true`/`false`
 
 ### `routes/notFound/redirect`
+
 Defines whether the 404 route will redirect to the default route or not.
 * default: `false`
 * type: `boolean`
 * values: `true`/`false`
 
 ### `theme`
+
 Name of a build-in theme from angular-material.
 * default: `indigo-pink`
 * type: `string`
 * values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`
 
 ### `username`
+
 Name of instagram account you want to use.
 * default: EMPTY
 * type: `string`
