@@ -58,7 +58,7 @@
   "repository": "https://github.com/inpercima/publicmedia",
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js --progress",
-    "build:prod": "webpack --config webpack.prod.js --progress"
+    "build:prod": "webpack --config webpack.prod.js --progress && mkdir ./dist/maps && mv ./dist/*.map ./dist/maps"
   },
   "version": "0.0.1-SNAPSHOT"
 }

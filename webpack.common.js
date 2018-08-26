@@ -64,6 +64,7 @@ module.exports = {
   plugins: [
     // clean output before build
     new CleanWebpackPlugin(['dist']),
+    // copy php content
     new CopyWebpackPlugin([{
       from: './src/main',
     }]),

@@ -19,3 +19,5 @@ FROM php:7.2-apache
 LABEL maintainer="Marcel Jänicke <inpercima@gmail.com>"
 
 COPY --from=build-js /home/node/dist /var/www/html/
+
+RUN rm -rf /var/www/html/maps
