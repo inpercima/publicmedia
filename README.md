@@ -39,7 +39,7 @@ Depending on the applications you use, the following prerequisites are necessary
 
 ## Getting started
 
-```
+```bash
 # clone project
 git clone https://github.com/inpercima/publicmedia
 cd publicmedia
@@ -54,7 +54,7 @@ cp src/config.default.json src/config.json
 
 Normally the docker version is used to build and run the productive version, so it is prepared as productive.
 
-```
+```bash
 # build the image and container
 docker-compose build
 
@@ -67,7 +67,7 @@ docker-compose down
 
 ### Local system
 
-```
+```bash
 # install tools and frontend dependencies
 yarn
 
