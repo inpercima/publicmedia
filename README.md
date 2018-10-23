@@ -6,11 +6,11 @@
 
 A tool used to get public data from an instagram account without permission.
 
-* Before December 2017: https://instagram.com/instagram/media
-* Before April 2018: https://instagram.com/instagram/?__a=1
-* Now: Check https://instagram.com/instagram/ and get data from inline javascript
+* Before December 2017: [https://instagram.com/instagram/media](https://instagram.com/instagram/media)
+* Before April 2018: [ttps://instagram.com/instagram/?__a=1](https://instagram.com/instagram/?__a=1)
+* Now: Check [https://instagram.com/instagram/](https://instagram.com/instagram/) and get data from inline javascript
 
-The php version is online under http://publicmedia.inpercima.net.
+The php version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 Use username = inpercima and password = publicmedia in this demo.
 
 This project was generated with [swaaplate](https://github.com/inpercima/swaaplate).
@@ -19,7 +19,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Introduction
 
-Depending on the applications you use, the following prerequisites are necessary.
+Depending on the platform you use, the following prerequisites are necessary.
 
 ### Docker
 
@@ -36,6 +36,10 @@ Depending on the applications you use, the following prerequisites are necessary
 * `node 8.11.3` or higher in combination with
   * `npm 5.6.0` or higher or
   * `yarn 1.7.0` or higher, used in this repository
+
+### Angular CLI
+
+* `angular-cli 7.0.2` or higher
 
 ## Getting started
 
@@ -72,13 +76,22 @@ docker-compose down
 yarn
 
 # build in devMode
-yarn run build:dev
+yarn build:dev
 
 # build in prodMode, compressed
-yarn run build:prod
+yarn build:prod
 
 # open result in browser, workspace needs to be under observation of apache and php
 http://localhost/<workspace>/dist
+
+# build in devMode and start a server, rebuild after changes
+yarn serve
+
+# test
+ng test
+
+# e2e
+ng e2e
 ```
 
 ## Configuration
@@ -101,18 +114,21 @@ All options have to bet set but some of them do not need to be changed.
 ### `appname`
 
 Applicationwide title of the app, displayed in title and toolbar.
+
 * default: `publicmedia`
 * type: `string`
 
 ### `routes/default`
 
 The main route and the redirect route after login if no route is stored.
-* default: `dashboard`
+
+* default: `last-post`
 * type: `string`
 
 ### `routes/features/show`
 
 Defines whether feature routes will be displayed or not.
+
 * default: `true`
 * type: `boolean`
 * values: `true`/`false`
@@ -120,6 +136,7 @@ Defines whether feature routes will be displayed or not.
 ### `routes/login/activate`
 
 Defines whether a login will be used or not.
+
 * default: `true`
 * type: `boolean`
 * values: `true`/`false`
@@ -127,6 +144,7 @@ Defines whether a login will be used or not.
 ### `routes/login/show`
 
 Defines whether login route will be displayed or not.
+
 * default: `false`
 * type: `boolean`
 * values: `true`/`false`
@@ -134,6 +152,7 @@ Defines whether login route will be displayed or not.
 ### `routes/notFound/redirect`
 
 Defines whether the 404 route will redirect to the default route or not.
+
 * default: `false`
 * type: `boolean`
 * values: `true`/`false`
@@ -141,12 +160,16 @@ Defines whether the 404 route will redirect to the default route or not.
 ### `theme`
 
 Name of a build-in theme from angular-material.
+
 * default: `indigo-pink`
 * type: `string`
 * values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`
 
+Note: This option must also be changed in the angular.json if you want to change it after cloning the project.
+
 ### `username`
 
 Name of instagram account you want to use.
+
 * default: EMPTY
 * type: `string`

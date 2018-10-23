@@ -1,0 +1,15 @@
+<div>
+  <mat-toolbar color="primary" class="mat-elevation-z4">
+    {{ appname }}
+  </mat-toolbar>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let routeLink of routes | appRouting"
+       [routerLink]="routeLink.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{ routeLink.path }}
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
