@@ -38,12 +38,12 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'angular-cli-for-swaaplate'`, () => {
-    expect(component.appname).toEqual('angular-cli-for-swaaplate');
+  it(`should have as title 'publicmedia'`, () => {
+    expect(component.appname).toEqual('publicmedia');
   });
 
   it('should render title in a mat-toolbar tag', () => {
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('mat-toolbar').textContent).toContain('angular-cli-for-swaaplate');
+    expect(compiled.querySelector('mat-toolbar').textContent).toContain('publicmedia');
   });
 });
