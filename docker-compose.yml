@@ -5,5 +5,5 @@ services:
     image: inpercima/publicmedia:latest
     mem_limit: 1g
     ports:
-      - 80:80
+      - 6789:80
     restart: unless-stopped

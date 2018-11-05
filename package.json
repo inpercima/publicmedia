@@ -61,6 +61,7 @@
   "scripts": {
     "build:dev": "ng lint && ng build",
     "build:prod": "ng lint && ng build --prod",
+    "build:prod:docker": "ng build --prod",
     "serve": "ng serve -o"
   },
   "version": "0.0.1-SNAPSHOT"
