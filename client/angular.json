@@ -5,7 +5,7 @@
   "projects": {
     "publicmedia": {
       "root": "",
-      "sourceRoot": "src/web",
+      "sourceRoot": "src",
       "projectType": "application",
       "prefix": "pm",
       "schematics": {},
@@ -14,18 +14,18 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist",
-            "index": "src/web/index.html",
-            "main": "src/web/main.ts",
-            "polyfills": "src/web/polyfills.ts",
-            "tsConfig": "src/web/tsconfig.app.json",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/web/favicon.ico",
-              "src/web/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/web/app/app.component.css",
-              "src/web/styles.css"
+              "src/app/app.component.css",
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -33,8 +33,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/web/environments/environment.ts",
-                  "with": "src/web/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -53,6 +53,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mock.ts"
+                }
+              ]
             }
           }
         },
@@ -62,8 +70,8 @@
             "browserTarget": "publicmedia:build"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "publicmedia:build:production"
+            "mock": {
+              "browserTarget": "publicmedia:build:mock"
             }
           }
         },
@@ -76,19 +84,19 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/web/test.ts",
-            "polyfills": "src/web/polyfills.ts",
-            "tsConfig": "src/web/tsconfig.spec.json",
-            "karmaConfig": "src/web/karma.conf.js",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/web/app/app.component.css",
-              "src/web/styles.css"
+              "src/app/app.component.css",
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [
-              "src/web/favicon.ico",
-              "src/web/assets"
+              "src/favicon.ico",
+              "src/assets"
             ]
           }
         },
@@ -96,8 +104,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/web/tsconfig.app.json",
-              "src/web/tsconfig.spec.json"
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
@@ -117,11 +125,6 @@
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "publicmedia:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "publicmedia:serve:production"
-            }
           }
         },
         "lint": {

@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
 import { AuthService } from './auth.service';
-import { ConfigService } from './config.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private configService: ConfigService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     // should a login will be used the state will be checked otherwise it will return always logged in
-    return this.configService.isActivateLogin() ? this.checkLogin(state.url) : true;
+    return environment.activateLogin ? this.checkLogin(state.url) : true;
   }
 
   checkLogin(url: string): boolean {

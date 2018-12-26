@@ -3,9 +3,9 @@ import { Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ConfigService } from './core/config.service';
 import { FeaturesRoutingModule } from './features/features-routing.module';
 import { LoginRoutingModule } from './login/login-routing.module';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'pm-root',
@@ -18,14 +18,14 @@ export class AppComponent {
 
   public appname: string;
 
-  public constructor(private configService: ConfigService, private titleService: Title) {
-    this.appname = configService.getAppname();
+  public constructor(private titleService: Title) {
+    this.appname = environment.appname;
     this.routes = AppRoutingModule.ROUTES;
-    if (configService.isShowFeatures()) {
+    if (environment.showFeatures) {
       this.routes = this.routes.concat(FeaturesRoutingModule.ROUTES);
     }
     // should a login will be used the login route could be added
-    if (configService.isActivateLogin() && configService.isShowLogin()) {
+    if (environment.activateLogin && environment.showLogin) {
       this.routes = this.routes.concat(LoginRoutingModule.ROUTES);
     }
     this.titleService.setTitle(this.appname);

@@ -1,28 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../core/auth.service';
-import { ConfigService } from '../core/config.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'pm-login',
   templateUrl: './login.component.html',
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  public loginForm: FormGroup;
+  protected loginForm: FormGroup;
 
-  public hide = true;
+  protected hide = true;
 
-  public wrongLogin = false;
+  protected wrongLogin = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private configService: ConfigService,
-    private router: Router) {
-    this.createForm();
-  }
+  protected message: string;
 
-  createForm() {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
+
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -30,15 +29,17 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.authService.login(this.loginForm).subscribe(next => {
+    this.authService.login(this.loginForm).subscribe(() => {
       if (this.isAuthenticated()) {
         this.wrongLogin = false;
+        this.message = '';
         // get the redirect URL from auth service
         // if no redirect has been set, use default
-        this.router.navigate([this.authService.redirectUrl ? this.authService.redirectUrl : this.configService.getDefaultRoute()]);
+        this.router.navigate([this.authService.redirectUrl ? this.authService.redirectUrl : environment.defaultRoute]);
       }
     }, error => {
       this.wrongLogin = true;
+      this.message = error.error.message;
     });
   }
 

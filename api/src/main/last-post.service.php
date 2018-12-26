@@ -1,5 +1,5 @@
 <?php
-class InstagramService {
+class LastPostService {
 
   private $responseCode = null;
 
@@ -11,19 +11,20 @@ class InstagramService {
   /**
    * Checks parameter and return the result json encoded.
    *
-   * @param string $username the instagram username
+   * @param string $query the instagram username
    */
-  public function getJson($username) {
+  public function getJson($query) {
+    parse_str($query, $queryArr);
     $result = null;
-    if (isset($username) && !is_null($username)) {
-      $result = $this->getLastPost($username);
+    if (isset($queryArr) && !is_null($queryArr)) {
+      $result = $this->getLastPost($queryArr['username']);
     }
     return json_encode($result);
   }
 
   /**
    * Get the last post converted from an instagram item.
-   * 
+   *
    * @param string $username the instagram username
    */
   private function getLastPost($username) {

@@ -10,10 +10,9 @@ A tool used to get public data from an instagram account without permission.
 * Before April 2018: [ttps://instagram.com/instagram/?__a=1](https://instagram.com/instagram/?__a=1)
 * Now: Check [https://instagram.com/instagram/](https://instagram.com/instagram/) and get data from inline javascript
 
-The php version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net).
-Use username = inpercima and password = publicmedia in this demo.
+A demo version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net) with username = password = **publicmedia**.
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate).
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 0.3.0.
 
 ## Prerequisites
 
@@ -39,7 +38,7 @@ Depending on the platform you use, the following prerequisites are necessary.
 
 ### Angular CLI
 
-* `angular-cli 7.0.2` or higher
+* `angular-cli 7.1.4` or higher
 
 ## Getting started
 
@@ -48,13 +47,14 @@ Depending on the platform you use, the following prerequisites are necessary.
 git clone https://github.com/inpercima/publicmedia
 cd publicmedia
 
-# copy src/config.default.json to src/config.json
-cp src/config.default.json src/config.json
+# install tools and frontend dependencies
+cd client
+yarn
 ```
 
 ## Usage
 
-### Docker
+### Dockerfile
 
 Normally the docker version is used to build and run the productive version, so it is prepared as productive.
 
@@ -69,24 +69,53 @@ docker-compose up -d
 docker-compose down
 ```
 
-### Local system
+### Recommendation
+
+It is recommanded to use a server to get full access of all angular.
+You can do this for example with `yarn serve:mock`.
+For the other options your app should run on a server which you like.
+
+### DevMode with mock data
+
+Start in a separate terminal a server with mock data, reachable on [http://localhost:3000/](http://localhost:3000/).
 
 ```bash
-# install tools and frontend dependencies
-yarn
+yarn run:mock
+```
 
-# build in devMode
+Chose one of the following to work in devMode with mock data.
+
+```bash
+# build, reachable on http://localhost/app/path/to/dist/
+yarn build:mock
+
+# build and starts a server, rebuild after changes, reachable on http://localhost:4200/
+yarn serve:mock
+
+# build, rebuild after changes, reachable on http://localhost/app/path/to/dist/
+yarn watch:mock
+```
+
+### DevMode with real data, if present
+
+```bash
+# build, reachable on http://localhost/app/path/to/dist/
 yarn build:dev
 
+# build, rebuild after changes, reachable on http://localhost/app/path/to/dist/
+yarn watch:dev
+```
+
+### ProdMode
+
+```bash
 # build in prodMode, compressed
 yarn build:prod
+```
 
-# open result in browser, workspace needs to be under observation of apache and php
-http://localhost/<workspace>/dist
+### Tests
 
-# build in devMode and start a server, rebuild after changes
-yarn serve
-
+```bash
 # test
 ng test
 
@@ -98,18 +127,44 @@ ng e2e
 
 ### General
 
-All options have to bet set but some of them do not need to be changed.
+All options have to bet set in the environment files but some of them do not need to be changed.
+All defaults refer to the development environment file (`environment.ts`).
+All deviations are described in addition as `mock` and `production`.
 
 ### Table of contents
 
+* [activateLogin](#activateLogin)
+* [api](#api)
+* [apiSuffix](#apiSuffix)
 * [appname](#appname)
-* [routes/default](#routesdefault)
-* [routes/features/show](#routesfeaturesshow)
-* [routes/login/activate](#routesloginactivate)
-* [routes/login/show](#routesloginshow)
-* [routes/notFound/redirect](#routesnotfoundredirect)
+* [defaultRoute](#defaultRoute)
+* [production](#production)
+* [redirectNotFound](#redirectNotFound)
+* [showFeatures](#showFeatures)
+* [showLogin](#showLogin)
 * [theme](#theme)
-* [username](#username)
+
+### `activateLogin`
+
+Defines whether a login will be used or not.
+
+* default: `true`
+* type: `boolean`
+* values: `true`/`false`
+
+### `api`
+
+Defines the URL to the backend.
+
+* default: `./api/` | mock: `http://localhost:3000/` | production: `./api/`
+* type: `string`
+
+### `apiSuffix`
+
+Defines a suffix for the api to the backend.
+
+* default: EMPTY
+* type: `string`
 
 ### `appname`
 
@@ -118,14 +173,30 @@ Applicationwide title of the app, displayed in title and toolbar.
 * default: `publicmedia`
 * type: `string`
 
-### `routes/default`
+### `defaultRoute`
 
 The main route and the redirect route after login if no route is stored.
 
 * default: `last-post`
 * type: `string`
 
-### `routes/features/show`
+### `production`
+
+Defines whether the app is in production or not.
+
+* default: `false` | mock: `false` | production: `true`
+* type: `boolean`
+* values: `true`/`false`
+
+### `redirectNotFound`
+
+Defines whether the 404 route will redirect to the default route or not.
+
+* default: `false`
+* type: `boolean`
+* values: `true`/`false`
+
+### `showFeatures`
 
 Defines whether feature routes will be displayed or not.
 
@@ -133,25 +204,9 @@ Defines whether feature routes will be displayed or not.
 * type: `boolean`
 * values: `true`/`false`
 
-### `routes/login/activate`
-
-Defines whether a login will be used or not.
-
-* default: `true`
-* type: `boolean`
-* values: `true`/`false`
-
-### `routes/login/show`
+### `showLogin`
 
 Defines whether login route will be displayed or not.
-
-* default: `false`
-* type: `boolean`
-* values: `true`/`false`
-
-### `routes/notFound/redirect`
-
-Defines whether the 404 route will redirect to the default route or not.
 
 * default: `false`
 * type: `boolean`
@@ -165,7 +220,7 @@ Name of a build-in theme from angular-material.
 * type: `string`
 * values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`
 
-Note: This option must also be changed in the angular.json if you want to change it after cloning the project.
+Note: This option must also be changed in the angular.json if you want to change it.
 
 ### `username`
 

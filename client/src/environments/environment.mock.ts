@@ -1,6 +1,6 @@
 export const environment = {
   activateLogin: true,
-  api: './api/',
+  api: 'http://localhost:3000/',
   apiSuffix: '',
   appname: 'publicmedia',
   defaultRoute: 'last-post',

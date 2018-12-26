@@ -6,6 +6,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { FeaturesRoutingModule } from './features-routing.module';
 import { LastPostComponent } from './last-post/last-post.component';
+import { LastPostService } from './last-post/last-post.service';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,9 @@ import { LastPostComponent } from './last-post/last-post.component';
     FlexLayoutModule,
     MatCardModule,
     MatProgressBarModule,
+  ],
+  providers: [
+    LastPostService,
   ],
 })
 export class FeaturesModule { }

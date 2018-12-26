@@ -1,4 +1,5 @@
-<div fxLayout="row" *ngIf="!post.responseCode">
+<div fxLayout="row" *ngIf="!lastPost.responseCode">
+  no code
   <div fxFlex="20%"></div>
   <div fxFlex>
     <mat-card>
@@ -9,20 +10,20 @@
   </div>
   <div fxFlex="20%"></div>
 </div>
-<div fxLayout="row" *ngIf="post.responseCode">
+<div fxLayout="row" *ngIf="lastPost.responseCode">
   <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
   <div fxFlex>
     <mat-card class="card">
       <mat-card-header>
-        <mat-card-title *ngIf="post.responseCode.includes('200')">
-          date: {{post.date | date: 'shortDate'}} | likes: {{post.likes}}
+        <mat-card-title *ngIf="lastPost.responseCode.includes('200')">
+          date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
         </mat-card-title>
-        <mat-card-title *ngIf="!post.responseCode.includes('200')">
+        <mat-card-title *ngIf="!lastPost.responseCode.includes('200')">
           Please try again later. There are currently some errors.<br />
-          Response code: {{post.responseCode}}.
+          Response code: {{ lastPost.responseCode }}.
         </mat-card-title>
       </mat-card-header>
-      <img *ngIf="post.responseCode.includes('200')" mat-card-image src="{{post.picture}}">
+      <img *ngIf="lastPost.responseCode.includes('200')" mat-card-image src="{{lastPost.picture}}">
     </mat-card>
   </div>
   <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>

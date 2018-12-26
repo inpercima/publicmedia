@@ -2,12 +2,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import * as config from '../../config.json';
 import { NotFoundComponent } from './not-found.component';
+import { environment } from '../../environments/environment';
 
-const routes: Routes = [(<any>config).routes.notFound.redirect ? {
+const routes: Routes = [environment.redirectNotFound ? {
   path: '**',
-  redirectTo: (<any>config).routes.default
+  redirectTo: environment.defaultRoute
 } : {
   component: NotFoundComponent,
   path: '**',

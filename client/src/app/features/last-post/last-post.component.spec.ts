@@ -4,8 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { LastPostComponent } from './last-post.component';
-import { ConfigService } from '../../core/config.service';
-import { PostService } from '../../core/post.service';
+import { LastPostService } from './last-post.service';
 
 describe('LastPostComponent', () => {
   let component: LastPostComponent;
@@ -22,8 +21,7 @@ describe('LastPostComponent', () => {
         MatProgressBarModule,
       ],
       providers: [
-        ConfigService,
-        PostService,
+        LastPostService,
       ]
     })
     .compileComponents();

@@ -5,7 +5,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingPipe } from './app-routing.pipe';
-import { ConfigService } from './core/config.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -21,9 +20,6 @@ describe('AppComponent', () => {
         MatTabsModule,
         MatToolbarModule,
         RouterTestingModule,
-      ],
-      providers: [
-        ConfigService,
       ],
     }).compileComponents();
   }));

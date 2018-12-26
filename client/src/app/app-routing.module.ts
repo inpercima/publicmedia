@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import * as config from '../config.json';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [{
   path: '',
   pathMatch: 'full',
-  redirectTo: (<any>config).routes.default,
+  redirectTo: environment.defaultRoute,
 }];
 
 @NgModule({

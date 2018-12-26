@@ -8,13 +8,14 @@ class AuthService {
 
   /**
    * Simulate a simple login authentication.
-   * @param string $query
-   */ 
-  public function authenticate($query) {
-    $result = 'Username or password is incorrect.';
-    // WARNING! This is unsecure, just to demonstrate.
-    if ($query == 'authenticate' && $_POST['username'] == 'inpercima' && $_POST['password'] == 'publicmedia') {
-      $result = $this->generateToken($_POST['username']);
+   */
+  public function authenticate() {
+    $request = json_decode(file_get_contents("php://input"));
+    $result = array('message' => 'Username or password is incorrect');
+    if ($request->username == 'publicmedia' && $request->password == 'publicmedia') {
+      $result = array('token' => $this->generateToken($request->username));
+    } else {
+      http_response_code(400);
     }
     return json_encode($result);
   }
@@ -22,7 +23,7 @@ class AuthService {
   /**
    * Generate a simple jwt to authenticate.
    * @param string $username
-   */ 
+   */
   function generateToken($username) {
     $header = $this->base64url_encode(json_encode(array('alg' => 'HS256', 'typ' => 'JWT')));
     $iat = time();

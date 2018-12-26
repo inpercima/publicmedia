@@ -1,11 +1,12 @@
-# begin project specific
+# project specific
 
-src/web/config.json
+dist/
 swaaplate-backup.json
 
-# end project specific
+# end of project specific
 
-# Created by https://www.gitignore.io/api/node,angular,eclipse,intellij+all,visualstudiocode
+# Created by https://www.gitignore.io/api/node,eclipse,angular,intellij+all,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=node,eclipse,angular,intellij+all,visualstudiocode
 
 ### Angular ###
 ## Angular ##
@@ -248,6 +249,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.test
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -262,7 +264,13 @@ typings/
 .vuepress/dist
 
 # Serverless directories
-.serverless
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
 
 ### VisualStudioCode ###
 .vscode/*
@@ -271,5 +279,8 @@ typings/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
 
-# End of https://www.gitignore.io/api/node,angular,eclipse,intellij+all,visualstudiocode
+# End of https://www.gitignore.io/api/node,eclipse,angular,intellij+all,visualstudiocode

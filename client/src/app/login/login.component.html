@@ -3,7 +3,7 @@
   <div fxFlex>
     <mat-card *ngIf="!isAuthenticated()">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-        <mat-error *ngIf="wrongLogin">Username or password is incorrect!</mat-error>
+        <mat-error *ngIf="wrongLogin">{{ message }}</mat-error>
         <mat-form-field class="full-width">
           <input matInput placeholder="username" formControlName="username" required>
           <mat-error>Please enter a valid username</mat-error>

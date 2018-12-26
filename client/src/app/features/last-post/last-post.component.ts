@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ConfigService } from '../../core/config.service';
-import { Post } from '../../core/post';
-import { PostService } from '../../core/post.service';
+import { LastPost } from './last-post';
+import { LastPostService } from './last-post.service';
+
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'pm-last-post',
@@ -10,14 +11,13 @@ import { PostService } from '../../core/post.service';
 })
 export class LastPostComponent implements OnInit {
 
-  private post: Post;
+  private lastPost: LastPost;
 
-  constructor(private configService: ConfigService, private postService: PostService) {
-    this.post = new Post;
-  }
+  constructor(private lastPostService: LastPostService) {}
 
   ngOnInit(): void {
-    this.postService.get(this.configService.getUsername()).subscribe(post => this.post = post);
+    this.lastPost = {} as LastPost;
+    this.lastPostService.get(environment.username).subscribe(lastPost => this.lastPost = lastPost);
   }
 }
 

@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display title in toolbar', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('publicmedia');
+    expect(page.getTitleText()).toEqual('publicmedia');
   });
 });

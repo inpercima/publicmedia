@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import * as config from '../../config.json';
 import { AuthGuard } from '../core/auth-guard.service';
 import { LastPostComponent } from './last-post/last-post.component';
+import { environment } from '../../environments/environment';
 
 const routes: Routes = [{
   canActivate: [AuthGuard],
   component: LastPostComponent,
-  path: (<any>config).routes.default,
+  path: environment.defaultRoute,
 }];
 
 @NgModule({

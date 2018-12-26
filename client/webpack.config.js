@@ -9,9 +9,12 @@ module.exports = {
     crypto: true,
     stream: true,
   },
-  plugins: [
+  plugins: [ process.env.NODE_ENV !== 'mock' ?
     new CopyWebpackPlugin([{
-      from: './src/main',
-    }]),
+      from: '../api/src/main',
+      to: './api',
+    }, {
+      from: 'src/favicon.ico',
+    }]) : {},
   ],
 }
