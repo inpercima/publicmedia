@@ -10,7 +10,7 @@ A tool used to get public data from an instagram account without permission.
 * Before April 2018: [ttps://instagram.com/instagram/?__a=1](https://instagram.com/instagram/?__a=1)
 * Now: Check [https://instagram.com/instagram/](https://instagram.com/instagram/) and get data from inline javascript
 
-A demo version is online under [http://publicmedia.inpercima.net](http://publicmedia.inpercima.net) with username = password = **publicmedia**.
+A demo version is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net) with username = password = **publicmedia**.
 
 This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 0.3.0.
 
@@ -28,17 +28,17 @@ Depending on the platform you use, the following prerequisites are necessary.
 ### Apache and php
 
 * `Apache 2.4` or higher
-* `php 7` or higher
+* `php 7.3` or higher
 
 ### Node, npm or yarn
 
-* `node 8.11.3` or higher in combination with
-  * `npm 5.6.0` or higher or
-  * `yarn 1.7.0` or higher, used in this repository
+* `node 10.15.3` or higher in combination with
+  * `npm 6.4.0` or higher or
+  * `yarn 1.13.0` or higher, used in this repository
 
 ### Angular CLI
 
-* `angular-cli 7.1.4` or higher
+* `angular-cli 7.3.8` or higher
 
 ## Getting started
 

@@ -52,7 +52,7 @@
     "typescript": "3.1.6"
   },
   "engines": {
-    "node": ">=8.11.3"
+    "node": ">=10.15.3"
   },
   "homepage": "http://publicmedia.inpercima.net",
   "license": "MIT",
