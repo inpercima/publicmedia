@@ -20,25 +20,25 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 Depending on the platform you use, the following prerequisites are necessary.
 
-### Docker
+### Angular CLI
 
-* `docker 17.05.0-ce` or higher
-* `docker-compose 1.9` or higher
+* `angular-cli 7.3.8` or higher
 
 ### Apache and php
 
 * `Apache 2.4` or higher
 * `php 7.3` or higher
 
+### Docker
+
+* `docker 17.05.0-ce` or higher
+* `docker-compose 1.9` or higher
+
 ### Node, npm or yarn
 
 * `node 10.15.3` or higher in combination with
-  * `npm 6.4.0` or higher or
+  * `npm 6.4.1` or higher or
   * `yarn 1.13.0` or higher, used in this repository
-
-### Angular CLI
-
-* `angular-cli 7.3.8` or higher
 
 ## Getting started
 
