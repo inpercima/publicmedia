@@ -23,13 +23,31 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/app/app.component.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "es5BrowserSupport": true,
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            }
           },
           "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "mock": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.mock.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -41,24 +59,16 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
-              "aot": false,
+              "namedChunks": true,
+              "aot": true,
               "extractLicenses": false,
-              "vendorChunk": false,
-              "buildOptimizer": false,
+              "vendorChunk": true,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                }
-              ]
-            },
-            "mock": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.mock.ts"
                 }
               ]
             }
@@ -70,6 +80,9 @@
             "browserTarget": "publicmedia:build"
           },
           "configurations": {
+            "dev": {
+              "browserTarget": "publicmedia:build:dev"
+            },
             "mock": {
               "browserTarget": "publicmedia:build:mock"
             }
@@ -89,8 +102,6 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/app/app.component.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -108,8 +119,7 @@
               "src/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**",
-              "**/*.json"
+              "**/node_modules/**"
             ]
           }
         }
@@ -125,6 +135,11 @@
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "publicmedia:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "publicmedia:serve:production"
+            }
           }
         },
         "lint": {

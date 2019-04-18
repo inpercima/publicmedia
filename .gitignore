@@ -1,12 +1,15 @@
-# project specific
+# begin project specific
 
-dist/
+environment.dev.ts
+environment.mock.ts
+environment.prod.ts
 swaaplate-backup.json
+dist/
 
-# end of project specific
+# end project specific
 
-# Created by https://www.gitignore.io/api/node,eclipse,angular,intellij+all,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=node,eclipse,angular,intellij+all,visualstudiocode
+# Created by https://www.gitignore.io/api/node,angular,eclipse,intellij+all,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=node,angular,eclipse,intellij+all,visualstudiocode
 
 ### Angular ###
 ## Angular ##
@@ -190,6 +193,9 @@ modules.xml
 .idea/misc.xml
 *.ipr
 
+# Sonarlint plugin
+ .idea/sonarlint
+
 ### Node ###
 # Logs
 logs
@@ -283,4 +289,4 @@ typings/
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/node,eclipse,angular,intellij+all,visualstudiocode
+# End of https://www.gitignore.io/api/node,angular,eclipse,intellij+all,visualstudiocode
