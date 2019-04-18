@@ -38,6 +38,16 @@ Depending on the platform you use, the following prerequisites are necessary.
   * `npm 6.4.1` or higher or
   * `yarn 1.13.0` or higher, used in this repository
 
+## Dependency check
+
+Some libraries could not be updated b/c of peer dependencies or knowing issues.
+
+| library    | version | reason |
+| ---------- | ------- | ------ |
+| core-js    | 2.6.5   | [core-js@3, babel and a look into the future](https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md), newer version running into errors |
+| typescript | 3.2.4   | @angular-devkit/build-angular > @ngtools/webpack@7.3.8" has incorrect peer dependency "typescript@>=2.4.0 < 3.3" |
+| zone-js    | 0.8.29  | @angular/core@7.2.13" has incorrect peer dependency "zone.js@~0.8.26" |
+
 ## Getting started
 
 ```bash
