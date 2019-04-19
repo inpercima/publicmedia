@@ -1,7 +1,7 @@
 # publicmedia - client
 
-[![dependencies Status](https://david-dm.org/inpercima/publicmedia/status.svg)](https://david-dm.org/inpercima/publicmedia?path=client)
-[![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg)](https://david-dm.org/inpercima/publicmedia?type=dev&path=client)
+[![dependencies Status](https://david-dm.org/inpercima/publicmedia/status.svg?path=client)](https://david-dm.org/inpercima/publicmedia?path=client)
+[![devDependencies Status](https://david-dm.org/inpercima/publicmedia/dev-status.svg?path=client)](https://david-dm.org/inpercima/publicmedia?path=client&type=dev)
 
 ## Getting started
 
