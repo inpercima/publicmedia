@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 })
 export class LastPostComponent implements OnInit {
 
-  private lastPost: LastPost;
+  public lastPost: LastPost;
 
   constructor(private lastPostService: LastPostService) {}
 

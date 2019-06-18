@@ -1,4 +1,4 @@
-FROM node:carbon AS build-js
+FROM node:12.4-alpine AS build-js
 
 USER node
 WORKDIR /home/node
@@ -7,7 +7,9 @@ RUN mkdir client/ && chown node client/
 COPY --chown=node api/ api/
 COPY --chown=node client/src/ client/src/
 COPY --chown=node client/angular.json client/
+COPY --chown=node client/browserslist client/
 COPY --chown=node client/package.json client/
+COPY --chown=node client/tsconfig.app.json client/
 COPY --chown=node client/tsconfig.json client/
 COPY --chown=node client/tslint.json client/
 COPY --chown=node client/webpack.config.js client/
