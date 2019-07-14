@@ -11,13 +11,13 @@ import { environment } from '../../environments/environment';
 })
 export class LoginComponent implements OnInit {
 
-  protected loginForm: FormGroup;
+  public loginForm: FormGroup;
 
-  protected hide = true;
+  public hide = true;
 
-  protected wrongLogin = false;
+  public wrongLogin = false;
 
-  protected message: string;
+  public message: string;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 

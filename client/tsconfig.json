@@ -4,7 +4,6 @@
     "baseUrl": "./",
     "declaration": false,
     "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "lib": [
@@ -19,5 +18,9 @@
     "typeRoots": [
       "node_modules/@types"
     ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

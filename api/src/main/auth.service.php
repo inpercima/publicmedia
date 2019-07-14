@@ -10,7 +10,7 @@ class AuthService {
    * Simulate a simple login authentication.
    */
   public function authenticate() {
-    $request = json_decode(file_get_contents("php://input"));
+    $request = json_decode(file_get_contents('php://input'));
     $result = array('message' => 'Username or password is incorrect');
     if ($request->username == 'publicmedia' && $request->password == 'publicmedia') {
       $result = array('token' => $this->generateToken($request->username));
