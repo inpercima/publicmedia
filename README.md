@@ -20,7 +20,7 @@ Depending on the platform you use, the following prerequisites are necessary.
 
 ### Angular CLI
 
-* `angular-cli 8.1.1` or higher
+* `angular-cli 8.3.4` or higher
 
 ### Apache and php
 
@@ -42,12 +42,13 @@ Depending on the platform you use, the following prerequisites are necessary.
 
 Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
-| library    | version | reason |
-| ---------- | ------- | ------ |
-| typescript | 3.4.3   | @angular-devkit/build-angular@0.801.1" has incorrect peer dependency "typescript@>=3.1 < 3.5 |
-| typescript | 3.4.3   | @angular-devkit/build-angular > @ngtools/webpack@8.1.1" has incorrect peer dependency "typescript@>=3.4 < 3.5 |
-| typescript | 3.4.3   | @angular/compiler-cli@8.1.1" has incorrect peer dependency "typescript@>=3.4 <3.5 |
-| copy-webpack-plugin | 4.6.0 | copy-webpack-plugin@5.0.3" has unmet peer dependency "webpack@^4.0.0" |
+| library    | current version | wanted version | reason |
+| ---------- | --------------- | -------------- | ------ |
+| zone.js    | 0.9.1           | 0.10.2         | @angular/core@8.2.6" has incorrect peer dependency "zone.js@~0.9.1" |
+| typescript | 3.5.3           | 3.6.3          | @angular-devkit/build-angular@0.803.4" has incorrect peer dependency "typescript@>=3.1 < 3.6 |
+| typescript | 3.5.3           | 3.6.3          | @angular-devkit/build-angular > @ngtools/webpack@8.3.4" has incorrect peer dependency "typescript@>=3.4 < 3.6 |
+| typescript | 3.5.3           | 3.6.3          | @angular/compiler-cli@8.2.6" has incorrect peer dependency "typescript@>=3.4 <3.6 |
+| copy-webpack-plugin | 4.6.0  | 5.0.3          | copy-webpack-plugin@5.0.3" has unmet peer dependency "webpack@^4.0.0" |
 
 ## Getting started
 
