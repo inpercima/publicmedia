@@ -4,9 +4,10 @@
 
 A tool used to get public data from an instagram account without permission.
 
-* Before December 2017: [https://instagram.com/instagram/media](https://instagram.com/instagram/media)
-* Before April 2018: [ttps://instagram.com/instagram/?__a=1](https://instagram.com/instagram/?__a=1)
-* Now: Check [https://instagram.com/instagram/](https://instagram.com/instagram/) and get data from inline javascript
+* Before December 2017: [https://instagram.com/username/media](https://instagram.com/instagram/media)
+* Before April 2018: [ttps://instagram.com/username/?__a=1](https://instagram.com/instagram/?__a=1)
+* Before August 2019: Check [https://instagram.com/username/](https://instagram.com/instagram/) and get data from inline javascript
+* Now: Check [https://www.instagram.com/graphql](https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"})
 
 A demo version is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net) with username = password = **publicmedia**.
 

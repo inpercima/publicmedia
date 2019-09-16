@@ -11,8 +11,8 @@ export class LastPostService {
 
   constructor(private http: HttpClient) { }
 
-  public get(username: string): Observable<LastPost> {
-    return this.http.get<LastPost>(`${environment.api}last-post${environment.apiSuffix}?username=${username}`);
+  public get(userId: number): Observable<LastPost> {
+    return this.http.get<LastPost>(`${environment.api}last-post${environment.apiSuffix}?type=2&userId=${userId}`);
   }
 
 }

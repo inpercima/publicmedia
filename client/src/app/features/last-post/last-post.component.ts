@@ -17,7 +17,7 @@ export class LastPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.lastPost = {} as LastPost;
-    this.lastPostService.get(environment.username).subscribe(lastPost => this.lastPost = lastPost);
+    this.lastPostService.get(environment.userId).subscribe(lastPost => this.lastPost = lastPost);
   }
 }
 

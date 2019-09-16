@@ -12,4 +12,6 @@ export interface LastPost {
 
   username: string;
 
+  userId: number;
+
 }
