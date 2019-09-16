@@ -39,11 +39,9 @@ class LastPostService {
    */
   private function listLastItems($username) {
     $content = file_get_contents('https://www.instagram.com/' . $username);
+    preg_match('/_sharedData = ({.*);<\/script>/', $content, $matches);
     $this->responseCode = end(preg_grep("/HTTP\/\d.\d (\d+)/", $http_response_header));
-    $content = explode('window._sharedData = ', $content)[1];
-    $content = explode(';</script>', $content)[0];
-    $data = json_decode($content);
-    return $data->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
+    return json_decode($matches[1])->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
 }
 
   /**
