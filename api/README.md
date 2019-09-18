@@ -1,4 +1,4 @@
-# swaaplate - api
+# publicmedia - api
 
 ## Getting started
 
