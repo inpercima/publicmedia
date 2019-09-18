@@ -67,7 +67,6 @@ class LastPostService {
     $url = "https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b";
     $variables = "&variables={\"id\":\"$userId\",\"first\":\"50\"}";
     $content = file_get_contents($url.$variables);
-    preg_match('/_sharedData = ({.*);<\/script>/', $content, $matches);
     $this->responseCode = end(preg_grep("/HTTP\/\d.\d (\d+)/", $http_response_header));
     return json_decode($content)->data->user->edge_owner_to_timeline_media->edges;
   }
