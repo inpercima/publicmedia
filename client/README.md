@@ -21,9 +21,7 @@ cp src/environments/environment.ts src/environments/environment.mock.ts
 cp src/environments/environment.ts src/environments/environment.prod.ts
 ```
 
-Update these files for your environment.
-Change for prodMode the option `production` to `true` and for mockMode the option `api` to `http://localhost:3000/`.
-Note: These files will not be under version control and listed in .gitignore.
+**Note**: These files will not be under version control and listed in .gitignore.
 
 ## Usage
 
@@ -70,7 +68,7 @@ yarn watch:dev
 ### Package in prodMode
 
 ```bash
-# build in prodMode, compressed, in ./dist you will find the output.
+# build in prodMode, compressed
 yarn build:prod
 ```
 
@@ -89,8 +87,8 @@ ng e2e
 ### General
 
 All options have to bet set in the environment files but some of them do not need to be changed.
-All defaults refer to the development environment file (`environment.ts`).
-All deviations are described in addition as `mock` and `production`.
+All defaults refer to the development environment file (`environment.dev.ts`).
+Change for prodMode the option `production` to `true` and for mockMode the option `api` to `http://localhost:3000/`.
 
 ### Table of contents
 
@@ -118,7 +116,7 @@ Defines whether a login will be used or not.
 
 Defines the URL to the backend.
 
-* default: `./api/` | mock: `http://localhost:3000/` | production: `./api/`
+* default: `./api/`
 * type: `string`
 
 ### `apiSuffix`
@@ -146,7 +144,7 @@ The main route and the redirect route after login if no route is stored.
 
 Defines whether the app is in production or not.
 
-* default: `false` | mock: `false` | production: `true`
+* default: `false`
 * type: `boolean`
 * values: `true`/`false`
 
@@ -176,13 +174,13 @@ Defines whether login route will be displayed or not.
 
 ### `theme`
 
-Name of a build-in theme from angular-material.
+Name of a build-in theme from angular-material or a custom light or dark theme.
 
 * default: `indigo-pink`
 * type: `string`
-* values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`
+* values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`/`custom-light`/`custom-dark`
 
-Note: This option must also be changed in the styles.css if you want to change it.
+To create a custom light or dark theme just edit the colors and themes in `themes.scss`.
 
 ### `username`
 

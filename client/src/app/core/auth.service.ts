@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { map } from 'rxjs/operators';
 
-import { environment } from '../../environments/environment';
+import { RequestService } from './request.service';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +13,7 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   public redirectUrl: string;
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService, private requestService: RequestService) { }
 
   /**
    * This is a very simple authentication you should change for production use!
@@ -21,7 +21,7 @@ export class AuthService {
    * @param formGroup loginForm
    */
   public login(formGroup: FormGroup) {
-    return this.http.post<any>(`${environment.api}auth${environment.apiSuffix}`, formGroup.value).pipe(map(response => {
+    return this.http.post<any>(this.requestService.url('auth'), formGroup.value).pipe(map(response => {
       if (response !== null) {
         // set the token property for validate token in the app
         localStorage.setItem('access_token', response.token);
