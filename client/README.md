@@ -31,41 +31,33 @@ It is recommanded to use a server to get full access of all angular.
 You can do this for example with `yarn serve:mock`.
 For the other options your app should run on a server which you like.
 
-### Run in devMode with mock data
+### Run in devMode
 
-Start in a separate terminal a server with mock data, reachable on [http://localhost:3000/](http://localhost:3000/).
+If you want to work with mock data, start the mock in a separate terminal, reachable on [http://localhost:3000/](http://localhost:3000/).
 
 ```bash
+# mock, separate terminal
 yarn run:mock
 ```
-
-Chose one of the following to work in devMode with mock data.
-
-```bash
-# build, reachable on http://localhost/app/path/to/dist/
-yarn build:mock
-
-# build and starts a server, rebuild after changes, reachable on http://localhost:4200/
-yarn serve:mock
-
-# build, rebuild after changes, reachable on http://localhost/app/path/to/dist/
-yarn watch:mock
-```
-
-### Run in devMode with real data, if present
 
 ```bash
 # build, reachable on http://localhost/app/path/to/dist/
 yarn build:dev
+# with mock
+yarn build:mock
 
 # build and starts a server, rebuild after changes, reachable on http://localhost:4200/
 yarn serve:dev
+# with mock
+yarn serve:mock
 
 # build, rebuild after changes, reachable on http://localhost/app/path/to/dist/
 yarn watch:dev
+# with mock
+yarn watch:mock
 ```
 
-### Package in prodMode
+### Package
 
 ```bash
 # build in prodMode, compressed

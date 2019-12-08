@@ -1,6 +1,5 @@
-<div fxLayout="row">
-  <div fxFlex="20%"></div>
-  <div fxFlex>
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="60">
     <mat-card *ngIf="!isAuthenticated()">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
         <mat-error *ngIf="wrongLogin">{{ message }}</mat-error>
@@ -21,5 +20,4 @@
       <a href="#" (click)="logout()">logout</a>.
     </mat-card>
   </div>
-  <div fxFlex="20%"></div>
 </div>

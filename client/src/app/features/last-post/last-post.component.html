@@ -1,17 +1,14 @@
-<div fxLayout="row" *ngIf="!lastPost.responseCode">
-  <div fxFlex="20%"></div>
-  <div fxFlex>
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="!lastPost.responseCode">
+  <div fxFlex="60">
     <mat-card>
       <mat-card-content class="progress">
         <mat-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></mat-progress-bar>
       </mat-card-content>
     </mat-card>
   </div>
-  <div fxFlex="20%"></div>
 </div>
-<div fxLayout="row" *ngIf="lastPost.responseCode">
-  <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
-  <div fxFlex>
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="lastPost.responseCode">
+  <div fxFlex="60">
     <mat-card class="card">
       <mat-card-header>
         <mat-card-title *ngIf="lastPost.responseCode.includes('200')">
@@ -25,5 +22,4 @@
       <img *ngIf="lastPost.responseCode.includes('200')" mat-card-image src="{{lastPost.picture}}">
     </mat-card>
   </div>
-  <div fxFlex="10%" fxFlex.gt-xs="20%" fxFlex.gt-sm="30%" fxFlex.gt-md="35%"></div>
 </div>
