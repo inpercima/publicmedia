@@ -1,42 +1,44 @@
 {
   "general": {
-    "buildWebDir": "dist",
+    "author": "Marcel Jänicke",
+    "description": "A tool used to get public data from an instagram account without permission.",
     "github": {
       "use": true,
       "username": "inpercima"
     },
+    "name": "publicmedia",
+    "useDocker": true
+  },
+  "client": {
+    "buildDir": "dist",
     "installDependencies": true,
+    "packageJson": {
+      "contributors": [{
+        "name": "Marcel Jänicke",
+        "email": "inpercima@gmail.com"
+      }],
+      "homepage": "http://publicmedia.inpercima.net",
+      "repository": "https://github.com/inpercima/publicmedia"
+    },
+    "route": {
+      "features": {
+        "default": "last-post",
+        "show": true
+      },
+      "login": {
+        "activate": true,
+        "name": "login",
+        "show": false
+      },
+      "notFound": {
+        "name": "not-found",
+        "redirect": false
+      }
+    },
     "selectorPrefix": "pm",
     "theme": "indigo-pink",
     "title": "publicmedia",
-    "useDocker": true,
     "useYarn": true
-  },
-  "packageJson": {
-    "author": "Marcel Jänicke",
-    "contributors": [{
-      "name": "Marcel Jänicke",
-      "email": "inpercima@gmail.com"
-    }],
-    "description": "A tool used to get public data from an instagram account without permission.",
-    "homepage": "http://publicmedia.inpercima.net",
-    "name": "publicmedia",
-    "repository": "https://github.com/inpercima/publicmedia"
-  },
-  "route": {
-    "default": "last-post",
-    "features": {
-      "show": true
-    },
-    "login": {
-      "activate": true,
-      "name": "login",
-      "show": false
-    },
-    "notFound": {
-      "name": "not-found",
-      "redirect": false
-    }
   },
   "server": {
     "backend": "php",

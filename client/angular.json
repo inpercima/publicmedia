@@ -148,5 +148,8 @@
       }
     }
   },
-  "defaultProject": "publicmedia"
+  "defaultProject": "publicmedia",
+  "cli": {
+    "packageManager": "yarn"
+  }
 }

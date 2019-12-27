@@ -11,7 +11,7 @@ A tool used to get public data from an instagram account without permission.
 
 A demo version is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net) with username = password = **publicmedia**.
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 1.0.1.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 1.1.0.
 
 ## Prerequisites
 
