@@ -7,6 +7,7 @@
       "username": "inpercima"
     },
     "name": "publicmedia",
+    "title": "publicmedia",
     "useDocker": true
   },
   "client": {
@@ -37,7 +38,6 @@
     },
     "selectorPrefix": "pm",
     "theme": "indigo-pink",
-    "title": "publicmedia",
     "useYarn": true
   },
   "server": {
