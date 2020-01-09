@@ -1,15 +1,11 @@
-<div fxLayout="row" fxLayoutAlign="center" *ngIf="!lastPost.responseCode">
+<div fxLayout="row" fxLayoutAlign="center">
   <div fxFlex="60">
-    <mat-card>
+    <mat-card *ngIf="!lastPost.responseCode">
       <mat-card-content class="progress">
         <mat-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></mat-progress-bar>
       </mat-card-content>
     </mat-card>
-  </div>
-</div>
-<div fxLayout="row" fxLayoutAlign="center" *ngIf="lastPost.responseCode">
-  <div fxFlex="60">
-    <mat-card class="card">
+    <mat-card *ngIf="lastPost.responseCode">
       <mat-card-header>
         <mat-card-title *ngIf="lastPost.responseCode.includes('200')">
           date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
