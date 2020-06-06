@@ -38,5 +38,4 @@ RUN ln -snf /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
     && apt-get update \
     && apt-get install wget -y
 
-COPY client/src/.htaccess /var/www/html/
 COPY --from=build-js /home/node/client/dist /var/www/html/
