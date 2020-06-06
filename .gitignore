@@ -1,7 +1,6 @@
 # begin project specific
 
 environment.dev.ts
-environment.mock.ts
 environment.prod.ts
 
 # ignore all in '.vscode' b/c some vsc config files contain user specific content
@@ -9,43 +8,44 @@ environment.prod.ts
 
 # end project specific
 
-# Created by https://www.gitignore.io/api/node,angular,eclipse,intellij+all
-# Edit at https://www.gitignore.io/?templates=node,angular,eclipse,intellij+all
+# Created by https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,angular,eclipse,intellij+all
 
 ### Angular ###
 ## Angular ##
 # compiled output
-dist/
-tmp/
-app/**/*.js
-app/**/*.js.map
+/dist
+/tmp
+/app/**/*.js
+/app/**/*.js.map
 
 # dependencies
-node_modules/
-bower_components/
+/node_modules
+/bower_components
 
 # IDEs and editors
-.idea/
+/.idea
 
 # misc
-.sass-cache/
-connect.lock/
-coverage/
-libpeerconnection.log/
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
 npm-debug.log
 testem.log
-typings/
+/typings
 
 # e2e
-e2e/*.js
-e2e/*.map
+/e2e/*.js
+/e2e/*.map
 
 #System Files
-.DS_Store/
+.DS_Store
 
 ### Eclipse ###
 .metadata
 bin/
+tmp/
 *.tmp
 *.bak
 *.swp
@@ -145,8 +145,6 @@ local.properties
 # .idea/modules.xml
 # .idea/*.iml
 # .idea/modules
-# *.iml
-# *.ipr
 
 # CMake
 cmake-build-*/
@@ -185,6 +183,7 @@ fabric.properties
 # Ignores the whole .idea folder and all .iml files
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
+.idea/
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
@@ -219,7 +218,6 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
-*.lcov
 
 # nyc test coverage
 .nyc_output
@@ -237,12 +235,11 @@ bower_components
 build/Release
 
 # Dependency directories
+node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
-
-# TypeScript cache
-*.tsbuildinfo
+typings/
 
 # Optional npm cache directory
 .npm
@@ -272,9 +269,6 @@ jspm_packages/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
-public/
-
 # vuepress build output
 .vuepress/dist
 
@@ -287,4 +281,4 @@ public/
 # DynamoDB Local files
 .dynamodb/
 
-# End of https://www.gitignore.io/api/node,angular,eclipse,intellij+all
+# End of https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all

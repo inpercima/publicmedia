@@ -8,6 +8,7 @@ body {
   margin-top: 20px;
 }
 
-.full-width {
+/* styles for generated sources */
+.mat-card-header-text {
   width: 100%;
 }

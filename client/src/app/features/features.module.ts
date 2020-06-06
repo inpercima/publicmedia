@@ -4,23 +4,20 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-import { FeaturesRoutingModule } from './features-routing.module';
-import { LastPostComponent } from './last-post/last-post.component';
-import { LastPostService } from './last-post/last-post.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    LastPostComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
-    FeaturesRoutingModule,
     FlexLayoutModule,
     MatCardModule,
     MatProgressBarModule,
   ],
-  providers: [
-    LastPostService,
-  ],
+  exports: [
+    DashboardComponent
+  ]
 })
 export class FeaturesModule { }

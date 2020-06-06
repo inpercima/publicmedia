@@ -3,18 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  activateLogin: true,
+  activateLogin: false,
   api: './api/',
   apiSuffix: '',
   appname: 'publicmedia',
-  defaultRoute: 'last-post',
+  defaultRoute: '',
   production: false,
-  redirectNotFound: false,
-  showFeatures: true,
+  redirectNotFound: true,
+  showFeatures: false,
   showLogin: false,
   theme: 'indigo-pink',
-  username: 'instagram',
-  userId: 25025320,
+  userId: '25025320',
 };
 
 /*

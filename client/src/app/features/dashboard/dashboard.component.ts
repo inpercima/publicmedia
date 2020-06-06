@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 
 import { LastPost } from './last-post';
 import { LastPostService } from './last-post.service';
-
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'pm-last-post',
-  templateUrl: './last-post.component.html',
+  selector: 'pm-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class LastPostComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   public lastPost: LastPost;
 
@@ -20,4 +20,3 @@ export class LastPostComponent implements OnInit {
     this.lastPostService.get(environment.userId).subscribe(lastPost => this.lastPost = lastPost);
   }
 }
-

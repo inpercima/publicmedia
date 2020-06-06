@@ -3,7 +3,7 @@ services:
   publicmedia:
     build: .
     image: inpercima/publicmedia:latest
-    mem_limit: 1g
+    mem_limit: 256mb
     ports:
       - 6789:80
     restart: unless-stopped

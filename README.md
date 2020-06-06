@@ -9,15 +9,15 @@ A tool used to get public data from an instagram account without permission.
 * Before August 2019: Check [https://instagram.com/username/](https://instagram.com/instagram/) and get data from inline javascript
 * Now: Check [https://www.instagram.com/graphql](https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"})
 
-This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net) with username = password = **publicmedia**.
+This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 1.1.0.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.0.0-SNAPSHOT.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 9.1.1` or higher
+* `angular-cli 9.1.7` or higher
 
 ### Apache and php
 
@@ -31,7 +31,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Node, npm or yarn
 
-* `node 12.14.1` or higher in combination with
+* `node 12.16.1` or higher in combination with
   * `npm 6.13.4` or higher or
   * `yarn 1.22.4` or higher, used in this repository
 
@@ -39,9 +39,11 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
-| library    | current version | wanted version | reason |
-| ---------- | --------------- | -------------- | ------ |
-| copy-webpack-plugin | 4.6.0 | 5.1.1 | "copy-webpack-plugin@5.1.1" has unmet peer dependency "webpack@^4.0.0" |
+| library             | current version | wanted version | reason |
+| ------------------- | --------------- | -------------- | ------ |
+| copy-webpack-plugin | 4.6.0           | 6.0.2          | "copy-webpack-plugin@6.0.2" has unmet peer dependency "webpack@^4.37.0 || ^5.0.0" |
+| tslib               | 1.13.0          | 2.0.0          | "@angular/core@9.1.9" has incorrect peer dependency "tslib@^1.10.0" |
+| typescript          | 3.8.3           | 3.9.5          | "@angular/compiler-cli@9.1.9" has incorrect peer dependency "typescript@>=3.6 <3.9" |
 
 ## Getting started
 
@@ -53,23 +55,10 @@ cd publicmedia
 
 ## Usage
 
-### Dockerfile
-
-Normally the docker version is used to build and run the productive version, so it is prepared as productive.
-
-```bash
-# build the image and container
-docker-compose build
-
-# run the container
-docker-compose up -d
-
-# stop the container
-docker-compose down
-```
-
 ### Modules
 
-For the client check [publicmedia - client](https://github.com/inpercima/publicmedia/tree/master/client).
+For the client check [publicmedia - client](./client).
 
-For the api check [publicmedia - api](https://github.com/inpercima/publicmedia/tree/master/api).
+For the server check [publicmedia - server](./server).
+
+For the docker check [publicmedia - docker](./README_docker.md).
