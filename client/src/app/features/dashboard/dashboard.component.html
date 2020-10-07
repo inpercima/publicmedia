@@ -1,21 +1,19 @@
 <div fxLayout="row" fxLayoutAlign="center">
-  <div fxFlex="60">
-    <mat-card *ngIf="!lastPost.responseCode">
-      <mat-card-content class="progress">
-        <mat-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></mat-progress-bar>
-      </mat-card-content>
-    </mat-card>
-    <mat-card *ngIf="lastPost.responseCode">
-      <mat-card-header>
-        <mat-card-title *ngIf="lastPost.responseCode.includes('200')">
-          date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
-        </mat-card-title>
-        <mat-card-title *ngIf="!lastPost.responseCode.includes('200')">
-          Please try again later. There are currently some errors.<br />
-          Response code: {{ lastPost.responseCode }}.
-        </mat-card-title>
-      </mat-card-header>
-      <img *ngIf="lastPost.responseCode.includes('200')" mat-card-image src="{{lastPost.picture}}">
-    </mat-card>
-  </div>
+  <mat-card fxFlex="60" *ngIf="!lastPost.responseCode">
+    <mat-card-content class="progress">
+      <mat-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></mat-progress-bar>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="lastPost.responseCode">
+    <mat-card-header>
+      <mat-card-title *ngIf="lastPost.responseCode.includes('200')">
+        date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
+      </mat-card-title>
+      <mat-card-title *ngIf="!lastPost.responseCode.includes('200')">
+        Please try again later. There are currently some errors.<br />
+        Response code: {{ lastPost.responseCode }}.
+      </mat-card-title>
+    </mat-card-header>
+    <img *ngIf="lastPost.responseCode.includes('200')" mat-card-image src="{{lastPost.picture}}">
+  </mat-card>
 </div>

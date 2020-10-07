@@ -6,6 +6,8 @@ environment.prod.ts
 # ignore all in '.vscode' b/c some vsc config files contain user specific content
 .vscode/*
 
+.classpath
+
 # end project specific
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all
@@ -36,7 +38,6 @@ testem.log
 typings/
 
 # e2e
-e2e/*.js
 e2e/*.map
 
 # System Files
@@ -101,7 +102,7 @@ local.properties
 
 # Uncomment this line if you wish to ignore the project description file.
 # Typically, this file would be tracked if it contains build/dependency configurations:
-#.project
+.project
 
 ### Eclipse Patch ###
 # Spring Boot Tooling
@@ -267,9 +268,11 @@ jspm_packages/
 # dotenv environment variables file
 .env
 .env.test
+.env*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+.parcel-cache
 
 # Next.js build output
 .next

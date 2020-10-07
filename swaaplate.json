@@ -4,6 +4,18 @@
     "ghUser": "inpercima",
     "installDependencies": true,
     "language": "en",
+    "modules": {
+      "enabled": true,
+      "features": {
+        "defaultRoute": "dashboard",
+        "name": "features"
+      },
+      "notFound": {
+        "enabled": false,
+        "name": ""
+      },
+      "routing": false
+    },
     "packageJson": {
       "contributors": [{
         "name": "Marcel Jänicke",
@@ -13,25 +25,6 @@
       "repository": "https://github.com/inpercima/publicmedia"
     },
     "prefix": "pm",
-    "routing": {
-      "enabled": false,
-      "features": {
-        "default": "",
-        "name": "",
-        "show": false
-      },
-      "login": {
-        "activate": false,
-        "enabled": false,
-        "name": "",
-        "show": false
-      },
-      "notFound": {
-        "enabled": false,
-        "name": "",
-        "redirect": true
-      }
-    },
     "theme": "indigo-pink",
     "useGoogleFonts": true,
     "useYarn": true
@@ -39,17 +32,23 @@
   "general": {
     "author": "Marcel Jänicke",
     "description": "A tool used to get public data from an instagram account without permission.",
+    "modRewriteIndex": true,
     "name": "publicmedia",
     "title": "publicmedia",
-    "useDocker": true,
+    "useDocker": false,
     "useMITLicense": true,
-    "useMock": false
+    "useMock": false,
+    "useSecurity": false
   },
   "server": {
     "backend": "php",
-    "htaccess": true,
-    "management": "",
-    "packagePath": "",
-    "serverAsApi": true
+    "javaKt": {
+      "management": "",
+      "packagePath": ""
+    },
+    "php": {
+      "modRewritePhpExtension": true,
+      "serverAsApi": true
+    }
   }
 }

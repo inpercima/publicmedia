@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { environment } from '../../../environments/environment';
 import { LastPost } from './last-post';
 import { LastPostService } from './last-post.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'pm-dashboard',
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
-  public lastPost: LastPost;
+  lastPost: LastPost;
 
   constructor(private lastPostService: LastPostService) {}
 
