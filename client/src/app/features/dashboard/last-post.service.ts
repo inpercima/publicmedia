@@ -13,9 +13,7 @@ export class LastPostService {
 
   constructor(private http: HttpClient) { }
 
-  public get(userId: string): Observable<LastPost> {
-    return this.http.get<any>(environment.api + 'last-post', {
-      params: { type: '2', userId },
-    });
+  public get(): Observable<LastPost> {
+    return this.http.get<LastPost>(environment.api + 'last-post');
   }
 }

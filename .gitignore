@@ -2,6 +2,8 @@
 
 environment.dev.ts
 environment.prod.ts
+config.dev.php
+config.prod.php
 
 # ignore all in '.vscode' b/c some vsc config files contain user specific content
 .vscode/*

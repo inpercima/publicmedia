@@ -1,4 +1,7 @@
 <?php
+$mode = strpos($_SERVER['SERVER_NAME'], 'localhost') ? 'dev' : 'prod';
+require_once "config.${mode}.php";
+
 class LastPostService {
 
   private $responseCode = null;
@@ -8,22 +11,8 @@ class LastPostService {
    */
   public function __construct() {}
 
-  /**
-   * Checks parameter and return the result json encoded.
-   *
-   * @param string $query the instagram username
-   */
-  public function getJson($query) {
-    parse_str($query, $queryArr);
-    $result = null;
-    if (isset($queryArr) && !is_null($queryArr)) {
-      if (isset($queryArr['type']) && $queryArr['type'] == '1') {
-        $result = $this->getLastPostByUsername($queryArr['username']);
-      } else {
-        $result = $this->getLastPostByUserId($queryArr['userId']);
-      }
-    }
-    return json_encode($result);
+  public function getLastPost() {
+    return json_encode($this->getLastPostByUserId(Config::USER_ID));
   }
 
   /**

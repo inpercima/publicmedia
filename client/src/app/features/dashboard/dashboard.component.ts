@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
 import { LastPost } from './last-post';
 import { LastPostService } from './last-post.service';
 
@@ -11,12 +10,12 @@ import { LastPostService } from './last-post.service';
 })
 export class DashboardComponent implements OnInit {
 
-  lastPost: LastPost;
+  lastPost = {} as LastPost;
 
   constructor(private lastPostService: LastPostService) {}
 
   ngOnInit(): void {
     this.lastPost = {} as LastPost;
-    this.lastPostService.get(environment.userId).subscribe(lastPost => this.lastPost = lastPost);
+    this.lastPostService.get().subscribe(lastPost => this.lastPost = lastPost);
   }
 }

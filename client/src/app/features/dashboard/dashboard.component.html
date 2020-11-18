@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <mat-card fxFlex="60" *ngIf="!lastPost.responseCode">
     <mat-card-content class="progress">
-      <mat-progress-bar color="primary" mode="indeterminate" value="50" bufferValue="75"></mat-progress-bar>
+      <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
     </mat-card-content>
   </mat-card>
   <mat-card *ngIf="lastPost.responseCode">

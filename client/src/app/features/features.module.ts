@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [ DashboardComponent ],
+  declarations: [DashboardComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -16,6 +16,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatCardModule,
     MatProgressBarModule,
   ],
-  exports: [ DashboardComponent ],
+  exports: [DashboardComponent],
 })
 export class FeaturesModule { }

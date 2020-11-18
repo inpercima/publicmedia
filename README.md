@@ -11,13 +11,13 @@ A tool used to get public data from an instagram account without permission.
 
 This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.0.1.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.1.0.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 10.1.4` or higher
+* `angular-cli 11.0.1` or higher
 
 ### Apache and php
 
@@ -26,8 +26,8 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Node, npm or yarn
 
-* `node 12.16.1` or higher in combination with
-  * `npm 6.13.4` or higher or
+* `node 12.19.0` or higher in combination with
+  * `npm 6.14.8` or higher or
   * `yarn 1.22.5` or higher, used in this repository
 
 ## Dependency check
@@ -36,7 +36,6 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 | library    | current version | wanted version | reason |
 | ---------- | --------------- | -------------- | ------ |
-| zone.js | 0.10.3 | 0.11.1 | "@angular/core@10.1.4" has incorrect peer dependency "zone.js@~0.10.3" |
 | copy-webpack-plugin | 4.6.0 | 6.2.0 | "copy-webpack-plugin@6.2.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0" |
 
 ## Getting started
