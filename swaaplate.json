@@ -21,8 +21,8 @@
         "name": "Marcel Jänicke",
         "email": "inpercima@gmail.com"
       }],
-      "homepage": "http://publicmedia.inpercima.net",
-      "repository": "https://github.com/inpercima/publicmedia"
+      "homepage": "http://publicmedia.inpercima.net/",
+      "repository": "https://github.com/inpercima/publicmedia/"
     },
     "prefix": "pm",
     "theme": "indigo-pink",

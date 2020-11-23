@@ -36,7 +36,7 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 | library             | current version | wanted version | reason |
 | ------------------- | --------------- | -------------- | ------ |
-| copy-webpack-plugin | 4.6.0           | 6.2.0          | copy-webpack-plugin@6.2.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0" |
+| copy-webpack-plugin | 4.6.0           | 6.3.2          | copy-webpack-plugin@6.3.2" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0" |
 | typescript          | 4.0.5           | 4.1.2          | @angular-devkit/build-angular@0.1100.2" has incorrect peer dependency "typescript@~4.0.0" |
 | zone.js             | 0.10.3          | 0.11.3         | @angular/core@11.0.2" has incorrect peer dependency "zone.js@~0.10.3" |
 
@@ -44,7 +44,7 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 ```bash
 # clone project
-git clone https://github.com/inpercima/publicmedia
+git clone https://github.com/inpercima/publicmedia/
 cd publicmedia
 ```
 
