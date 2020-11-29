@@ -17,7 +17,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `angular-cli 11.0.1` or higher
+* `angular-cli 11.0.2` or higher
 
 ### Apache and php
 

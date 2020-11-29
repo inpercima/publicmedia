@@ -8,13 +8,13 @@
   ],
   "dependencies": {
     "@angular/animations": "11.0.2",
-    "@angular/cdk": "11.0.0",
+    "@angular/cdk": "11.0.1",
     "@angular/common": "11.0.2",
     "@angular/compiler": "11.0.2",
     "@angular/core": "11.0.2",
     "@angular/flex-layout": "11.0.0-beta.33",
     "@angular/forms": "11.0.2",
-    "@angular/material": "11.0.0",
+    "@angular/material": "11.0.1",
     "@angular/platform-browser": "11.0.2",
     "@angular/platform-browser-dynamic": "11.0.2",
     "rxjs": "6.6.3",
@@ -29,7 +29,7 @@
     "@angular/cli": "11.0.2",
     "@angular/compiler-cli": "11.0.2",
     "@types/jasmine": "3.6.2",
-    "@types/node": "14.14.9",
+    "@types/node": "14.14.10",
     "codelyzer": "6.0.1",
     "copy-webpack-plugin": "4.6.0",
     "jasmine-core": "3.6.0",
@@ -47,11 +47,11 @@
   "engines": {
     "node": ">=12.19.0"
   },
-  "homepage": "http://publicmedia.inpercima.net",
+  "homepage": "http://publicmedia.inpercima.net/",
   "license": "MIT",
   "name": "publicmedia",
   "private": true,
-  "repository": "https://github.com/inpercima/publicmedia",
+  "repository": "https://github.com/inpercima/publicmedia/",
   "scripts": {
     "build:dev": "export NODE_ENV='dev' && ng lint && ng build --configuration=dev",
     "serve:dev": "ng serve -o --configuration=dev",
