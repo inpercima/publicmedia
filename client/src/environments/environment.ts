@@ -10,6 +10,7 @@ export const environment = {
   production: false,
   theme: 'indigo-pink',
   userId: '25025320',
+  username: 'instagram',
 };
 
 /*

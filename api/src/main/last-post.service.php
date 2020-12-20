@@ -1,6 +1,4 @@
 <?php
-$mode = strpos($_SERVER['SERVER_NAME'], 'localhost') ? 'dev' : 'prod';
-require_once "config.${mode}.php";
 
 class LastPostService {
 
@@ -11,17 +9,16 @@ class LastPostService {
    */
   public function __construct() {}
 
-  public function getLastPost() {
-    return json_encode($this->getLastPostByUserId(Config::USER_ID));
-  }
-
   /**
    * Get the last post converted from an instagram item by username.
    *
-   * @param string $username the instagram username
+   * @param integer $username the instagram username
    */
-  private function getLastPostByUsername($username) {
-    return $this->createPost($this->getLastItem($this->listLastItems($username)));
+  public function getLastPostByParamA($username) {
+    $url = "https://www.instagram.com/$username/?__a=1";
+    $content = file_get_contents($url);
+    $this->responseCode = end(preg_grep("/HTTP\/\d.\d (\d+)/", $http_response_header));
+    return json_encode($this->createPost($this->getLastItem(json_decode($content)->graphql->user->edge_owner_to_timeline_media->edges)));
   }
 
   /**
@@ -29,35 +26,12 @@ class LastPostService {
    *
    * @param integer $userId the instagram user id
    */
-  private function getLastPostByUserId($userId) {
-    return $this->createPost($this->getLastItem($this->listLastItemsByUserId($userId)));
-  }
-
-  /**
-   * Load data from public instagram account.
-   *
-   * @param string $username the instagram username
-   * @return object instagram items
-   */
-  private function listLastItems($username) {
-    $content = file_get_contents('https://www.instagram.com/' . $username);
-    preg_match('/_sharedData = ({.*);<\/script>/', $content, $matches);
-    $this->responseCode = end(preg_grep("/HTTP\/\d.\d (\d+)/", $http_response_header));
-    return json_decode($matches[1])->entry_data->ProfilePage[0]->graphql->user->edge_owner_to_timeline_media->edges;
-  }
-
-  /**
-   * Load data from public instagram account.
-   *
-   * @param integer $userId the instagram user id
-   * @return object instagram items
-   */
-  private function listLastItemsByUserId($userId) {
+  public function getLastPostByGraphQl($userId) {
     $url = "https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b";
     $variables = "&variables={\"id\":\"$userId\",\"first\":\"50\"}";
     $content = file_get_contents($url.$variables);
     $this->responseCode = end(preg_grep("/HTTP\/\d.\d (\d+)/", $http_response_header));
-    return json_decode($content)->data->user->edge_owner_to_timeline_media->edges;
+    return json_encode($this->createPost($this->getLastItem(json_decode($content)->data->user->edge_owner_to_timeline_media->edges)));
   }
 
   /**
@@ -85,6 +59,5 @@ class LastPostService {
       'responseCode' => $this->responseCode
     );
   }
-
 }
 ?>

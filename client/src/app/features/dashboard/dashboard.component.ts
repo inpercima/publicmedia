@@ -10,12 +10,13 @@ import { LastPostService } from './last-post.service';
 })
 export class DashboardComponent implements OnInit {
 
-  lastPost = {} as LastPost;
+  lastPostParamA = {} as LastPost;
+  lastPostGraphQl = {} as LastPost;
 
   constructor(private lastPostService: LastPostService) {}
 
   ngOnInit(): void {
-    this.lastPost = {} as LastPost;
-    this.lastPostService.get().subscribe(lastPost => this.lastPost = lastPost);
+    this.lastPostService.getLastPostByParamAOnClient().subscribe(lastPost => this.lastPostParamA = lastPost);
+    this.lastPostService.getLastPostByGraphQlOnClient().subscribe(lastPost => this.lastPostGraphQl = lastPost);
   }
 }

@@ -21,10 +21,18 @@ cp src/main/config.default.php src/main/config.prod.php
 ### Table of contents
 
 * [USER_ID](#USERID)
+* [USERNAME](#USERNAME)
 
 ### `USER_ID`
 
 Defines the user id to check against instagram.
 
 * default: `25025320`
+* type: `string`
+
+### `USERNAME`
+
+Defines the user name to check against instagram.
+
+* default: `instagram`
 * type: `string`
