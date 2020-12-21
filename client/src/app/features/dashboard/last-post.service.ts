@@ -44,6 +44,7 @@ export class LastPostService {
     const lastPost = {} as LastPost;
     lastPost.id = item.id;
     lastPost.picture = item.display_url;
+    lastPost.video = item.is_video ? item.video_url : null;
     lastPost.likes = item.edge_media_preview_like.count;
     lastPost.date = new Date(item.taken_at_timestamp * 1000);
     lastPost.responseCode = '200';

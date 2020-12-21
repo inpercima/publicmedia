@@ -13,4 +13,6 @@ export interface LastPost {
   username: string;
 
   userId: number;
+
+  video: string;
 }

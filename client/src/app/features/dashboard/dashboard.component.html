@@ -10,55 +10,5 @@
     </mat-card-content>
   </mat-card>
 </div>
-<div fxLayout="row" fxLayoutAlign="center">
-  <mat-card fxFlex="60" *ngIf="!lastPostParamA.responseCode">
-    <mat-card-header>
-      <mat-card-title>
-        Using: https://instagram.com/username/?__a=1
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="progress">
-      <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
-    </mat-card-content>
-  </mat-card>
-  <mat-card *ngIf="lastPostParamA.responseCode">
-    <mat-card-header>
-      <mat-card-title *ngIf="lastPostParamA.responseCode.includes('200')">
-        Using: https://instagram.com/username/?__a=1
-        <br>
-        date: {{ lastPostParamA.date | date: 'shortDate' }} | likes: {{ lastPostParamA.likes }}
-      </mat-card-title>
-      <mat-card-title *ngIf="!lastPostParamA.responseCode.includes('200')">
-        Please try again later. There are currently some errors.<br />
-        Response code: {{ lastPostParamA.responseCode }}.
-      </mat-card-title>
-    </mat-card-header>
-    <img *ngIf="lastPostParamA.responseCode.includes('200')" mat-card-image src="{{ lastPostParamA.picture }}">
-  </mat-card>
-</div>
-<div fxLayout="row" fxLayoutAlign="center">
-  <mat-card fxFlex="60" *ngIf="!lastPostGraphQl.responseCode">
-    <mat-card-header>
-      <mat-card-title>
-        Using: https://www.instagram.com/graphql
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="progress">
-      <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
-    </mat-card-content>
-  </mat-card>
-  <mat-card *ngIf="lastPostGraphQl.responseCode">
-    <mat-card-header>
-      <mat-card-title *ngIf="lastPostGraphQl.responseCode.includes('200')">
-        Using: https://www.instagram.com/graphql
-        <br>
-        date: {{ lastPostGraphQl.date | date: 'shortDate' }} | likes: {{ lastPostGraphQl.likes }}
-      </mat-card-title>
-      <mat-card-title *ngIf="!lastPostGraphQl.responseCode.includes('200')">
-        Please try again later. There are currently some errors.<br />
-        Response code: {{ lastPostGraphQl.responseCode }}.
-      </mat-card-title>
-    </mat-card-header>
-    <img *ngIf="lastPostGraphQl.responseCode.includes('200')" mat-card-image src="{{lastPostGraphQl.picture}}">
-  </mat-card>
-</div>
+<pm-dashboard-card [lastPost]="lastPostParamA" usingType="https://instagram.com/username/?__a=1"></pm-dashboard-card>
+<pm-dashboard-card [lastPost]="lastPostGraphQl" usingType="https://www.instagram.com/graphql"></pm-dashboard-card>

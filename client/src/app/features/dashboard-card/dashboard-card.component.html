@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="60" *ngIf="!lastPost.responseCode">
+    <mat-card-header>
+      <mat-card-title>
+        Using: {{ usingType }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="progress">
+      <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="lastPost.responseCode">
+    <mat-card-header>
+      <mat-card-title *ngIf="lastPost.responseCode.includes('200')">
+        Using: {{ usingType }}
+        <br>
+        date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
+      </mat-card-title>
+      <mat-card-title *ngIf="!lastPost.responseCode.includes('200')">
+        Please try again later. There are currently some errors.<br />
+        Response code: {{ lastPost.responseCode }}.
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="lastPost.responseCode.includes('200')">
+      <video *ngIf="lastPost.video" src="{{ lastPost.video }}" poster="{{ lastPost.picture }}"></video>
+      <img *ngIf="!lastPost.video" src="{{ lastPost.picture }}">
+    </mat-card-content>
+  </mat-card>
+</div>
