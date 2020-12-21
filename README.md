@@ -65,4 +65,4 @@ cd publicmedia
 
 For the client check [publicmedia - client](./client).
 
-For the server check [publicmedia - server](./server).
+For the server check [publicmedia - api](./api).
