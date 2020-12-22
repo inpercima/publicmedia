@@ -25,19 +25,15 @@ export class LastPostService {
   getLastPostByParamAOnClient(): Observable<LastPost> {
     const url = `https://www.instagram.com/${environment.username}/?__a=1`;
     return this.http.get(url).pipe(
-      map((response: any) => this.createPost(this.getLastItem(response.graphql.user.edge_owner_to_timeline_media.edges))),
+      map((response: any) => this.createPost(response.graphql.user.edge_owner_to_timeline_media.edges[0].node)),
     );
   }
 
   getLastPostByGraphQlOnClient(): Observable<LastPost> {
     const url = 'https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b';
     return this.http.get(`${url}&variables={"id": "${environment.userId}", "first": "50"}`).pipe(
-      map((response: any) => this.createPost(this.getLastItem(response.data.user.edge_owner_to_timeline_media.edges))),
+      map((response: any) => this.createPost(response.data.user.edge_owner_to_timeline_media.edges[0].node)),
     );
-  }
-
-  private getLastItem(items: any): any {
-    return items[0].node;
   }
 
   private createPost(item: any): LastPost {

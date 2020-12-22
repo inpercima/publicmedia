@@ -11,4 +11,8 @@ export class DashboardCardComponent {
   @Input() usingType!: string;
 
   constructor() { }
+
+  isSuccess(): boolean {
+    return this.lastPost.responseCode !== undefined && this.lastPost.responseCode.includes('200');
+  }
 }
