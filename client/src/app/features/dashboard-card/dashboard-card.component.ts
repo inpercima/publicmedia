@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LastPost } from '../dashboard/last-post';
+import { Post } from '../dashboard/post';
 
 @Component({
   selector: 'pm-dashboard-card',
@@ -7,12 +7,12 @@ import { LastPost } from '../dashboard/last-post';
 })
 export class DashboardCardComponent {
 
-  @Input() lastPost!: LastPost;
+  @Input() lastPost!: Post;
   @Input() usingType!: string;
 
   constructor() { }
 
   isSuccess(): boolean {
-    return this.lastPost.responseCode !== undefined && this.lastPost.responseCode.includes('200');
+    return this.lastPost.responseCode !== undefined && this.lastPost.responseCode === 200;
   }
 }

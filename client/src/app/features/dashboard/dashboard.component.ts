@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LastPost } from './last-post';
+import { Post } from './post';
 import { LastPostService } from './last-post.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { LastPostService } from './last-post.service';
 })
 export class DashboardComponent implements OnInit {
 
-  lastPostParamA = {} as LastPost;
-  lastPostGraphQl = {} as LastPost;
+  lastPostParamA = {} as Post;
+  lastPostGraphQl = {} as Post;
 
   source!: string;
 
@@ -23,8 +23,8 @@ export class DashboardComponent implements OnInit {
   }
 
   changeSource(): void {
-    this.lastPostParamA = {} as LastPost;
-    this.lastPostGraphQl = {} as LastPost;
+    this.lastPostParamA = {} as Post;
+    this.lastPostGraphQl = {} as Post;
     this.load();
   }
 
