@@ -8,7 +8,7 @@ export interface Post {
 
   picture: string;
 
-  responseCode: number;
+  responseCode: string;
 
   video: string;
 }

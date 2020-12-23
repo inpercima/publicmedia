@@ -58,6 +58,7 @@ class LastPostService {
     return array(
       'id' => $item->id,
       'picture' => $item->display_url,
+      'video' => $item->is_video ? $item->video_url : null,
       'likes' => $item->edge_media_preview_like->count,
       'date' => $item->taken_at_timestamp * 1000,
       'responseCode' => $this->responseCode
