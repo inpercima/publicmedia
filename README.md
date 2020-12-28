@@ -47,9 +47,9 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 | library             | current version | wanted version | reason |
 | ------------------- | --------------- | -------------- | ------ |
-| copy-webpack-plugin | 4.6.0           | 7.0.0          | copy-webpack-plugin@7.0.0" has unmet peer dependency "webpack@^5.1.0" |
-| typescript          | 4.0.5           | 4.1.3          | @angular-devkit/build-angular@0.1100.5" has incorrect peer dependency "typescript@~4.0.0" |
-| zone.js             | 0.10.3          | 0.11.3         | @angular/core@11.0.5" has incorrect peer dependency "zone.js@~0.10.3" |
+| copy-webpack-plugin | 4.6.0           | 7.0.0          | "copy-webpack-plugin@7.0.0" has unmet peer dependency "webpack@^5.1.0" |
+| typescript          | 4.0.5           | 4.1.3          | "@angular-devkit/build-angular@0.1100.5" has incorrect peer dependency "typescript@~4.0.0" |
+| zone.js             | 0.10.3          | 0.11.3         | "@angular/core@11.0.5" has incorrect peer dependency "zone.js@~0.10.3" |
 
 ## Getting started
 
