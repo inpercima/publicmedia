@@ -37,7 +37,6 @@ export class LastPostService {
   }
 
   private createPost(item: any, status: string): Post {
-    console.log(status);
     const lastPost = {} as Post;
     lastPost.id = item.id;
     lastPost.picture = item.display_url;
