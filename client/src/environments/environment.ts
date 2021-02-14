@@ -4,7 +4,6 @@
 
 export const environment = {
   api: './api/',
-  apiSuffix: '',
   appname: 'publicmedia',
   defaultRoute: 'dashboard',
   production: false,

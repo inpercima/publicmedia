@@ -24,6 +24,8 @@ import { DashboardCardComponent } from './dashboard-card/dashboard-card.componen
     MatSelectModule,
     MatProgressBarModule,
   ],
-  exports: [DashboardComponent],
+  exports: [
+    DashboardComponent,
+  ],
 })
 export class FeaturesModule { }

@@ -7,9 +7,9 @@ module.exports = (config, options) => {
   const invertedMode = process.env.NODE_ENV === 'prod' ? 'dev' : 'prod';
   config.plugins.push(
     new CopyWebpackPlugin([{
-      from: '../api/src/main',
+      from: '../api',
       to: './api',
-      ignore: ['config.default.php', `config.${invertedMode}.php`],
+      ignore: ['config.default.php', `config.${invertedMode}.php`, 'README.md'],
     }])
   );
   return config;
