@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule } from '@angular/material/card';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -8,7 +10,13 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [
+        DashboardComponent,
+      ],
+      imports: [
+        HttpClientTestingModule,
+        MatCardModule,
+      ],
     })
     .compileComponents();
   });
