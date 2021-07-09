@@ -74,8 +74,6 @@ Change for prodMode the option `production` to `true`.
 * [defaultRoute](#defaultRoute)
 * [production](#production)
 * [theme](#theme)
-* [userId](#userId)
-* [username](#username)
 
 ### `api`
 
@@ -115,17 +113,3 @@ Name of a build-in theme from angular-material or a custom light or dark theme.
 * values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`/`custom-light`/`custom-dark`
 
 To create a custom light or dark theme just edit the colors and themes in `themes.scss`.
-
-### `userId`
-
-Defines the user id to check against instagram.
-
-* default: `25025320`
-* type: `string`
-
-### `username`
-
-Defines the user name to check against instagram.
-
-* default: `instagram`
-* type: `string`

@@ -15,6 +15,9 @@ import { DashboardCardComponent } from './dashboard-card/dashboard-card.componen
     DashboardComponent,
     DashboardCardComponent,
   ],
+  exports: [
+    DashboardComponent,
+  ],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -23,9 +26,6 @@ import { DashboardCardComponent } from './dashboard-card/dashboard-card.componen
     MatCardModule,
     MatSelectModule,
     MatProgressBarModule,
-  ],
-  exports: [
-    DashboardComponent,
   ],
 })
 export class FeaturesModule { }
