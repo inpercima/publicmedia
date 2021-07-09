@@ -1,6 +1,14 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <mat-card fxFlex="60">
     <mat-card-content>
+      The goal is to get public user data like photos and videos from instagram without a login.
+      Currently there is no option available.
+    </mat-card-content>
+  </mat-card>
+</div>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-card fxFlex="60">
+    <mat-card-content>
       <mat-form-field fxFlex>
         <mat-select [(ngModel)]="source" placeholder="Change source" (selectionChange)="changeSource()">
           <mat-option value="client" selected>client</mat-option>
