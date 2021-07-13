@@ -13,6 +13,7 @@ export class DashboardCardComponent {
   constructor() { }
 
   isSuccess(): boolean {
-    return this.lastPost.responseCode !== undefined && this.lastPost.responseCode.includes('200');
+    const code = this.lastPost.responseCode ?? undefined;
+    return code !== undefined && code.includes('200');
   }
 }

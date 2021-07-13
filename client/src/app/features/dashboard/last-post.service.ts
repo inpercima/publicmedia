@@ -94,9 +94,8 @@ export class LastPostService {
     lastPost.video = item.is_video ? item.video_url : null;
     lastPost.likes = item.edge_media_preview_like.count;
     lastPost.date = new Date(item.taken_at_timestamp * 1000);
-    if (status === 'ok' || (status === undefined && item !== undefined)) {
-      lastPost.responseCode = 'HTTP/1.1 200 OK';
-    }
+    let code = status ?? undefined;
+    lastPost.responseCode = ((code && code === 'ok') || (code === undefined && item !== undefined)) ? 'HTTP/1.1 200 OK' : '';
     return lastPost;
   }
 }

@@ -3,13 +3,15 @@
     <mat-card-header>
       <mat-card-title>
         Using: {{ usingType }}
+        <br>
         <span *ngIf="lastPost.responseCode">
           <span *ngIf="isSuccess()">
             <br>
             date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
           </span>
           <span *ngIf="!isSuccess()">
-            Please try again later. There are currently some errors.<br />
+            <br>
+            Please try again later. There are currently some errors.<br>
             Response code: {{ lastPost.responseCode }}.
           </span>
         </span>
