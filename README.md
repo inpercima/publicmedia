@@ -10,15 +10,14 @@ A tool used to get public data from an instagram account without permission.
 * Between December 2017 and April 2018
   * [https://www.instagram.com/username/?__a=1](https://www.instagram.com/instagram/?__a=1)
   * just get last 12 items
-  * no longer works - redirected to login page
+  * still works in some cases but to many request will be blocked for some minutes
 * Between April 2018 and August 2019
   * check [https://www.instagram.com/username/](https://www.instagram.com/instagram/)
   * get data from inline javascript
   * no longer works - obfuscated code
 * After August 2019
   * check [https://www.instagram.com/graphql/query/?query_hash=...](https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"})
-  * no longer works - on webspace
-  * still works - on localhost but to many request will be blocked for some minutes
+  * still works in some cases but to many request will be blocked for some minutes
 
 This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
