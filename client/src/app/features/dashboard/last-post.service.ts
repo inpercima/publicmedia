@@ -20,41 +20,41 @@ export class LastPostService {
     let result!: Observable<Post>;
     switch (type) {
       case '1':
-        result = source == 'client' ? this.getByPathMediaClientside(username) : this.getByPathMediaServerside(username);
+        this.usingType = `https://www.instagram.com/${username}/media`;
+        result = source == 'client' ? this.getByPathMediaClientside() : this.getByPathMediaServerside(username);
         break;
       case '2':
-        result = source == 'client' ? this.getByParamAClientside(username) : this.getByParamAServerside(username);
+        this.usingType = `https://www.instagram.com/${username}/?__a=1`;
+        result = source == 'client' ? this.getByParamAClientside() : this.getByParamAServerside(username);
         break;
       case '3':
-        result = source == 'client' ? this.getByInlineScriptClientside(username) : this.getByInlineScriptServerside(username);
+        this.usingType = `https://www.instagram.com/${username}`;
+        result = source == 'client' ? this.getByInlineScriptClientside() : this.getByInlineScriptServerside(username);
         break;
       default:
-        result = source == 'client' ? this.getByGraphQlClientside(userId) : this.getByGraphQlServerside(userId);
+        const url = 'https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b';
+        const params = `&variables={"id": "${userId}", "first": "50"}`;
+        this.usingType = url + params;
+        result = source == 'client' ? this.getByGraphQlClientside() : this.getByGraphQlServerside(userId);
         break;
     }
     return result;
   }
 
-  getByPathMediaClientside(username: string): Observable<Post> {
-    const url = `https://www.instagram.com/${username}/media`;
-    this.usingType = url;
-    return this.http.get(url).pipe(
+  getByPathMediaClientside(): Observable<Post> {
+    return this.http.get(this.usingType).pipe(
       map((response: any) => this.createPost(response.graphql.user.edge_owner_to_timeline_media.edges[0].node, response.status)),
     );
   }
 
-  getByParamAClientside(username: string): Observable<Post> {
-    const url = `https://www.instagram.com/${username}/?__a=1`;
-    this.usingType = url;
-    return this.http.get(url).pipe(
+  getByParamAClientside(): Observable<Post> {
+    return this.http.get(this.usingType).pipe(
       map((response: any) => this.createPost(response.graphql.user.edge_owner_to_timeline_media.edges[0].node, response.status)),
     );
   }
 
-  getByInlineScriptClientside(username: string): Observable<Post> {
-    const url = `https://www.instagram.com/${username}`;
-    this.usingType = url;
-    return this.http.get(url).pipe(
+  getByInlineScriptClientside(): Observable<Post> {
+    return this.http.get(this.usingType).pipe(
       map((response: any) => {
         const jsonObject = response.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1);
         return this.createPost(jsonObject.graphql.user.edge_owner_to_timeline_media.edges[0].node, jsonObject.status);
@@ -62,11 +62,8 @@ export class LastPostService {
     );
   }
 
-  getByGraphQlClientside(userId: string): Observable<Post> {
-    const url = 'https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b';
-    const params = `&variables={"id": "${userId}", "first": "50"}`;
-    this.usingType = url + params;
-    return this.http.get(`${url}${params}`).pipe(
+  getByGraphQlClientside(): Observable<Post> {
+    return this.http.get(this.usingType).pipe(
       map((response: any) => this.createPost(response.data.user.edge_owner_to_timeline_media.edges[0].node, response.status)),
     );
   }
