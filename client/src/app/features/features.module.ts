@@ -5,13 +5,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
 import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    DashboardCardComponent,
   ],
   exports: [
     DashboardComponent,

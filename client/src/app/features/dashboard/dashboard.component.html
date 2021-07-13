@@ -1,83 +1,110 @@
-<mat-stepper #stepper>
-  <mat-step>
-    <ng-template matStepLabel>Overview</ng-template>
-    <div fxLayout="row" fxLayoutAlign="center">
-      <mat-card fxFlex="60">
-        <mat-card-content>
-          <h3>General</h3>
-          <p>
-            The goal of this application is to get the public content such as pictures and videos from an Instagram user
-            without being logged on.
-            Currently there is no really option available but try these common options.
-          </p>
-          <h3>Before December 2017</h3>
-          <ul>
-            <li>check <a href="https://www.instagram.com/instagram/media">https://www.instagram.com/username/media</a></li>
-            <li>no longer works - page not found</li>
-          </ul>
-          <h3>Between December 2017 and April 2018</h3>
-          <ul>
-            <li>check <a href="https://www.instagram.com/instagram/?__a=1">https://www.instagram.com/username/?__a=1</a></li>
-            <li>just get last 12 items</li>
-            <li>no longer works - redirected to login page</li>
-          </ul>
-          <h3>Between April 2018 and August 2019</h3>
-          <ul>
-            <li>check <a href="https://www.instagram.com/instagram/">https://www.instagram.com/username/</a></li>
-            <li>grab data from inline javascript</li>
-            <li>no longer works - obfuscated code</li>
-          </ul>
-          <h3>After August 2019</h3>
-          <ul>
-            <li>
-              check
-              <a href='https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"}'>
-                https://www.instagram.com/graphql/query/?query_hash=...
-              </a>
-            </li>
-            <li>no longer works - on webspace</li>
-            <li>still works - on localhost but to many request will be blocked for some minutes</li>
-          </ul>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </mat-step>
-  <mat-step>
-    <form [formGroup]="form">
-      <ng-template matStepLabel>Options</ng-template>
-      <div fxLayout="row" fxLayoutAlign="center">
-        <mat-card fxFlex="60">
-          <mat-card-content fxLayout="row">
-            <mat-form-field fxFlex>
-              <mat-select formControlName="type" placeholder="Type" (selectionChange)="changeType()">
-                <mat-option value="1">Media link</mat-option>
-                <mat-option value="2">Param link</mat-option>
-                <mat-option value="3">Inline javascript</mat-option>
-                <mat-option value="4">GraphQL</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field fxFlexOffset="2" fxFlex>
-              <mat-select formControlName="source" placeholder="Source">
-                <mat-option value="client">Client</mat-option>
-                <mat-option value="server">Server</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field fxFlexOffset="2" fxFlex>
-              <input type="text" matInput formControlName="userId" placeholder="User ID">
-            </mat-form-field>
-            <mat-form-field fxFlexOffset="2" fxFlex>
-              <input type="text" matInput formControlName="username" placeholder="Username">
-            </mat-form-field>
-          </mat-card-content>
-        </mat-card>
+<div fxLayout="row" fxLayoutAlign="center">
+  <mat-accordion fxFlex="60">
+    <mat-expansion-panel expanded="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title fxFlex="30">Overview</mat-panel-title>
+        <mat-panel-description fxFlex>
+          Description of this app
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h3>General</h3>
+      <p>
+        The goal of this application is to get the public content such as pictures and videos from an Instagram user
+        without being logged on.
+        Currently there is no really option available but try these common options.
+      </p>
+      <h3>Before December 2017</h3>
+      <ul>
+        <li>check <a href="https://www.instagram.com/instagram/media">https://www.instagram.com/username/media</a></li>
+        <li>no longer works - page not found</li>
+      </ul>
+      <h3>Between December 2017 and April 2018</h3>
+      <ul>
+        <li>check <a href="https://www.instagram.com/instagram/?__a=1">https://www.instagram.com/username/?__a=1</a></li>
+        <li>just get last 12 items</li>
+        <li>no longer works - redirected to login page</li>
+      </ul>
+      <h3>Between April 2018 and August 2019</h3>
+      <ul>
+        <li>check <a href="https://www.instagram.com/instagram/">https://www.instagram.com/username/</a></li>
+        <li>grab data from inline javascript</li>
+        <li>no longer works - obfuscated code</li>
+      </ul>
+      <h3>After August 2019</h3>
+      <ul>
+        <li>
+          check
+          <a href='https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"}'>
+            https://www.instagram.com/graphql/query/?query_hash=...
+          </a>
+        </li>
+        <li>no longer works - on webspace</li>
+        <li>still works - on localhost but to many request will be blocked for some minutes</li>
+      </ul>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title fxFlex="30">Options</mat-panel-title>
+        <mat-panel-description fxFlex>
+          Settings for this app
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="form" novalidate>
+        <div fxLayout="row">
+          <mat-form-field fxFlex>
+            <mat-select formControlName="type" placeholder="Type" (selectionChange)="changeType()">
+              <mat-option value="1">Media link</mat-option>
+              <mat-option value="2">Param link</mat-option>
+              <mat-option value="3">Inline javascript</mat-option>
+              <mat-option value="4">GraphQL</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlexOffset="2" fxFlex>
+            <mat-select formControlName="source" placeholder="Source">
+              <mat-option value="client">Client</mat-option>
+              <mat-option value="server">Server</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlexOffset="2" fxFlex>
+            <input type="text" matInput formControlName="userId" placeholder="User ID">
+          </mat-form-field>
+          <mat-form-field fxFlexOffset="2" fxFlex>
+            <input type="text" matInput formControlName="username" placeholder="Username">
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title fxFlex="30">Operate</mat-panel-title>
+        <mat-panel-description fxFlex>
+          Run this app with previous options
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row">
+        <button fxFlex mat-raised-button color="primary" (click)="run()">RUN/UPDATE</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Operations</ng-template>
-    <div fxLayout="row" fxLayoutAlign="center">
-      <button fxFlex="60" mat-raised-button color="primary" (click)="run()">Run</button>
-    </div>
-    <pm-dashboard-card *ngIf="lastPostService.usingType" [lastPost]="lastPost" [usingType]="lastPostService.usingType"></pm-dashboard-card>
-  </mat-step>
-</mat-stepper>
+      <div *ngIf="lastPostService.usingType">
+        <p>
+          Type: {{ lastPostService.usingType }}
+          <br>
+          Source: {{ form.value.source }}
+        </p>
+        <p *ngIf="lastPost.responseCode">
+          <span *ngIf="isSuccess()">
+            date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
+          </span>
+          <span *ngIf="!isSuccess()">
+            Please try again later. There are currently some errors.<br>
+            Response code: {{ lastPost.responseCode }}.
+          </span>
+        </p>
+        <p>
+          <mat-progress-bar *ngIf="!lastPost.responseCode" color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+          <video *ngIf="isSuccess() && lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
+          <img *ngIf="isSuccess() && !lastPost.video" src="{{ lastPost.picture }}">
+        </p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

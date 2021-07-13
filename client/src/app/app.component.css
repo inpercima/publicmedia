@@ -4,6 +4,6 @@ body {
   overflow-y: scroll;
 }
 
-.mat-card {
+.mat-accordion {
   margin-top: 20px;
 }

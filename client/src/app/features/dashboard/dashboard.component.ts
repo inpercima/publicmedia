@@ -41,4 +41,9 @@ export class DashboardComponent implements OnInit {
     const value = this.form.value;
     this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe(lp => this.lastPost = lp);
   }
+
+  isSuccess(): boolean {
+    const code = this.lastPost.responseCode ?? undefined;
+    return code !== undefined && code.includes('200');
+  }
 }
