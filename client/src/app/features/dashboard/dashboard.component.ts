@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'pm-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
