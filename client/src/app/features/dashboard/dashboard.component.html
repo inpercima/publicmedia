@@ -84,7 +84,7 @@
       <div fxLayout="row">
         <button fxFlex mat-raised-button color="primary" (click)="run()">RUN/UPDATE</button>
       </div>
-      <div *ngIf="lastPostService.usingType">
+      <div fxLayout="column" *ngIf="lastPostService.usingType">
         <p>
           Type: {{ lastPostService.usingType }}
           <br>
