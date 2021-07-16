@@ -2,7 +2,7 @@
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
-A tool used to get public data from an instagram account without permission.
+A tool used to get public data from an Instagram account without permission.
 
 * Before December 2017
   * check [https://www.instagram.com/username/media](https://www.instagram.com/instagram/media)

@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
+  appRunning = false;
+
   lastPost = {} as Post;
 
   form!: FormGroup;
@@ -37,6 +39,7 @@ export class DashboardComponent implements OnInit {
   }
 
   run(): void {
+    this.appRunning = true;
     const value = this.form.value;
     this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe(lp => this.lastPost = lp);
   }
