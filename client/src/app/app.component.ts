@@ -1,5 +1,6 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, TemplateRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 
 import { environment } from '../environments/environment';
@@ -23,9 +24,15 @@ export class AppComponent {
    */
   @HostBinding('class') class = `${environment.theme}-theme`;
 
-  public constructor(private titleService: Title, public overlayContainer: OverlayContainer) {
+  public constructor(private dialog: MatDialog, private titleService: Title, public overlayContainer: OverlayContainer) {
     this.appname = environment.appname;
     this.titleService.setTitle(this.appname);
     this.overlayContainer.getContainerElement().classList.add(`${environment.theme}-theme`);
+  }
+
+  openDialog(ref: TemplateRef<any>): void {
+    this.dialog.open(ref, {
+      maxWidth: "800px",
+    });
   }
 }

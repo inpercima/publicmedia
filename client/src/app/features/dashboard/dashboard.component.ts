@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  run(): void {
+  onSubmit(): void {
     this.appRunning = true;
     const value = this.form.value;
     this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe(lp => this.lastPost = lp);

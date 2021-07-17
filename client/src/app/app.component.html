@@ -1,4 +1,46 @@
-<mat-toolbar color="primary" class="mat-elevation-z4">
+<mat-toolbar fxLayoutAlign="space-between center" color="primary" class="mat-elevation-z4">
   {{ appname }}
+  <button mat-button (click)="openDialog(dialog)">APP INFO</button>
 </mat-toolbar>
+<ng-template #dialog>
+  <mat-dialog-content>
+    <h3>General</h3>
+      <p>
+        The goal of this application is to get the public content such as pictures and videos from an Instagram user
+        without being logged on.
+        Currently there is no really option available but try these common options.
+      </p>
+      <h3>Before December 2017</h3>
+      <ul>
+        <li>check <a href="https://www.instagram.com/instagram/media">https://www.instagram.com/username/media</a></li>
+        <li>no longer works - page not found</li>
+      </ul>
+      <h3>Between December 2017 and April 2018</h3>
+      <ul>
+        <li>check <a href="https://www.instagram.com/instagram/?__a=1">https://www.instagram.com/username/?__a=1</a></li>
+        <li>just get last 12 items</li>
+        <li>no longer works - redirected to login page</li>
+      </ul>
+      <h3>Between April 2018 and August 2019</h3>
+      <ul>
+        <li>check <a href="https://www.instagram.com/instagram/">https://www.instagram.com/username/</a></li>
+        <li>grab data from inline javascript</li>
+        <li>no longer works - obfuscated code</li>
+      </ul>
+      <h3>After August 2019</h3>
+      <ul>
+        <li>
+          check
+          <a href='https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"}'>
+            https://www.instagram.com/graphql/query/?query_hash=...
+          </a>
+        </li>
+        <li>no longer works - on webspace</li>
+        <li>still works - on localhost but to many request will be blocked for some minutes</li>
+      </ul>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+  </mat-dialog-actions>
+</ng-template>
 <pm-dashboard></pm-dashboard>
