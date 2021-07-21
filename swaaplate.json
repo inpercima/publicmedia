@@ -31,7 +31,7 @@
   },
   "general": {
     "author": "Marcel Jänicke",
-    "description": "A tool used to get public data from an instagram account without permission.",
+    "description": "A tool that shows how public data can be accessed from Instagram without an Instagram account.",
     "modRewriteIndex": true,
     "name": "publicmedia",
     "title": "publicmedia",
