@@ -12,8 +12,8 @@ config.prod.php
 
 # end project specific
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,angular,eclipse,intellij+all
+# Created by https://www.toptal.com/developers/gitignore/api/node,eclipse,angular,intellij+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,eclipse,angular,intellij+all
 
 ### Angular ###
 ## Angular ##
@@ -31,6 +31,7 @@ bower_components/
 .idea/
 
 # misc
+/.angular/cache
 .sass-cache/
 connect.lock/
 coverage/
@@ -321,4 +322,14 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all
+### Node Patch ###
+# Serverless Webpack directories
+.webpack/
+
+# Optional stylelint cache
+.stylelintcache
+
+# SvelteKit build / generate output
+.svelte-kit
+
+# End of https://www.toptal.com/developers/gitignore/api/node,eclipse,angular,intellij+all
