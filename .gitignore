@@ -10,6 +10,8 @@ config.prod.php
 
 .classpath
 
+.angular
+
 # end project specific
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,eclipse,angular,intellij+all
@@ -31,7 +33,6 @@ bower_components/
 .idea/
 
 # misc
-/.angular/cache
 .sass-cache/
 connect.lock/
 coverage/
