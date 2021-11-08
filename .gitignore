@@ -14,8 +14,8 @@ config.prod.php
 
 # end project specific
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,eclipse,angular,intellij+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,eclipse,angular,intellij+all
+# Created by https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,angular,eclipse,intellij+all
 
 ### Angular ###
 ## Angular ##
@@ -333,4 +333,4 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# End of https://www.toptal.com/developers/gitignore/api/node,eclipse,angular,intellij+all
+# End of https://www.toptal.com/developers/gitignore/api/node,angular,eclipse,intellij+all
