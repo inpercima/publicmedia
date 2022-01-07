@@ -1,11 +1,11 @@
 <div fxLayout="row" fxLayoutAlign="center">
-  <mat-card fxFlex="60">
+  <mat-card fxFlex="60" fxFlex.lt-lg="80">
     <mat-card-header>
       <mat-card-title>Options and run</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
-        <div fxLayout="row">
+        <div fxLayout="row wrap" fxLayoutGap="20px">
           <mat-form-field fxFlex>
             <mat-select formControlName="type" placeholder="Type" (selectionChange)="changeType()">
               <mat-option value="1">Media link</mat-option>
@@ -14,16 +14,16 @@
               <mat-option value="4">GraphQL</mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field fxFlexOffset="2" fxFlex>
+          <mat-form-field fxFlex>
             <mat-select formControlName="source" placeholder="Source">
               <mat-option value="client">Client</mat-option>
               <mat-option value="server">Server</mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field fxFlexOffset="2" fxFlex>
+          <mat-form-field fxFlex>
             <input type="text" matInput formControlName="userId" placeholder="User ID">
           </mat-form-field>
-          <mat-form-field fxFlexOffset="2" fxFlex>
+          <mat-form-field fxFlex>
             <input type="text" matInput formControlName="username" placeholder="Username">
           </mat-form-field>
         </div>

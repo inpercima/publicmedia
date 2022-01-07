@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2021 Marcel Jänicke
+Copyright (c) 2022 Marcel Jänicke
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
