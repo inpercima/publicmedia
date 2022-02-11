@@ -41,7 +41,7 @@
     "cypress": "9.3.1",
     "eslint": "8.7.0",
     "jasmine-core": "4.0.0",
-    "karma": "6.3.12",
+    "karma": "6.3.14",
     "karma-chrome-launcher": "3.1.0",
     "karma-coverage": "2.1.0",
     "karma-jasmine": "4.0.1",
