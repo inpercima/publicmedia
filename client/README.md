@@ -1,8 +1,5 @@
 # publicmedia - client
 
-[![dependencies Status](https://status.david-dm.org/gh/inpercima/publicmedia.svg?path=client)](https://david-dm.org/inpercima/publicmedia?path=client)
-[![devDependencies Status](https://status.david-dm.org/gh/inpercima/publicmedia.svg?path=client&type=dev)](https://david-dm.org/inpercima/publicmedia?path=client&type=dev)
-
 ## Getting started
 
 ```bash
