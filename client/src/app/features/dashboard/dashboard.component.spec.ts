@@ -1,8 +1,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard.component';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -14,12 +16,13 @@ describe('DashboardComponent', () => {
         DashboardComponent,
       ],
       imports: [
+        BrowserAnimationsModule,
         HttpClientTestingModule,
-        MatCardModule,
+        ReactiveFormsModule,
+        MaterialModule,
       ],
     })
     .compileComponents();
-
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
