@@ -19,9 +19,7 @@ describe('DashboardComponent', () => {
       ],
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

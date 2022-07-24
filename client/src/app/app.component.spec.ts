@@ -30,7 +30,7 @@ describe('AppComponent', () => {
   it('should render toolbar', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('mat-toolbar').textContent).toContain('publicmedia');
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('mat-toolbar')?.textContent).toContain('publicmedia');
   });
 });
