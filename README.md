@@ -23,13 +23,13 @@ Currently there is no really option available but try these common options.
 
 This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.3.7.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.4.0.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 14.1.0` or higher
+* `angular-cli 15.0.2` or higher
 
 ### Apache and php
 
@@ -38,8 +38,8 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Node, npm or yarn
 
-* `node 16.16.0` or higher in combination with
-  * `npm 8.12.2` or higher or
+* `node 18.10.0` or higher in combination with
+  * `npm 8.19.2` or higher or
   * `yarn 1.22.19` or higher, used in this repository
 
 ## Getting started
@@ -54,6 +54,6 @@ cd publicmedia
 
 ### Modules
 
-For the client check [publicmedia - client](./client).
+For the frontend check [publicmedia - frontend](./frontend).
 
-For the server check [publicmedia - api](./api).
+For the backend check [publicmedia - api](./api).
