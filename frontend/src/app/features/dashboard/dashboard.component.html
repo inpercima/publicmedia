@@ -1,61 +1,62 @@
-<div fxLayout="row" fxLayoutAlign="center">
-  <mat-card fxFlex="60" fxFlex.lt-lg="80">
-    <mat-card-header>
-      <mat-card-title>Options and run</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
-        <div fxLayout="row wrap" fxLayoutGap="20px">
-          <mat-form-field fxFlex>
-            <mat-select formControlName="type" placeholder="Type" (selectionChange)="changeType()">
-              <mat-option value="1">Media link</mat-option>
-              <mat-option value="2">Param link</mat-option>
-              <mat-option value="3">Inline javascript</mat-option>
-              <mat-option value="4">GraphQL</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <mat-select formControlName="source" placeholder="Source">
-              <mat-option value="client">Client</mat-option>
-              <mat-option value="server">Server</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input type="text" matInput formControlName="userId" placeholder="User ID">
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input type="text" matInput formControlName="username" placeholder="Username">
-          </mat-form-field>
-        </div>
-        <div fxLayout="row">
-          <button fxFlex mat-raised-button color="primary">RUN/UPDATE</button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
-<div fxLayout="row" fxLayoutAlign="center">
-  <mat-card fxFlex="60" *ngIf="appRunning">
-    <mat-card-content>
-      <p>
-        Type: {{ lastPostService.usingType }}
+<mat-card class="w-7/12 mx-auto">
+  <mat-card-header>
+    <mat-card-title>Options and run</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+      <div class="flex gap-5" >
+        <mat-form-field class="flex-1">
+          <mat-label>Type</mat-label>
+          <mat-select formControlName="type" (selectionChange)="changeType()">
+            <mat-option value="1">Media link</mat-option>
+            <mat-option value="2">Param link</mat-option>
+            <mat-option value="3">Inline javascript</mat-option>
+            <mat-option value="4">GraphQL</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="flex-1">
+          <mat-label>Source</mat-label>
+          <mat-select formControlName="source">
+            <mat-option value="client">Client</mat-option>
+            <mat-option value="server">Server</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="flex-1">
+          <mat-label>User ID</mat-label>
+          <input type="text" matInput formControlName="userId">
+        </mat-form-field>
+        <mat-form-field class="flex-1">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username">
+        </mat-form-field>
+      </div>
+      <div class="flex">
+        <button class="flex-1" mat-raised-button color="primary">RUN/UPDATE</button>
+      </div>
+    </form> 
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="w-7/12 mx-auto" *ngIf="appRunning">
+  <mat-card-content>
+    <p>
+      Type: {{ lastPostService.usingType }}
+      <br>
+      Source: {{ form.value.source }}
+    </p>
+    <p *ngIf="lastPost.responseCode">
+      <ng-template *ngIf="isSuccess(); else noSuccess">
+        date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
         <br>
-        Source: {{ form.value.source }}
-      </p>
-      <p *ngIf="lastPost.responseCode">
-        <ng-template *ngIf="isSuccess(); else noSuccess">
-          date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
-          <br>
-          <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
-          <br>
-          <img *ngIf="!lastPost.video" src="{{ lastPost.picture }}">
-        </ng-template>
-        <ng-template #noSuccess>
-          Please try again later. There are currently some errors.<br>
-          Response code: {{ lastPost.responseCode }}.
-        </ng-template>
-      </p>
-      <mat-progress-bar *ngIf="!lastPost.responseCode" color="primary" mode="indeterminate" value="50"></mat-progress-bar>
-    </mat-card-content>
-  </mat-card>
-</div>
+        <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
+        <br>
+        <img *ngIf="!lastPost.video" src="{{ lastPost.picture }}">
+      </ng-template>
+      <ng-template #noSuccess>
+        Please try again later. There are currently some errors.<br>
+        Response code: {{ lastPost.responseCode }}.
+      </ng-template>
+    </p>
+    <mat-progress-bar *ngIf="!lastPost.responseCode" color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+  </mat-card-content>
+</mat-card>
