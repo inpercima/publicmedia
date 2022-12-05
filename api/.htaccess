@@ -1,4 +1,0 @@
-# Remove the php extension from the filename
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
