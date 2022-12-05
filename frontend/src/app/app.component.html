@@ -1,10 +1,12 @@
-<mat-toolbar color="primary" class="mat-elevation-z4">
-  {{ appname }}
-  <button mat-button (click)="openDialog(dialog)">APP INFO</button>
-</mat-toolbar>
-<ng-template #dialog>
-  <mat-dialog-content>
-    <h3>General</h3>
+<div class="mat-app-background">
+  <mat-toolbar color="primary" class="mat-elevation-z4 justify-between">
+    {{ appname }}
+    <button mat-button (click)="openDialog(dialog)">APP INFO</button>
+  </mat-toolbar>
+  <ng-template #dialog>
+    <h2 mat-dialog-title>Overview</h2>
+    <mat-dialog-content class="mat-typography">
+      <h3>General</h3>
       <p>
         A tool that shows how public data can be accessed from Instagram without an Instagram account.
       </p>
@@ -39,9 +41,10 @@
         <li>no longer works - on webspace</li>
         <li>still works - on localhost but to many request will be blocked for some minutes</li>
       </ul>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
-  </mat-dialog-actions>
-</ng-template>
-<pm-dashboard></pm-dashboard>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+    </mat-dialog-actions>
+  </ng-template>
+  <pm-dashboard></pm-dashboard>  
+</div>
