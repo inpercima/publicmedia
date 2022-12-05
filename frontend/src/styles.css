@@ -2,3 +2,6 @@
 @import 'app/app.component.css';
 @import 'fonts.css';
 @import 'material-icons/iconfont/material-icons.css';
+
+@tailwind components;
+@tailwind utilities;
