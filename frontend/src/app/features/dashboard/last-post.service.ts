@@ -31,12 +31,13 @@ export class LastPostService {
         this.usingType = `https://www.instagram.com/${username}`;
         result = source == 'client' ? this.getByInlineScriptClientside() : this.getByInlineScriptServerside(username);
         break;
-      default:
+      default: {
         const url = 'https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b';
         const params = `&variables={"id": "${userId}", "first": "50"}`;
         this.usingType = url + params;
         result = source == 'client' ? this.getByGraphQlClientside() : this.getByGraphQlServerside(userId);
         break;
+      }
     }
     return result;
   }
@@ -91,7 +92,7 @@ export class LastPostService {
     lastPost.video = item.is_video ? item.video_url : null;
     lastPost.likes = item.edge_media_preview_like.count;
     lastPost.date = new Date(item.taken_at_timestamp * 1000);
-    let code = status ?? undefined;
+    const code = status ?? undefined;
     lastPost.responseCode = ((code && code === 'ok') || (code === undefined && item !== undefined)) ? 'HTTP/1.1 200 OK' : '';
     return lastPost;
   }
