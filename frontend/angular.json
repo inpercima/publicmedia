@@ -17,7 +17,7 @@
       "prefix": "pm",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
@@ -29,16 +29,23 @@
             "assets": [
               "src/.htaccess",
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "ignore": [
+                  "**/config.default.php",
+                  "**/config.dev.php",
+                  "**/README.md"
+                ],
+                "input": "../api/",
+                "output": "/api/"
+              }
             ],
             "styles": [
               "src/styles.css",
               "src/themes.scss"
             ],
-            "scripts": [],
-            "customWebpackConfig": {
-              "path": "./webpack.config.js"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -94,7 +101,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/custom-webpack:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "publicmedia:build:production"

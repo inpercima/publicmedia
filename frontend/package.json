@@ -23,7 +23,6 @@
   },
   "description": "A tool that shows how public data can be accessed from Instagram without an Instagram account.",
   "devDependencies": {
-    "@angular-builders/custom-webpack": "15.0.0-beta.0",
     "@angular-devkit/build-angular": "15.0.2",
     "@angular-eslint/builder": "15.1.0",
     "@angular-eslint/eslint-plugin": "15.1.0",
@@ -37,7 +36,6 @@
     "@typescript-eslint/eslint-plugin": "5.45.0",
     "@typescript-eslint/parser": "5.45.0",
     "autoprefixer": "10.4.13",
-    "copy-webpack-plugin": "11.0.0",
     "cypress": "11.2.0",
     "eslint": "8.28.0",
     "jasmine-core": "4.5.0",
@@ -59,10 +57,10 @@
   "private": true,
   "repository": "https://github.com/inpercima/publicmedia/",
   "scripts": {
-    "build:dev": "export NODE_ENV='dev' && ng lint && ng build --configuration=development",
+    "build:dev": "ng lint && ng build --configuration=development",
     "serve:dev": "ng serve -o --configuration=development",
-    "watch:dev": "export NODE_ENV='dev' && ng build --watch --configuration=development",
-    "build:prod": "export NODE_ENV='prod' && ng lint && ng build"
+    "watch:dev": "ng build --watch --configuration=development",
+    "build:prod": "ng lint && ng build"
   },
   "version": "1.0.0-SNAPSHOT"
 }
