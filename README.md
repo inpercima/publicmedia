@@ -23,7 +23,7 @@ Currently there is no really option available but try these common options.
 
 This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.4.0.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.5.0.
 
 ## Prerequisites
 
