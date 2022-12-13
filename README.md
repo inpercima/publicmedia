@@ -29,7 +29,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `angular-cli 15.0.2` or higher
+* `angular-cli 15.0.3` or higher
 
 ### Apache and php
 
