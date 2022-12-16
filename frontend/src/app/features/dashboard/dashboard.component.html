@@ -4,7 +4,7 @@
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
-      <div class="flex gap-5" >
+      <div class="flex gap-5">
         <mat-form-field class="flex-1">
           <mat-label>Type</mat-label>
           <mat-select formControlName="type" (selectionChange)="changeType()">
