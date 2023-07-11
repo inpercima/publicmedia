@@ -23,23 +23,23 @@ Currently there is no really option available but try these common options.
 
 This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.5.0.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.5.3.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 15.2.4` or higher
+* `@angular/cli 16.1.3` or higher
 
 ### Apache and php
 
 * `Apache 2.4` or higher
-* `php 7.4` or higher
+* `php 8.0` or higher
 
 ### Node, npm or yarn
 
-* `node 18.14.2` or higher in combination with
-  * `npm 9.5.0` or higher or
+* `node 18.16.0` or higher in combination with
+  * `npm 9.5.1` or higher or
   * `yarn 1.22.19` or higher, used in this repository
 
 ## Getting started
