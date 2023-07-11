@@ -1,16 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Post } from './post';
-import { LastPostService } from './last-post.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { DatePipe, NgIf } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
 import { environment } from 'src/environments/environment';
+import { LastPostService } from './last-post.service';
+import { Post } from './post';
 
 @Component({
   selector: 'pm-dashboard',
   templateUrl: './dashboard.component.html',
+  standalone: true,
+  imports: [
+    DatePipe,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    NgIf,
+    ReactiveFormsModule,
+  ],
 })
 export class DashboardComponent implements OnInit {
-
   appRunning = false;
 
   lastPost = {} as Post;
@@ -41,7 +61,7 @@ export class DashboardComponent implements OnInit {
   onSubmit(): void {
     this.appRunning = true;
     const value = this.form.value;
-    this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe(lp => this.lastPost = lp);
+    this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe((lp) => (this.lastPost = lp));
   }
 
   isSuccess(): boolean {
