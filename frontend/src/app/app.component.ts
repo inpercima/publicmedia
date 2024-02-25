@@ -24,7 +24,7 @@ export class AppComponent {
     this.document.body.classList.add(`${environment.theme}-theme`);
   }
 
-  openDialog(ref: TemplateRef<any>): void {
+  openDialog(ref: TemplateRef<Element>): void {
     this.dialog.open(ref, {
       maxWidth: '800px',
     });

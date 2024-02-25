@@ -45,18 +45,21 @@ export class LastPostService {
 
   getByPathMediaClientside(): Observable<Post> {
     return this.http.get(this.usingType).pipe(
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       map((response: any) => this.createPost(response.graphql.user.edge_owner_to_timeline_media.edges[0].node, response.status)),
     );
   }
 
   getByParamAClientside(): Observable<Post> {
     return this.http.get(this.usingType).pipe(
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       map((response: any) => this.createPost(response.graphql.user.edge_owner_to_timeline_media.edges[0].node, response.status)),
     );
   }
 
   getByInlineScriptClientside(): Observable<Post> {
     return this.http.get(this.usingType).pipe(
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       map((response: any) => {
         const jsonObject = response.match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1].slice(0, -1);
         return this.createPost(jsonObject.graphql.user.edge_owner_to_timeline_media.edges[0].node, jsonObject.status);
@@ -66,6 +69,7 @@ export class LastPostService {
 
   getByGraphQlClientside(): Observable<Post> {
     return this.http.get(this.usingType).pipe(
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
       map((response: any) => this.createPost(response.data.user.edge_owner_to_timeline_media.edges[0].node, response.status)),
     );
   }
@@ -86,6 +90,7 @@ export class LastPostService {
     return this.http.get<Post>(`${environment.api}last-post?type=4&userId=${userId}`);
   }
 
+  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
   private createPost(item: any, status: string): Post {
     const lastPost = {} as Post;
     lastPost.id = item.id;

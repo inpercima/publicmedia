@@ -50,7 +50,7 @@
         <br>
         <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
         <br>
-        <img *ngIf="!lastPost.video" src="{{ lastPost.picture }}">
+        <img *ngIf="!lastPost.video" src="{{ lastPost.picture }}" alt="last picture">
       </ng-template>
       <ng-template #noSuccess>
         Please try again later. There are currently some errors.<br>
