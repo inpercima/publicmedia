@@ -32,6 +32,7 @@ export class LastPostService {
         result = source == 'client' ? this.getByInlineScriptClientside() : this.getByInlineScriptServerside(username);
         break;
       default: {
+        // other working query_hash: 56a7068fea504063273cc2120ffd54f3
         const url = 'https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b';
         const params = `&variables={"id": "${userId}", "first": "50"}`;
         this.usingType = url + params;
