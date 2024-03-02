@@ -45,13 +45,13 @@
         <br />
         Source: {{ form.value.source }}
       </p>
-      @if (lastPost.responseCode) {
+      @if (lastPost.responseCode | response) {
         <p>
           @if (isSuccess()) {
             date: {{ lastPost.date | date: "shortDate" }} | likes: {{ lastPost.likes }}
             <br />
             @if (lastPost.video) {
-              <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
+              <video src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
             } @else {
               <br />
               <img src="{{ lastPost.picture }}" alt="last picture" />

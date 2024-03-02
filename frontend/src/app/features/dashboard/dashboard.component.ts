@@ -12,6 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { environment } from 'src/environments/environment';
 import { LastPostService } from './last-post.service';
 import { Post } from './post';
+import { ResponsePipe } from './response.pipe';
 
 @Component({
   selector: 'pm-dashboard',
@@ -27,22 +28,21 @@ import { Post } from './post';
     MatButtonModule,
     MatProgressBarModule,
     ReactiveFormsModule,
+    ResponsePipe,
   ],
 })
 export class DashboardComponent implements OnInit {
   loading = false;
-
   lastPost = {} as Post;
-
   form!: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     public lastPostService: LastPostService,
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    this.form = this.fb.group({
       source: ['client'],
       type: ['4'],
       userId: [{ value: environment.userId, disabled: false }],
@@ -51,23 +51,16 @@ export class DashboardComponent implements OnInit {
   }
 
   changeType(): void {
-    if (this.form.value.type === '4') {
-      this.form.get('userId')?.enable();
-      this.form.get('username')?.disable();
-    } else {
-      this.form.get('userId')?.disable();
-      this.form.get('username')?.enable();
-    }
+    const type = this.form.value.type as number;
+    const fieldEnabled = type === 4 ? 'userId' : 'username';
+    const fieldDisabled = type === 4 ? 'username' : 'userId';
+    this.form.get(fieldEnabled)?.enable();
+    this.form.get(fieldDisabled)?.disable();
   }
 
   onSubmit(): void {
     this.loading = true;
     const value = this.form.value;
     this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe((lp) => (this.lastPost = lp));
-  }
-
-  isSuccess(): boolean {
-    const code = this.lastPost.responseCode ?? undefined;
-    return code !== undefined && code.includes('200');
   }
 }

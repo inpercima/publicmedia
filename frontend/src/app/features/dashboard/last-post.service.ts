@@ -4,17 +4,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Post } from './post';
 import { environment } from 'src/environments/environment';
+import { Post } from './post';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LastPostService {
-
   usingType!: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getLastPost(type: string, source: string, userId: string, username: string): Observable<Post> {
     let result!: Observable<Post>;
@@ -99,7 +98,7 @@ export class LastPostService {
     lastPost.likes = item.edge_media_preview_like.count;
     lastPost.date = new Date(item.taken_at_timestamp * 1000);
     const code = status ?? undefined;
-    lastPost.responseCode = ((code && code === 'ok') || (code === undefined && item !== undefined)) ? 'HTTP/1.1 200 OK' : '';
+    lastPost.responseCode = (code && code === 'ok') || (code === undefined && item !== undefined) ? 'HTTP/1.1 200 OK' : '';
     return lastPost;
   }
 }
