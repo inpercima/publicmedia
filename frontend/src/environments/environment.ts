@@ -1,5 +1,5 @@
 export const environment = {
-  api: './api/',
+  api: './api/rest/',
   appname: 'publicmedia',
   defaultRoute: 'dashboard',
   production: false,

@@ -1,5 +1,4 @@
 export interface Post {
-
   date: Date;
 
   id: number;
