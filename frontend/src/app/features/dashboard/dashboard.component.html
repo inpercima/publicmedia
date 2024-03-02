@@ -23,40 +23,47 @@
         </mat-form-field>
         <mat-form-field class="flex-1">
           <mat-label>User ID</mat-label>
-          <input type="text" matInput formControlName="userId">
+          <input type="text" matInput formControlName="userId" />
         </mat-form-field>
         <mat-form-field class="flex-1">
           <mat-label>Username</mat-label>
-          <input type="text" matInput formControlName="username">
+          <input type="text" matInput formControlName="username" />
         </mat-form-field>
       </div>
       <div class="flex">
         <button class="flex-1" mat-raised-button color="primary">RUN/UPDATE</button>
       </div>
-    </form> 
+    </form>
   </mat-card-content>
 </mat-card>
 
-<mat-card class="w-7/12 mx-auto" *ngIf="appRunning">
-  <mat-card-content>
-    <p>
-      Type: {{ lastPostService.usingType }}
-      <br>
-      Source: {{ form.value.source }}
-    </p>
-    <p *ngIf="lastPost.responseCode">
-      <ng-template *ngIf="isSuccess(); else noSuccess">
-        date: {{ lastPost.date | date: 'shortDate' }} | likes: {{ lastPost.likes }}
-        <br>
-        <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
-        <br>
-        <img *ngIf="!lastPost.video" src="{{ lastPost.picture }}" alt="last picture">
-      </ng-template>
-      <ng-template #noSuccess>
-        Please try again later. There are currently some errors.<br>
-        Response code: {{ lastPost.responseCode }}.
-      </ng-template>
-    </p>
-    <mat-progress-bar *ngIf="!lastPost.responseCode" color="primary" mode="indeterminate" value="50"></mat-progress-bar>
-  </mat-card-content>
-</mat-card>
+@if (loading) {
+  <mat-card class="w-7/12 mx-auto">
+    <mat-card-content>
+      <p>
+        Type: {{ lastPostService.usingType }}
+        <br />
+        Source: {{ form.value.source }}
+      </p>
+      @if (lastPost.responseCode) {
+        <p>
+          @if (isSuccess()) {
+            date: {{ lastPost.date | date: "shortDate" }} | likes: {{ lastPost.likes }}
+            <br />
+            @if (lastPost.video) {
+              <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
+            } @else {
+              <br />
+              <img src="{{ lastPost.picture }}" alt="last picture" />
+            }
+          } @else {
+            Please try again later. There are currently some errors.<br />
+            Response code: {{ lastPost.responseCode }}.
+          }
+        </p>
+      } @else {
+        <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+      }
+    </mat-card-content>
+  </mat-card>
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -26,18 +26,20 @@ import { Post } from './post';
     MatInputModule,
     MatButtonModule,
     MatProgressBarModule,
-    NgIf,
     ReactiveFormsModule,
   ],
 })
 export class DashboardComponent implements OnInit {
-  appRunning = false;
+  loading = false;
 
   lastPost = {} as Post;
 
   form!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, public lastPostService: LastPostService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    public lastPostService: LastPostService,
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -59,7 +61,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.appRunning = true;
+    this.loading = true;
     const value = this.form.value;
     this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe((lp) => (this.lastPost = lp));
   }
