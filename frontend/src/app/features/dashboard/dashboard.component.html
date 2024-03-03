@@ -37,32 +37,32 @@
   </mat-card-content>
 </mat-card>
 
-@if (loading) {
+@if (loading || error.length || lastPost) {
   <mat-card class="w-7/12 mx-auto">
     <mat-card-content>
-      <p>
-        Type: {{ lastPostService.usingType }}
-        <br />
-        Source: {{ form.value.source }}
-      </p>
-      @if (lastPost.responseCode) {
+      @if (loading) {
+        <p>Running query: {{ mediaService.query }}</p>
+        <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+      } @else if (error.length) {
+        <p>Run query: {{ mediaService.query }}</p>
         <p>
-          @if (isSuccess()) {
+          Please try again later. There are currently some errors.<br />
+          Error: {{ error }}.
+        </p>
+      } @else if (lastPost) {
+        @if (lastPost.responseCode | response) {
+          <p>Run query: {{ mediaService.query }}</p>
+          <p>
             date: {{ lastPost.date | date: "shortDate" }} | likes: {{ lastPost.likes }}
             <br />
             @if (lastPost.video) {
-              <video *ngIf="lastPost.video" src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
+              <video src="{{ lastPost.video }}" autoplay poster="{{ lastPost.picture }}"></video>
             } @else {
               <br />
               <img src="{{ lastPost.picture }}" alt="last picture" />
             }
-          } @else {
-            Please try again later. There are currently some errors.<br />
-            Response code: {{ lastPost.responseCode }}.
-          }
-        </p>
-      } @else {
-        <mat-progress-bar color="primary" mode="indeterminate" value="50"></mat-progress-bar>
+          </p>
+        }
       }
     </mat-card-content>
   </mat-card>

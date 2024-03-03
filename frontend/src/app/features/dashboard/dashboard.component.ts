@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
 import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,9 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
+
 import { environment } from 'src/environments/environment';
-import { LastPostService } from './last-post.service';
+import { FormModel } from './form.model';
+import { MediaService } from './media.service';
 import { Post } from './post';
+import { ResponsePipe } from './response.pipe';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'pm-dashboard',
@@ -27,22 +30,22 @@ import { Post } from './post';
     MatButtonModule,
     MatProgressBarModule,
     ReactiveFormsModule,
+    ResponsePipe,
   ],
 })
 export class DashboardComponent implements OnInit {
   loading = false;
-
-  lastPost = {} as Post;
-
-  form!: FormGroup;
+  error = '';
+  lastPost: Post | undefined;
+  form!: FormGroup<FormModel>;
 
   constructor(
-    private formBuilder: FormBuilder,
-    public lastPostService: LastPostService,
+    private fb: FormBuilder,
+    public mediaService: MediaService,
   ) {}
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
+    this.form = this.fb.group({
       source: ['client'],
       type: ['4'],
       userId: [{ value: environment.userId, disabled: false }],
@@ -51,23 +54,26 @@ export class DashboardComponent implements OnInit {
   }
 
   changeType(): void {
-    if (this.form.value.type === '4') {
-      this.form.get('userId')?.enable();
-      this.form.get('username')?.disable();
-    } else {
-      this.form.get('userId')?.disable();
-      this.form.get('username')?.enable();
-    }
+    const type = this.form.value.type;
+    const fieldEnabled = type === '4' ? 'userId' : 'username';
+    const fieldDisabled = type === '4' ? 'username' : 'userId';
+    this.form.get(fieldEnabled)?.enable();
+    this.form.get(fieldDisabled)?.disable();
   }
 
   onSubmit(): void {
+    this.lastPost = undefined;
+    this.error = '';
     this.loading = true;
-    const value = this.form.value;
-    this.lastPostService.getLastPost(value.type, value.source, value.userId, value.username).subscribe((lp) => (this.lastPost = lp));
-  }
-
-  isSuccess(): boolean {
-    const code = this.lastPost.responseCode ?? undefined;
-    return code !== undefined && code.includes('200');
+    this.mediaService.determineLastPost(this.form.controls).subscribe(
+      (lastPost) => {
+        this.loading = false;
+        this.lastPost = lastPost;
+      },
+      (error: HttpErrorResponse) => {
+        this.loading = false;
+        this.error = error.statusText;
+      },
+    );
   }
 }
