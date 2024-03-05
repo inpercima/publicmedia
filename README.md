@@ -8,18 +8,19 @@ Currently there is no really option available but try these common options.
 
 * Before December 2017
   * check [https://www.instagram.com/username/media](https://www.instagram.com/instagram/media)
-  * no longer works - page not found
+  * no longer works - redirected to login page
 * Between December 2017 and April 2018
-  * [https://www.instagram.com/username/?__a=1](https://www.instagram.com/instagram/?__a=1)
-  * just get last 12 items
-  * still works in some cases but to many request will be blocked for some minutes
+  * check [https://www.instagram.com/username/?__a=1](https://www.instagram.com/instagram/?__a=1)
+  * no longer works - redirected to login page
 * Between April 2018 and August 2019
   * check [https://www.instagram.com/username/](https://www.instagram.com/instagram/)
-  * get data from inline javascript
+  * grab data from inline javascript
   * no longer works - obfuscated code
 * After August 2019
   * check [https://www.instagram.com/graphql/query/?query_hash=...](https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"})
-  * still works in some cases but to many request will be blocked for some minutes
+  * no longer works on webspace
+  * still works on localhost but to many request will be blocked for some minutes
+  * still works on localhost with using proxy - read frontend README
 
 This app is online under [publicmedia.inpercima.net](http://publicmedia.inpercima.net).
 
