@@ -58,3 +58,5 @@ cd publicmedia
 For the frontend check [publicmedia - frontend](./frontend).
 
 For the backend check [publicmedia - api](./api).
+
+For the docker check [publicmedia - docker](./README_docker.md).
