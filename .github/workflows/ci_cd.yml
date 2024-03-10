@@ -34,4 +34,4 @@ jobs:
         host: ${{ secrets.FTP_SERVER }}
         user: ${{ secrets.FTP_USERNAME }}
         pass: ${{ secrets.FTP_PASSWORD }}
-        localDir: './dist/browser'
+        localDir: 'frontend/dist/browser'
