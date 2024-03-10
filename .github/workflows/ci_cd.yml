@@ -23,9 +23,9 @@ jobs:
         yarn build:prod
     
     - name: Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v3.1.2
-      with:
-        ftp-server: ${{ secrets.FTP_SERVER }}:${{ secrets.FTP_PORT }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        git-ftp-args: --insecure
+      uses: SamKirkland/FTP-Deploy-Action@v2.0.0
+      env:
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        PORT: ${{ secrets.FTP_PORT }}
