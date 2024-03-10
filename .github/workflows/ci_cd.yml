@@ -23,7 +23,7 @@ jobs:
         yarn build:prod
     
     - name: Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@v3.1.2
       with:
         ftp-server: ${{ secrets.FTP_SERVER }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
