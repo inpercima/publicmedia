@@ -7,6 +7,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -26,4 +29,3 @@ jobs:
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
         port: ${{ secrets.ftp_port }}
-        
