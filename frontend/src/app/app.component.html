@@ -1,6 +1,13 @@
 <mat-toolbar color="primary" class="mat-elevation-z4 justify-between">
   {{ appname }}
-  <button mat-button (click)="openDialog(dialog)">APP INFO</button>
+  <div>
+    <button mat-button (click)="openDialog(dialog)">APP INFO</button>
+    |
+    <a mat-button href="https://github.com/inpercima/publicmedia" target="_blank">
+      <img class="github-link" alt="GitHub Repository" src="../assets/github-mark-white.svg">
+      GitHub
+    </a>
+  </div>
 </mat-toolbar>
 <ng-template #dialog>
   <h2 mat-dialog-title>Overview</h2>
