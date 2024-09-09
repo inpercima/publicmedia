@@ -30,7 +30,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `@angular/cli 18.2.2` or higher
+* `@angular/cli 18.2.3` or higher
 
 ### Apache and php
 
