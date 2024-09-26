@@ -37,11 +37,11 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 * `Apache 2.4` or higher
 * `php 8.0` or higher
 
-### Node, npm or yarn
+### Node, npm or pnpm
 
 * `node 20.15.1` or higher in combination with
   * `npm 10.7.0` or higher or
-  * `yarn 1.22.22` or higher, used in this repository
+  * `pnpm 9.11.0` or higher, used in this repository
 
 ## Getting started
 
