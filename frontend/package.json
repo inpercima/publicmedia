@@ -59,10 +59,9 @@
   "repository": "https://github.com/inpercima/publicmedia/",
   "scripts": {
     "build:dev": "ng lint && ng build --configuration=development",
-    "serve:dev": "ng serve -o --configuration=development",
-    "serve:dev:proxy": "ng serve -o --configuration=development --proxy-config src/proxy.conf.json",
-    "watch:dev": "ng build --watch --configuration=development",
-    "build:prod": "ng lint && ng build"
+    "build:prod": "ng lint && ng build",
+    "proxy": "ng serve -o --configuration=development --proxy-config src/proxy.conf.json",
+    "start": "ng serve -o --configuration=development"
   },
   "version": "1.0.0-SNAPSHOT"
 }
