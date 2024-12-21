@@ -19,7 +19,6 @@ import { ResponsePipe } from './response.pipe';
 @Component({
   selector: 'pm-dashboard',
   templateUrl: './dashboard.component.html',
-  standalone: true,
   imports: [
     DatePipe,
     MatCardModule,

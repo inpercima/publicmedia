@@ -13,12 +13,15 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
   selector: 'pm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,
 })
 export class AppComponent {
   public appname: string;
 
-  public constructor(private dialog: MatDialog, private titleService: Title, @Inject(DOCUMENT) private document: Document) {
+  public constructor(
+    private dialog: MatDialog,
+    private titleService: Title,
+    @Inject(DOCUMENT) private document: Document,
+  ) {
     this.appname = environment.appname;
     this.titleService.setTitle(this.appname);
     this.document.body.classList.add(`${environment.theme}-theme`);
