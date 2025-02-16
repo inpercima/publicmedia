@@ -32,16 +32,16 @@ jobs:
         pnpm install
         pnpm build:prod
     
-    # - name: Deploy
-    #   uses: SamKirkland/FTP-Deploy-Action@v3.1.2
-    #   with:
-    #     ftp-server: ${{ secrets.FTP_SERVER }}
-    #     ftp-username: ${{ secrets.FTP_USERNAME }}
-    #     ftp-password: ${{ secrets.FTP_PASSWORD }}
-    #     git-ftp-args: --insecure
-    #   uses: pressidium/lftp-mirror-action@v1
-    #   with:
-    #     host: ${{ secrets.FTP_SERVER }}
-    #     user: ${{ secrets.FTP_USERNAME }}
-    #     pass: ${{ secrets.FTP_PASSWORD }}
-    #     localDir: 'frontend/dist/browser'
+    - name: Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v3.1.2
+      with:
+        ftp-server: ${{ secrets.FTP_SERVER }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        git-ftp-args: --insecure
+      uses: pressidium/lftp-mirror-action@v1
+      with:
+        host: ${{ secrets.FTP_SERVER }}
+        user: ${{ secrets.FTP_USERNAME }}
+        pass: ${{ secrets.FTP_PASSWORD }}
+        localDir: 'frontend/dist/browser'
