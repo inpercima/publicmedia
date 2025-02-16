@@ -38,7 +38,8 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         server: ${{ secrets.FTP_SERVER }}
         port: ${{ secrets.FTP_PORT }}
-        local_path: './frontend/dist/browser'
+        password: ${{ secrets.FTP_PASSWORD }}
+        local_path: './frontend/dist/browser/*'
         remote_path: '/test2'
         sftp_only: true
-        password: ${{ secrets.FTP_PASSWORD }}
+        delete_remote_files: true
