@@ -41,5 +41,4 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local_path: './frontend/dist/browser/*'
         remote_path: '/test2'
-        sftp_only: true
         delete_remote_files: true
