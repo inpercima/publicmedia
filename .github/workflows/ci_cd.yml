@@ -32,9 +32,20 @@ jobs:
         pnpm install
         pnpm build:prod
     
-    - name: Deploy
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+    # - name: Deploy
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+    #   with:
+    #     server: ${{ secrets.FTP_SERVER }}
+    #     username: ${{ secrets.FTP_USERNAME }}
+    #     password: ${{ secrets.FTP_PASSWORD }}
+
+    - name: Deploy with Password
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
+        with:
+          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          local_path: './'
+          remote_path: '/test'
+          sftp_only: true
+          password: ${{ secrets.FTP_PASSWORD }}
