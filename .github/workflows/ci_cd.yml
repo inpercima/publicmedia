@@ -2,7 +2,7 @@ name: Node CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 defaults:
   run:
@@ -15,30 +15,33 @@ jobs:
       matrix:
         node-version: [22]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 9
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-        cache-dependency-path: ./frontend/pnpm-lock.yaml
-    - name: Install and Build
-      run: |
-        pnpm install
-        pnpm build:prod
-    
-    - name: Deplo
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.5
-      with:
-        username: ${{ secrets.FTP_USERNAME }}
-        server: ${{ secrets.FTP_SERVER }}
-        port: ${{ secrets.FTP_PORT }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local_path: './frontend/dist/browser/*'
-        remote_path: './'
-        sftp_only: true
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+          cache-dependency-path: ./frontend/pnpm-lock.yaml
+
+      - name: Install and Build
+        run: |
+          pnpm install
+          pnpm build:prod
+
+      - name: Deplo
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.5
+        with:
+          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_path: "./frontend/dist/browser/*"
+          remote_path: "./"
+          sftp_only: true
