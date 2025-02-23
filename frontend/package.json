@@ -46,7 +46,7 @@
   "engines": {
     "node": ">=22.14.0"
   },
-  "homepage": "http://publicmedia.inpercima.net/",
+  "homepage": "https://publicmedia.inpercima.net/",
   "license": "MIT",
   "name": "publicmedia",
   "private": true,
