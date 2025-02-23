@@ -44,7 +44,7 @@
     "typescript-eslint": "8.18.1"
   },
   "engines": {
-    "node": ">=22.11.0"
+    "node": ">=22.14.0"
   },
   "homepage": "http://publicmedia.inpercima.net/",
   "license": "MIT",
