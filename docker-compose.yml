@@ -2,7 +2,7 @@ services:
   web:
     environment:
       - MODE=${MODE}
-    image: webdevops/php-apache:8.1-alpine
+    image: webdevops/php-apache:8.2-alpine
     ports:
       - "${APACHE_PORT}:80"
     volumes:

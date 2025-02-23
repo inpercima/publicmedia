@@ -34,8 +34,14 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Apache and php
 
+Is required if started locally and not with Docker.
+
 * `Apache 2.4` or higher
-* `php 8.0` or higher
+* `php 8.2` or higher
+
+### Docker
+
+* `docker 27.5.1` or higher
 
 ### Node, npm or pnpm
 
