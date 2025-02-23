@@ -3,8 +3,16 @@
   <div>
     <button mat-button (click)="openDialog(dialog)">APP INFO</button>
     |
-    <a mat-button href="https://github.com/inpercima/publicmedia" target="_blank">
-      <img class="github-link" alt="GitHub Repository" src="github-mark-white.svg">
+    <a
+      mat-button
+      href="https://github.com/inpercima/publicmedia"
+      aria-label="GitHub Repository"
+      title="Go to project on Github"
+      target="_blank"
+    >
+    <span matButtonIcon>
+      <img class="github-link" alt="GitHub Repository" src="github-mark.svg" />
+    </span>
       GitHub
     </a>
   </div>
@@ -13,12 +21,8 @@
   <h2 mat-dialog-title>Overview</h2>
   <mat-dialog-content>
     <h3>General</h3>
-    <p>
-      A tool that shows how public data can be accessed from Instagram without an Instagram account.
-    </p>
-    <p>
-      Currently there is no really option available but try these common options.
-    </p>
+    <p>A tool that shows how public data can be accessed from Instagram without an Instagram account.</p>
+    <p>Currently there is no really option available but try these common options.</p>
     <h3>Before December 2017</h3>
     <ul>
       <li>check <a href="https://www.instagram.com/instagram/media">https://www.instagram.com/username/media</a></li>
@@ -39,7 +43,9 @@
     <ul>
       <li>
         check
-        <a href='https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"}'>
+        <a
+          href='https://www.instagram.com/graphql/query/?query_hash=472f257a40c653c64c666ce877d59d2b&variables={"id":"25025320","first":"50"}'
+        >
           https://www.instagram.com/graphql/query/?query_hash=...
         </a>
       </li>

@@ -103,10 +103,10 @@ Defines whether the app is in production or not.
 
 ### `theme`
 
-Name of a build-in theme from angular-material or a custom light or dark theme.
+Name of a pre-build-theme or a custom theme.
 
-* default: `indigo-pink`
+* default: `rose-red`
 * type: `string`
-* values: `deeppurple-amber`/`indigo-pink`/`pink-bluegrey`/`purple-green`/`custom-light`/`custom-dark`
+* values: `rose-red`/`azure-blue`/`magenta-violet`/`cyan-orange`/`custom`
 
-To create a custom light or dark theme just edit the colors and themes in `themes.scss`.
+To modify the custom theme just edit the colors and themes in `themes.scss`.

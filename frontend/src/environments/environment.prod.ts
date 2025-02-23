@@ -3,7 +3,7 @@ export const environment = {
   appname: 'publicmedia',
   defaultRoute: 'dashboard',
   production: false,
-  theme: 'indigo-pink',
+  theme: 'azure-blue',
   userId: '25025320',
   username: 'instagram',
 };

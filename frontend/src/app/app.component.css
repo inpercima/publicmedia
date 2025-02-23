@@ -9,8 +9,7 @@ mat-card, mat-progress-bar {
 }
 
 .github-link {
-  height: 20px;
-  top: 4px;
-  padding-right: 5px;
-  position: relative;
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
 }
