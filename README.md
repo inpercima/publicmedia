@@ -30,7 +30,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `@angular/cli 21.2.7` or higher
+* `@angular/cli 22.2.4` or higher
 
 ### Apache and php
 
@@ -45,9 +45,9 @@ Is required if started locally and not with Docker.
 
 ### Node, npm or pnpm
 
-* `node 24.14.0` or higher in combination with
-  * `npm 11.9.0` or higher or
-  * `pnpm 10.33.0` or higher, used in this repository
+* `node 24.16.0` or higher in combination with
+  * `npm 11.13.0` or higher or
+  * `pnpm 11.24.0` or higher, used in this repository
 
 ## Getting started
 
