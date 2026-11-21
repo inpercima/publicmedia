@@ -26,6 +26,7 @@
     "@angular/cli": "22.3.0",
     "@angular/compiler-cli": "22.3.0",
     "@cypress/schematic": "6.0.0",
+    "@eslint/js": "10.0.1",
     "@tailwindcss/postcss": "4.3.5",
     "@types/jasmine": "7.0.0",
     "angular-eslint": "22.8.0",
@@ -59,8 +60,9 @@
   "private": true,
   "repository": "https://github.com/inpercima/publicmedia/",
   "scripts": {
-    "build:dev": "ng lint && ng build --configuration=development",
-    "build:prod": "ng lint && ng build",
+    "build:dev": "ng lint && ng build --configuration=development && node --run copy:api",
+    "build:prod": "ng lint && ng build && node --run copy:api",
+    "copy:api": "node -e \"const fs = require('node:fs'); const path = require('node:path'); fs.cpSync('../api', 'dist/browser/api', { recursive: true, filter: src => !['config.default.php', 'config.dev.php', 'README.md'].includes(path.basename(src)) });\"",
     "proxy": "ng serve -o --configuration=development --proxy-config src/proxy.conf.json",
     "start": "ng serve -o --configuration=development"
   },
