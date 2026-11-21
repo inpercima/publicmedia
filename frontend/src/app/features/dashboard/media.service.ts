@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, map } from 'rxjs';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { FormModel } from './form.model';
 import { Post } from './post';
 
@@ -10,9 +10,9 @@ import { Post } from './post';
   providedIn: 'root',
 })
 export class MediaService {
-  query!: string;
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  query!: string;
 
   determineLastPost(formModel: FormModel): Observable<Post> {
     if (formModel.source.value === 'server') {

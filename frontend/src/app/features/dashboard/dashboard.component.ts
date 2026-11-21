@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -10,7 +10,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
 
 import { HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { FormModel } from './form.model';
 import { MediaService } from './media.service';
 import { Post } from './post';
@@ -33,15 +33,13 @@ import { ResponsePipe } from './response.pipe';
   ],
 })
 export class DashboardComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  mediaService = inject(MediaService);
+
   loading = false;
   error = '';
   lastPost: Post | undefined;
   form!: FormGroup<FormModel>;
-
-  constructor(
-    private fb: FormBuilder,
-    public mediaService: MediaService,
-  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
