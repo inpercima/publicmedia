@@ -45,9 +45,9 @@ Is required if started locally and not with Docker.
 
 ### Node, npm or pnpm
 
-* `node 24.16.0` or higher in combination with
-  * `npm 11.13.0` or higher or
-  * `pnpm 11.24.0` or higher, used in this repository
+* `node 26.13.1` or higher in combination with
+  * `npm 11.20.0` or higher or
+  * `pnpm 12.21.0` or higher, used in this repository
 
 ## Getting started
 
